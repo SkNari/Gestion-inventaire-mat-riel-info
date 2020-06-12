@@ -1,17 +1,17 @@
-package view;
+package vue;
 
 import java.util.Scanner; 
 
-public class View {
+public class Vue {
     
-    private Scanner scan;
+    private Scanner scan = new Scanner(System.in);;
     
-    public View()
+    public Vue()
     {
         
     }
 
-    public void afficherMenu()
+    public int afficherMenu()
     {
         System.out.println("╔═════════════ MENU ═════════════╗");
         System.out.println("║                                ║");
@@ -19,15 +19,17 @@ public class View {
         System.out.println("║                                ║");
         System.out.println("║                                ║");
         System.out.println("╚════════════════════════════════╝");
+
+        System.out.println("\nChoix : ");
+        int choix = scan.nextInt();
+
+        return choix;
     }
 
-    public String supprimer()
+    public int supprimer()
     {
         System.out.println("Saisissez l'id du materiel : ");
-        String id = scan.nextLine();
+        int id = scan.nextInt();
         return id;
     }
-    
-
-
 }
