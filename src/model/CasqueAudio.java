@@ -3,10 +3,11 @@ package model;
 import java.sql.Date;
 import java.util.Objects;
 
-public class CapteursDeProfondeur extends Materiel{
+public class CasqueAudio extends Materiel{
+
     private String connectique;
 
-    public CapteursDeProfondeur( int id,  String nom,  String marque,  String proprietaire,  Date dateAchat, int prixAchat, String connectique) {
+    public CasqueAudio(int id,  String nom,  String marque,  String proprietaire,  Date dateAchat, int prixAchat,String connectique) {
         super(id, nom, marque, proprietaire, dateAchat, prixAchat);
         this.connectique = connectique;
     }
@@ -23,11 +24,11 @@ public class CapteursDeProfondeur extends Materiel{
     public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof CapteursDeProfondeur)) {
+        if (!(o instanceof CasqueAudio)) {
             return false;
         }
-        CapteursDeProfondeur capteursDeProfondeur = (CapteursDeProfondeur) o;
-        return Objects.equals(connectique, capteursDeProfondeur.connectique);
+        CasqueAudio casqueAudio = (CasqueAudio) o;
+        return Objects.equals(connectique, casqueAudio.connectique);
     }
 
     @Override
@@ -38,7 +39,16 @@ public class CapteursDeProfondeur extends Materiel{
     @Override
     public String toString() {
         return "{" +
-            " connectique='" + this.getConnectique() + "'" +
+            " id='" + getId() + "'" +
+            ", nom='" + getNom() + "'" +
+            ", marque='" + getMarque() + "'" +
+            ", proprietaire='" + getProprietaire() + "'" +
+            ", dateAchat='" + getDateAchat() + "'" +
+            ", prixAchat='" + getPrixAchat() + "'" +
+            " connectique='" + getConnectique() + "'" +
             "}";
     }
+
+
+
 }
