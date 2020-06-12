@@ -11,14 +11,16 @@ public class Materiel{
     private String proprietaire;
     private Date dateAchat;
     private int prixAchat;
+    private String etat;
 
-    public Materiel(int id, String nom, String marque, String proprietaire, Date dateAchat, int prixAchat) {
+    public Materiel(int id, String nom, String marque, String proprietaire, Date dateAchat, int prixAchat, String etat) {
         this.id = id;
         this.nom = nom;
         this.marque = marque;
         this.proprietaire = proprietaire;
         this.dateAchat = dateAchat;
         this.prixAchat = prixAchat;
+        this.etat = etat;
     }
 
     public int getId() {
@@ -69,6 +71,14 @@ public class Materiel{
         this.prixAchat = prixAchat;
     }
 
+    public String getEtat() {
+        return this.etat;
+    }
+
+    public void setEtat(String etat) {
+        this.etat = etat;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -77,12 +87,12 @@ public class Materiel{
             return false;
         }
         Materiel materiel = (Materiel) o;
-        return id == materiel.id && Objects.equals(nom, materiel.nom) && Objects.equals(marque, materiel.marque) && Objects.equals(proprietaire, materiel.proprietaire) && Objects.equals(dateAchat, materiel.dateAchat) && prixAchat == materiel.prixAchat;
+        return id == materiel.id && Objects.equals(nom, materiel.nom) && Objects.equals(marque, materiel.marque) && Objects.equals(proprietaire, materiel.proprietaire) && Objects.equals(dateAchat, materiel.dateAchat) && prixAchat == materiel.prixAchat && Objects.equals(etat, materiel.etat);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nom, marque, proprietaire, dateAchat, prixAchat);
+        return Objects.hash(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
     }
 
     @Override
@@ -94,10 +104,9 @@ public class Materiel{
             ", proprietaire='" + getProprietaire() + "'" +
             ", dateAchat='" + getDateAchat() + "'" +
             ", prixAchat='" + getPrixAchat() + "'" +
+            ", etat='" + getEtat() + "'" +
             "}";
     }
-
-    
 
 }
 

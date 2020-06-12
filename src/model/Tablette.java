@@ -9,8 +9,8 @@ public class Tablette extends Materiel{
     private int taille;
     private int resolution;
 
-    public Tablette(int id, String nom, String marque, String proprietaire, Date dateAchat, int prixAchat,String os, int taille, int resolution) {
-        super(id, nom, marque, proprietaire, dateAchat, prixAchat);
+    public Tablette(int id, String nom, String marque, String proprietaire, Date dateAchat, int prixAchat, String etat, String os, int taille, int resolution) {
+        super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
         this.os = os;
         this.taille = taille;
         this.resolution = resolution;
@@ -65,6 +65,7 @@ public class Tablette extends Materiel{
             ", proprietaire='" + this.getProprietaire() + "'" +
             ", dateAchat='" + this.getDateAchat() + "'" +
             ", prixAchat='" + this.getPrixAchat() + "'" +
+            ", etat='" + getEtat() + "'" +
             " os='" + this.getOs() + "'" +
             ", taille='" + this.getTaille() + "'" +
             ", resolution='" + this.getResolution() + "'" +
