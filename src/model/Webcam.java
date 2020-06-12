@@ -7,8 +7,8 @@ public class Webcam extends Materiel {
     private int resolution;
     private String connectique;
 
-    public Webcam(int id,  String nom,  String marque,  String proprietaire,  Date dateAchat,  int prixAchat, int resolution,  String connectique) {
-        super(id, nom, marque, proprietaire, dateAchat, prixAchat);
+    public Webcam(int id,  String nom,  String marque,  String proprietaire,  Date dateAchat,  int prixAchat, String etat, int resolution,  String connectique) {
+        super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
         this.resolution = resolution;
         this.connectique = connectique;
     }
@@ -54,6 +54,7 @@ public class Webcam extends Materiel {
             ", proprietaire='" + getProprietaire() + "'" +
             ", dateAchat='" + getDateAchat() + "'" +
             ", prixAchat='" + getPrixAchat() + "'" +
+            ", etat='" + getEtat() + "'" +
             " resolution='" + this.getResolution() + "'" +
             " connectique='" + getConnectique() + "'" +
             "}";

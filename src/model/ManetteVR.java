@@ -7,8 +7,8 @@ public class ManetteVR extends Materiel{
 
     private String connectique;
 
-    public ManetteVR(int id,  String nom,  String marque,  String proprietaire,  Date dateAchat, int prixAchat,String connectique) {
-        super(id, nom, marque, proprietaire, dateAchat, prixAchat);
+    public ManetteVR(int id,  String nom,  String marque,  String proprietaire,  Date dateAchat, int prixAchat, String etat, String connectique) {
+        super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
         this.connectique = connectique;
     }
 
@@ -45,6 +45,7 @@ public class ManetteVR extends Materiel{
             ", proprietaire='" + getProprietaire() + "'" +
             ", dateAchat='" + getDateAchat() + "'" +
             ", prixAchat='" + getPrixAchat() + "'" +
+            ", etat='" + getEtat() + "'" +
             " connectique='" + getConnectique() + "'" +
             "}";
     }

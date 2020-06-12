@@ -10,8 +10,8 @@ public class Telephone extends Materiel{
     private int resolution;
 
 
-    public Telephone(int id, String nom, String marque, String proprietaire, Date dateAchat, int prixAchat,String os, int taille, int resolution) {
-        super(id, nom, marque, proprietaire, dateAchat, prixAchat);
+    public Telephone(int id, String nom, String marque, String proprietaire, Date dateAchat, int prixAchat, String etat, String os, int taille, int resolution) {
+        super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
         this.os = os;
         this.taille = taille;
         this.resolution = resolution;
@@ -66,6 +66,7 @@ public class Telephone extends Materiel{
             ", proprietaire='" + getProprietaire() + "'" +
             ", dateAchat='" + getDateAchat() + "'" +
             ", prixAchat='" + getPrixAchat() + "'" +
+            ", etat='" + getEtat() + "'" +
             " os='" + getOs() + "'" +
             ", taille='" + getTaille() + "'" +
             ", resolution='" + getResolution() + "'" +

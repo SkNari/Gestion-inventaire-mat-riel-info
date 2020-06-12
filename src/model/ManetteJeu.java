@@ -7,8 +7,8 @@ public class ManetteJeu extends Materiel{
     private String connectique;
 
 
-    public ManetteJeu(int id,  String nom,  String marque,  String proprietaire,  Date dateAchat,  int prixAchat, int resolution, String connectique) {
-        super(id, nom, marque, proprietaire, dateAchat, prixAchat);
+    public ManetteJeu(int id,  String nom,  String marque,  String proprietaire,  Date dateAchat,  int prixAchat, String etat, int resolution, String connectique) {
+        super(id, nom, marque, proprietaire, dateAchat, prixAchat,etat);
         this.connectique = connectique;
     }
 
@@ -45,6 +45,7 @@ public class ManetteJeu extends Materiel{
             ", proprietaire='" + getProprietaire() + "'" +
             ", dateAchat='" + getDateAchat() + "'" +
             ", prixAchat='" + getPrixAchat() + "'" +
+            ", etat='" + getEtat() + "'" +
             " connectique='" + getConnectique() + "'" +
             "}";
     }

@@ -8,8 +8,8 @@ public class CasqueVR extends Materiel{
     private String connectique;
     private String resolution;
 
-    public CasqueVR(int id, String nom, String marque, String proprietaire, Date dateAchat, int prixAchat,String connectique, String resolution) {
-        super(id, nom, marque, proprietaire, dateAchat, prixAchat);
+    public CasqueVR(int id, String nom, String marque, String proprietaire, Date dateAchat, int prixAchat,String etat,String connectique, String resolution) {
+        super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
         this.connectique = connectique;
         this.resolution = resolution;
     }
@@ -54,7 +54,8 @@ public class CasqueVR extends Materiel{
             ", marque='" + getMarque() + "'" +
             ", proprietaire='" + getProprietaire() + "'" +
             ", dateAchat='" + getDateAchat() + "'" +
-            ", prixAchat='" + getPrixAchat() + "'" +    
+            ", prixAchat='" + getPrixAchat() + "'" +
+            ", etat='" + getEtat() + "'" +    
             " connectique='" + getConnectique() + "'" +
             ", resolution='" + getResolution() + "'" +
             "}";

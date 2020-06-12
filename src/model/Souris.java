@@ -6,8 +6,8 @@ import java.util.Objects;
 public class Souris extends Materiel{
     private String connectique;
 
-    public Souris(int id,  String nom,  String marque,  String proprietaire,  Date dateAchat,  int prixAchat, int resolution, String connectique) {
-        super(id, nom, marque, proprietaire, dateAchat, prixAchat);
+    public Souris(int id,  String nom,  String marque,  String proprietaire,  Date dateAchat,  int prixAchat, String etat, int resolution, String connectique) {
+        super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
         this.connectique = connectique;
     }
 
@@ -44,6 +44,7 @@ public class Souris extends Materiel{
             ", proprietaire='" + getProprietaire() + "'" +
             ", dateAchat='" + getDateAchat() + "'" +
             ", prixAchat='" + getPrixAchat() + "'" +
+            ", etat='" + getEtat() + "'" +
             " connectique='" + getConnectique() + "'" +
             "}";
     }
