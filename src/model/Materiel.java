@@ -69,36 +69,6 @@ public class Materiel{
         this.prixAchat = prixAchat;
     }
 
-    public Materiel id(int id) {
-        this.id = id;
-        return this;
-    }
-
-    public Materiel nom(String nom) {
-        this.nom = nom;
-        return this;
-    }
-
-    public Materiel marque(String marque) {
-        this.marque = marque;
-        return this;
-    }
-
-    public Materiel proprietaire(String proprietaire) {
-        this.proprietaire = proprietaire;
-        return this;
-    }
-
-    public Materiel dateAchat(Date dateAchat) {
-        this.dateAchat = dateAchat;
-        return this;
-    }
-
-    public Materiel prixAchat(int prixAchat) {
-        this.prixAchat = prixAchat;
-        return this;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == this)
