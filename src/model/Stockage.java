@@ -9,11 +9,11 @@ public class Stockage {
     private String proprietaire;
     private HashMap<Integer, Materiel> materiels = new HashMap<Integer, Materiel>();
 
-    public Stockage(int id, String nom, String proprietaire, HashMap<Integer,Materiel> materiels) {
+    public Stockage(int id, String nom, String proprietaire, Materiel materiel) {
         this.id = id;
         this.nom = nom;
         this.proprietaire = proprietaire;
-        this.materiels = materiels;
+        this.materiels.put(materiel.getId(), materiel);
     }
 
     public int getId() {

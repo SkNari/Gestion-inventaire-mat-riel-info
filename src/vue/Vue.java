@@ -1,6 +1,10 @@
 package vue;
 
+import java.sql.Date;
 import java.util.Scanner;
+
+import model.Materiel;
+import model.Stockage;
 
 public class Vue {
 
@@ -13,7 +17,9 @@ public class Vue {
     public static void effacerConsole() {  
         System.out.print("\033[H\033[2J");  
         System.out.flush();  
-       }
+    }
+
+
 
     public int afficherMenu()
     {
@@ -48,7 +54,52 @@ public class Vue {
         return choix;
     }
 
-    public int supprimer()
+    public int afficherMenuEmprunt()
+    {
+        effacerConsole();
+        System.out.println("╔══════════════════════ MENU EMPRUNT ══════════════════════╗");
+        System.out.println("║ 1. Afficher tous les emprunts                            ║");
+        System.out.println("║ 2. Afficher les emprunts selon leur raison               ║");
+        System.out.println("║ 3. Afficher les emprunts selon l'emprunteur              ║");
+        System.out.println("║ 4. Afficher les emprunts en retard                       ║");
+        System.out.println("╚══════════════════════════════════════════════════════════╝");
+
+        System.out.println("\nChoix : ");
+        int choix = scan.nextInt();
+
+        return choix;
+    }
+
+    public void afficherStockage(Stockage stockage)
+    {
+        for (int i : stockage.getMateriels().keySet()) {
+            System.out.println("id/reference: " + i + " | nom: " + stockage.getMateriels().get(i).getNom());
+        }
+    }
+
+    public Materiel ajouterMateriel()
+    {
+        System.out.print("Saisissez l'id du materiel : ");
+        int id = scan.nextInt();
+        System.out.print("Saisissez le nom du materiel : ");
+        scan.nextLine();
+        String nom = scan.nextLine();
+        System.out.print("Saisissez la marque du materiel : ");
+        scan.nextLine();
+        String marque = scan.nextLine();
+        System.out.print("Saisissez le proprietaire du materiel : ");
+        scan.nextLine();
+        String proprietaire = scan.nextLine();
+        Date dateAchat = new Date(2020, 12, 06);
+        System.out.print("Saisissez le prix d'achat du materiel : ");
+        scan.nextLine();
+        int prixAchat = scan.nextInt();
+        System.out.print("Saisissez l'etat du materiel : ");
+        String etat = scan.nextLine();
+        return new Materiel(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
+    }
+
+    public int supprimerMateriel()
     {
         System.out.println("Saisissez l'id du materiel : ");
         int id = scan.nextInt();
