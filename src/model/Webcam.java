@@ -48,11 +48,15 @@ public class Webcam extends Materiel {
     @Override
     public String toString() {
         return "{" +
+            " id='" + getId() + "'" +
+            ", nom='" + getNom() + "'" +
+            ", marque='" + getMarque() + "'" +
+            ", proprietaire='" + getProprietaire() + "'" +
+            ", dateAchat='" + getDateAchat() + "'" +
+            ", prixAchat='" + getPrixAchat() + "'" +
             " resolution='" + this.getResolution() + "'" +
-            ", connectique='" + this.getConnectique() + "'" +
+            " connectique='" + getConnectique() + "'" +
             "}";
     }
-
-
     
 }

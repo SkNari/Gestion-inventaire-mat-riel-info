@@ -39,6 +39,12 @@ public class ManetteJeu extends Materiel{
     @Override
     public String toString() {
         return "{" +
+            " id='" + getId() + "'" +
+            ", nom='" + getNom() + "'" +
+            ", marque='" + getMarque() + "'" +
+            ", proprietaire='" + getProprietaire() + "'" +
+            ", dateAchat='" + getDateAchat() + "'" +
+            ", prixAchat='" + getPrixAchat() + "'" +
             " connectique='" + getConnectique() + "'" +
             "}";
     }
