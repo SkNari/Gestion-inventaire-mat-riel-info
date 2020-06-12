@@ -1,3 +1,5 @@
+package model;
+
 public class Emprunt{
     private Date dateEmprunt;
     private Date dateRendu;
