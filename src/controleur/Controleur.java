@@ -54,6 +54,7 @@ public class Controleur {
             return false;
         else if(choix == 1)
         {
+            this.vue.afficherMenuMateriel();
             return true;
         }
 
