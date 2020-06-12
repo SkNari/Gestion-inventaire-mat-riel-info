@@ -1,12 +1,16 @@
 package model;
 
-public class Emprunt{
+import java.sql.Date;
+import java.util.Objects;
+
+public class Emprunt <T>{
+
     private Date dateEmprunt;
     private Date dateRendu;
-    private Materiel materiel;
+    private T materiel;
     private Emprunteur emprunteur;
 
-    public Emprunt(Date dateEmprunt, Date dateRendu, Materiel materiel, Emprunteur emprunteur) {
+    public Emprunt(Date dateEmprunt, Date dateRendu, T materiel, Emprunteur emprunteur) {
         this.dateEmprunt = dateEmprunt;
         this.dateRendu = dateRendu;
         this.materiel = materiel;
@@ -29,11 +33,11 @@ public class Emprunt{
         this.dateRendu = dateRendu;
     }
 
-    public Materiel getMateriel() {
+    public T getMateriel() {
         return this.materiel;
     }
 
-    public void setMateriel(Materiel materiel) {
+    public void setMateriel(T materiel) {
         this.materiel = materiel;
     }
 
