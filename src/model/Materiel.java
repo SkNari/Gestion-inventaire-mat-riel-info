@@ -97,15 +97,15 @@ public class Materiel{
 
     @Override
     public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", nom='" + getNom() + "'" +
-            ", marque='" + getMarque() + "'" +
-            ", proprietaire='" + getProprietaire() + "'" +
-            ", dateAchat='" + getDateAchat() + "'" +
-            ", prixAchat='" + getPrixAchat() + "'" +
-            ", etat='" + getEtat() + "'" +
-            "}";
+        return
+            "\n" + 
+            "  ID : " + getId() + "\n" +
+            "  Nom : " + getNom() + "\n" +
+            "  Marque : " + getMarque() + "\n" +
+            "  Proprietaire : " + getProprietaire() + "\n" +
+            "  Date d'achat : " + getDateAchat() + "\n" +
+            "  Prix d'achat : " + getPrixAchat() + "\n" +
+            "  Etat : " + getEtat() + "\n";
     }
 
 }

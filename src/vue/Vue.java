@@ -102,38 +102,53 @@ public class Vue {
 
     public void afficherStockage(Stockage stockage)
     {
+        System.out.println("\n╔═════════════════ "+stockage.getNom()+" ═════════════════╗");
+        System.out.println("\n  Proprietaire : "+stockage.getProprietaire() +"     ID : "+stockage.getId());
         for (int i : stockage.getMateriels().keySet()) {
-            System.out.println("id/reference: " + i + " | nom: " + stockage.getMateriels().get(i).getNom());
+            afficherMateriel(stockage.getMateriels().get(i));
         }
+        System.out.println("╚═════════════════ "+stockage.getNom()+" ═════════════════╝");
     }
 
     /*  ----------------------------------------------------*/
 
+
+    /*  --------------------- MATERIEL ---------------------*/
+    
+    public void afficherMateriel(Materiel materiel)
+    {
+        System.out.println(materiel.toString());
+    }
+
     public Materiel ajouterMateriel()
     {
-        System.out.print("| Saisissez l'id du materiel : ");
+        System.out.print("\n| Saisissez l'id du materiel : ");
         scan.nextLine();
         int id = scan.nextInt();
+
         System.out.print("| Saisissez le nom du materiel : ");
         scan.nextLine();
         String nom = scan.nextLine();
+
         System.out.print("| Saisissez la marque du materiel : ");
-        scan.nextLine();
         String marque = scan.nextLine();
+
         System.out.print("| Saisissez le proprietaire du materiel : ");
-        scan.nextLine();
         String proprietaire = scan.nextLine();
+
         Date dateEmprunt = new Date();
         Calendar c = Calendar.getInstance(); 
         c.setTime(dateEmprunt); 
         c.add(Calendar.DATE, 15);
         Date dateRendu = c.getTime();
+
         System.out.print("| Saisissez le prix d'achat du materiel : ");
-        scan.nextLine();
         int prixAchat = scan.nextInt();
-        System.out.print("Saisissez l'etat du materiel : ");
+
+        System.out.print("| Saisissez l'etat du materiel : ");
+        scan.nextLine();
         String etat = scan.nextLine();
-        System.out.println(id+nom+ marque+ proprietaire+ dateEmprunt+ prixAchat+ etat);
+
         Materiel materiel = new Materiel(id, nom, marque, proprietaire, dateEmprunt, prixAchat, etat);
     
         return materiel;
@@ -145,4 +160,6 @@ public class Vue {
         int id = scan.nextInt();
         return id;
     }
+
+    /*  ----------------------------------------------------*/
 }
