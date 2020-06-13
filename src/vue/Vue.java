@@ -73,6 +73,23 @@ public class Vue {
         return choix;
     }
 
+    public int afficherMenuAjouterModifier()
+    {
+        effacerConsole();
+        System.out.println("╔═════════════════ MENU AJOUTER/MODIFIER ══════════════════╗");
+        System.out.println("║ 0. Retour                                                ║");
+        System.out.println("║ 1. Ajouter/Modifier un matériel                          ║");
+        System.out.println("║ 2. Ajouter/Modifier un lieu de stockage                  ║");
+        System.out.println("║ 3. Ajouter/Modifier un emprunt                           ║");
+        System.out.println("║ 4. Ajouter/Modifier un utilisateur                       ║");
+        System.out.println("╚══════════════════════════════════════════════════════════╝");
+
+        System.out.println("\nChoix : ");
+        int choix = scan.nextInt();
+
+        return choix;
+    }
+
     public void afficherStockage(Stockage stockage)
     {
         for (int i : stockage.getMateriels().keySet()) {

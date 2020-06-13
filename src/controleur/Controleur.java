@@ -60,24 +60,26 @@ public class Controleur {
         }
         else if(choix == 2)
         {
+            this.vue.afficherMenuEmprunt();
             return true;
         }
         else if(choix == 3)
-        {
-            return true;
-        }
-        else if(choix == 4)
-        {
-            return true;
-        }
-        else if(choix == 5)
         {
             final Stockage stockage = new Stockage(1,"Salle 209","Erwan",this.vue.ajouterMateriel());
             
             this.vue.afficherStockage(stockage);
             return true;
         }
-
+        else if(choix == 4)
+        {
+            this.vue.afficherMenuAjouterModifier();
+            return true;
+        }
+        else if(choix == 5)
+        {
+            // Rendre un emprunt
+            return true;
+        }
         return true;
     }
 
