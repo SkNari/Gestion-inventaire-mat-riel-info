@@ -1,6 +1,7 @@
 package vue;
 
-import java.sql.Date;
+import java.util.Date;
+import java.util.Calendar;
 import java.util.Scanner;
 
 import model.Materiel;
@@ -33,7 +34,7 @@ public class Vue {
         System.out.println("║ 5. Rendre un emprunt                                     ║");
         System.out.println("╚══════════════════════════════════════════════════════════╝");
 
-        System.out.println("\nChoix : ");
+        System.out.print("\nChoix : ");
         int choix = scan.nextInt();
 
         return choix;
@@ -50,7 +51,7 @@ public class Vue {
         System.out.println("║ 4. Afficher le materiel selon leur type                  ║");
         System.out.println("╚══════════════════════════════════════════════════════════╝");
 
-        System.out.println("\nChoix : ");
+        System.out.print("\nChoix : ");
         int choix = scan.nextInt();
 
         return choix;
@@ -67,7 +68,7 @@ public class Vue {
         System.out.println("║ 4. Afficher les emprunts en retard                       ║");
         System.out.println("╚══════════════════════════════════════════════════════════╝");
 
-        System.out.println("\nChoix : ");
+        System.out.print("\nChoix : ");
         int choix = scan.nextInt();
 
         return choix;
@@ -84,7 +85,7 @@ public class Vue {
         System.out.println("║ 4. Ajouter/Modifier un utilisateur                       ║");
         System.out.println("╚══════════════════════════════════════════════════════════╝");
 
-        System.out.println("\nChoix : ");
+        System.out.print("\nChoix : ");
         int choix = scan.nextInt();
 
         return choix;
@@ -110,13 +111,19 @@ public class Vue {
         System.out.print("Saisissez le proprietaire du materiel : ");
         scan.nextLine();
         String proprietaire = scan.nextLine();
-        Date dateAchat = new Date(2020, 12, 06);
+        Date dateEmprunt = new Date();
+        Calendar c = Calendar.getInstance(); 
+        c.setTime(dateEmprunt); 
+        c.add(Calendar.DATE, 15);
+        Date dateRendu = c.getTime();
         System.out.print("Saisissez le prix d'achat du materiel : ");
         scan.nextLine();
         int prixAchat = scan.nextInt();
         System.out.print("Saisissez l'etat du materiel : ");
         String etat = scan.nextLine();
-        return new Materiel(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
+        Materiel materiel = new Materiel(id, nom, marque, proprietaire, dateEmprunt, prixAchat, etat);
+    
+        return materiel;
     }
 
     public int supprimerMateriel()
