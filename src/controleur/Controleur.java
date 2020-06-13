@@ -72,7 +72,7 @@ public class Controleur {
         }
         else if(choix == 4)
         {
-            this.vue.afficherMenuAjouterModifier();
+            this.interpreterChoixAjouter();
             return true;
         }
         else if(choix == 5)
@@ -81,6 +81,34 @@ public class Controleur {
             return true;
         }
         return true;
+    }
+
+    private boolean interpreterChoixAjouter()
+    {
+        int choix = -1;
+
+        while (choix != 0)
+        {
+            choix = this.vue.afficherMenuAjouterModifier();
+            if (choix == 1)
+            {
+                // Ajout matériel
+            }
+            else if (choix == 2)
+            {
+                // Ajout lieu de stockage
+            }
+            else if (choix == 3)
+            {
+                // Ajout emprunt
+            }
+            else if (choix == 4 )
+            {
+                // Ajout utilisateur
+            }
+        }
+
+        return false;
     }
 
     private boolean utilisateurExiste()
