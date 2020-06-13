@@ -93,6 +93,7 @@ public class Controleur {
             if (choix == 1)
             {
                 // Ajout matériel
+                this.vue.ajouterMateriel();
             }
             else if (choix == 2)
             {

@@ -1,6 +1,7 @@
 package vue;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Calendar;
 import java.util.Scanner;
 
@@ -19,8 +20,6 @@ public class Vue {
         System.out.print("\033[H\033[2J");  
         System.out.flush();  
     }
-
-
 
     public int afficherMenu()
     {
@@ -91,6 +90,16 @@ public class Vue {
         return choix;
     }
 
+    /*  --------------------- STOCKAGE ---------------------*/
+
+    public void afficherListeStockages(HashMap<Integer, Stockage> stockages)
+    {
+        for (Stockage stockage : stockages.values()) {
+            afficherStockage(stockage);
+        }
+    }
+
+
     public void afficherStockage(Stockage stockage)
     {
         for (int i : stockage.getMateriels().keySet()) {
@@ -98,17 +107,20 @@ public class Vue {
         }
     }
 
+    /*  ----------------------------------------------------*/
+
     public Materiel ajouterMateriel()
     {
-        System.out.print("Saisissez l'id du materiel : ");
+        System.out.print("| Saisissez l'id du materiel : ");
+        scan.nextLine();
         int id = scan.nextInt();
-        System.out.print("Saisissez le nom du materiel : ");
+        System.out.print("| Saisissez le nom du materiel : ");
         scan.nextLine();
         String nom = scan.nextLine();
-        System.out.print("Saisissez la marque du materiel : ");
+        System.out.print("| Saisissez la marque du materiel : ");
         scan.nextLine();
         String marque = scan.nextLine();
-        System.out.print("Saisissez le proprietaire du materiel : ");
+        System.out.print("| Saisissez le proprietaire du materiel : ");
         scan.nextLine();
         String proprietaire = scan.nextLine();
         Date dateEmprunt = new Date();
@@ -116,11 +128,12 @@ public class Vue {
         c.setTime(dateEmprunt); 
         c.add(Calendar.DATE, 15);
         Date dateRendu = c.getTime();
-        System.out.print("Saisissez le prix d'achat du materiel : ");
+        System.out.print("| Saisissez le prix d'achat du materiel : ");
         scan.nextLine();
         int prixAchat = scan.nextInt();
         System.out.print("Saisissez l'etat du materiel : ");
         String etat = scan.nextLine();
+        System.out.println(id+nom+ marque+ proprietaire+ dateEmprunt+ prixAchat+ etat);
         Materiel materiel = new Materiel(id, nom, marque, proprietaire, dateEmprunt, prixAchat, etat);
     
         return materiel;
