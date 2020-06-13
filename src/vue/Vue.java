@@ -25,6 +25,7 @@ public class Vue {
     {
         effacerConsole();
         System.out.println("╔══════════════════════════ MENU ══════════════════════════╗");
+        System.out.println("║ 0. Quitter                                               ║");
         System.out.println("║ 1. Afficher le materiel                                  ║");
         System.out.println("║ 2. Afficher les emprunts                                 ║");
         System.out.println("║ 3. Afficher les lieux de stockage                        ║");
@@ -42,6 +43,7 @@ public class Vue {
     {
         effacerConsole();
         System.out.println("╔═════════════════════ MENU MATERIEL ══════════════════════╗");
+        System.out.println("║ 0. Retour                                                ║");
         System.out.println("║ 1. Afficher le materiel total                            ║");
         System.out.println("║ 2. Afficher le materiel disponible                       ║");
         System.out.println("║ 3. Afficher le materiel emprunte                         ║");
@@ -58,6 +60,7 @@ public class Vue {
     {
         effacerConsole();
         System.out.println("╔══════════════════════ MENU EMPRUNT ══════════════════════╗");
+        System.out.println("║ 0. Retour                                                ║");
         System.out.println("║ 1. Afficher tous les emprunts                            ║");
         System.out.println("║ 2. Afficher les emprunts selon leur raison               ║");
         System.out.println("║ 3. Afficher les emprunts selon l'emprunteur              ║");
