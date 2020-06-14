@@ -70,7 +70,7 @@ $(MODEL_DIR_BIN)Emprunteur.class: $(MODEL_DIR)Emprunteur.java
 $(MODEL_DIR_BIN)Emprunt.class: $(MODEL_DIR)Emprunt.java $(MODEL_DIR_BIN)Emprunteur.class Materiel.class
 	$(JC) $(FLAGS) $(MODEL_DIR)Emprunt.java
 
-$(MODEL_DIR_BIN)Stockage.class: $(MODEL_DIR)Stockage.java $(MODEL_DIR_BIN)Materiel.class  
+$(MODEL_DIR_BIN)Stockage.class: $(MODEL_DIR)Stockage.java $(MODEL_DIR_BIN)CapteursDeProfondeur.class $(MODEL_DIR_BIN)CasqueAudio.class $(MODEL_DIR_BIN)CasqueVR.class $(MODEL_DIR_BIN)ManetteJeu.class $(MODEL_DIR_BIN)ManetteVR.class $(MODEL_DIR_BIN)Souris.class $(MODEL_DIR_BIN)Telephone.class $(MODEL_DIR_BIN)Tablette.class $(MODEL_DIR_BIN)Webcam.class
 	$(JC) $(FLAGS) $(MODEL_DIR)Stockage.java
 
 
@@ -81,7 +81,7 @@ $(CONTROLEUR_DIR_BIN)Controleur.class: $(CONTROLEUR_DIR)Controleur.java $(MODEL_
 
 #ui (views)
 
-$(VIEW_DIR_BIN)Vue.class: $(VIEW_DIR)Vue.java $(MODEL_DIR_BIN)Materiel.class $(MODEL_DIR_BIN)Stockage.class 
+$(VIEW_DIR_BIN)Vue.class: $(VIEW_DIR)Vue.java  $(MODEL_DIR_BIN)Stockage.class 
 	$(JC) $(FLAGS) $(VIEW_DIR)Vue.java
 
 #launch program
