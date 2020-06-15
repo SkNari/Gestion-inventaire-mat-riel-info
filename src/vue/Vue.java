@@ -109,8 +109,12 @@ public class Vue {
         }
     }
 
-
     public void afficherStockage(Stockage stockage)
+    {
+        System.out.println(stockage);
+    }
+
+    public void afficherStockageContenu(Stockage stockage)
     {
         System.out.println("\n╔═════════════════ "+stockage.getNom()+" ═════════════════╗");
         System.out.println("\n  Proprietaire : "+stockage.getProprietaire() +"     ID : "+stockage.getId());

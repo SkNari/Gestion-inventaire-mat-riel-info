@@ -66,12 +66,11 @@ public class Stockage {
 
     @Override
     public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", nom='" + getNom() + "'" +
-            ", proprietaire='" + getProprietaire() + "'" +
-            ", materiels='" + getMateriels() + "'" +
-            "}";
+        return
+            "\n-" + 
+            "  ID : " + getId() + "|" +
+            "  Nom : " + getNom() + "|" +
+            "  Proprietaire : " + getProprietaire() 
     }
 
     public void ajouterMateriel(Materiel materiel)
