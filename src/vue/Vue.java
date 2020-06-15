@@ -10,7 +10,7 @@ import model.Stockage;
 
 public class Vue {
 
-    private Scanner scan = new Scanner(System.in);;
+    private final Scanner scan = new Scanner(System.in);;
 
     public Vue() {
 
@@ -118,7 +118,7 @@ public class Vue {
     
     public ?? ajouterEmprunt()
     {
-        
+
     }
 
     /*  ----------------------------------------------------*/
@@ -148,7 +148,7 @@ public class Vue {
         System.out.println("╚═════════════════ "+stockage.getNom()+" ═════════════════╝");
     }
 
-    public ?? ajouterStockage()
+    public Stockage ajouterStockage()
     {
         System.out.print("\n| Saisissez l'id du stockage : ");
         scan.nextLine();
@@ -161,7 +161,8 @@ public class Vue {
         System.out.print("| Saisissez le proprietaire du stockage : ");
         String proprietaire = scan.nextLine();
 
-        return id, nom, proprietaire;
+        Stockage stockage = new Stockage(id, nom, proprietaire)
+        return stockage;
     }
 
     /*  ----------------------------------------------------*/
@@ -174,7 +175,7 @@ public class Vue {
         System.out.println(materiel);
     }
 
-    public ?? ajouterMateriel()
+    public Materiel ajouterMateriel()
     {
         System.out.print("\n| Saisissez l'id du materiel : ");
         scan.nextLine();
@@ -207,9 +208,11 @@ public class Vue {
         int nombreMateriel = scan.nextInt();
         scan.nextLine();
 
+        Materiel materiel = new Materiel(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat);
     
-        return id, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, nombreMateriel;
+        return materiel;
     }
+    
 
     public int supprimerMateriel()
     {

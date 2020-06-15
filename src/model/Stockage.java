@@ -16,6 +16,12 @@ public class Stockage {
         this.materiels.put(materiel.getId(), materiel);
     }
 
+    public Stockage(int id, String nom, String proprietaire) {
+        this.id = id;
+        this.nom = nom;
+        this.proprietaire = proprietaire;
+    }
+
     public int getId() {
         return this.id;
     }
