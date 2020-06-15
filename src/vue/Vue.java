@@ -109,6 +109,21 @@ public class Vue {
         return choix;
     }
 
+    /*  --------------------- EMPRUNT ----------------------*/
+
+    /* public void afficherListeEmprunt(HashMap<Integer, Emprunt> emprunts)
+    {
+
+    } */
+    
+    public ?? ajouterEmprunt()
+    {
+        
+    }
+
+    /*  ----------------------------------------------------*/
+
+
     /*  --------------------- STOCKAGE ---------------------*/
 
     public void afficherListeStockages(HashMap<Integer, Stockage> stockages)
@@ -118,8 +133,12 @@ public class Vue {
         }
     }
 
-
     public void afficherStockage(Stockage stockage)
+    {
+        System.out.println(stockage);
+    }
+
+    public void afficherStockageContenu(Stockage stockage)
     {
         System.out.println("\n╔═════════════════ "+stockage.getNom()+" ═════════════════╗");
         System.out.println("\n  Proprietaire : "+stockage.getProprietaire() +"     ID : "+stockage.getId());
@@ -129,6 +148,22 @@ public class Vue {
         System.out.println("╚═════════════════ "+stockage.getNom()+" ═════════════════╝");
     }
 
+    public ?? ajouterStockage()
+    {
+        System.out.print("\n| Saisissez l'id du stockage : ");
+        scan.nextLine();
+        int id = scan.nextInt();
+
+        System.out.print("| Saisissez le nom du stockage : ");
+        scan.nextLine();
+        String nom = scan.nextLine();
+
+        System.out.print("| Saisissez le proprietaire du stockage : ");
+        String proprietaire = scan.nextLine();
+
+        return id, nom, proprietaire;
+    }
+
     /*  ----------------------------------------------------*/
 
 
@@ -136,10 +171,10 @@ public class Vue {
     
     public void afficherMateriel(Materiel materiel)
     {
-        System.out.println(materiel.toString());
+        System.out.println(materiel);
     }
 
-    public Materiel ajouterMateriel()
+    public ?? ajouterMateriel()
     {
         System.out.print("\n| Saisissez l'id du materiel : ");
         scan.nextLine();
@@ -168,9 +203,12 @@ public class Vue {
         scan.nextLine();
         String etat = scan.nextLine();
 
-        Materiel materiel = new Materiel(id, nom, marque, proprietaire, dateEmprunt, prixAchat, etat);
+        System.out.print("| Saisissez le lot de materiel : ");
+        int nombreMateriel = scan.nextInt();
+        scan.nextLine();
+
     
-        return materiel;
+        return id, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, nombreMateriel;
     }
 
     public int supprimerMateriel()
