@@ -15,7 +15,7 @@ VIEW_DIR_BIN := $(BIN_DIR)vue/
 
 FLAGS := -d $(BIN_DIR) -sourcepath $(SRC_DIR) -classpath $(BIN_DIR)
 JC := javac
-JEXE := java -classpath "$(BIN_DIR)
+JEXE := java -classpath "$(BIN_DIR)"
 JDOC := javadoc
 RM := rm -rf 
 MKDIR := mkdir
@@ -27,9 +27,11 @@ $(BIN_DIR):
 
 
 #application
-$(BIN_DIR)Main.class: $(SRC_DIR)Main.java $(CONTROLEUR_DIR_BIN)Controleur.class
+$(BIN_DIR)Main.class: $(SRC_DIR)Main.java $(BIN_DIR)app/App.class
 	$(JC) $(FLAGS) $(SRC_DIR)Main.java
 
+$(BIN_DIR)app/App.class: $(SRC_DIR)app/App.java $(CONTROLEUR_DIR_BIN)Controleur.class $(CONTROLEUR_DIR_BIN)ConnexionControleur.class
+	$(JC) $(FLAGS) $(SRC_DIR)Main.java
 
 #models
 
@@ -79,6 +81,9 @@ $(MODEL_DIR_BIN)Stockage.class: $(MODEL_DIR)Stockage.java $(MODEL_DIR_BIN)Capteu
 $(CONTROLEUR_DIR_BIN)Controleur.class: $(CONTROLEUR_DIR)Controleur.java $(MODEL_DIR_BIN)Stockage.class $(VIEW_DIR_BIN)Vue.class
 	$(JC) $(FLAGS) $(CONTROLEUR_DIR)Controleur.java
 
+$(CONTROLEUR_DIR_BIN)ConnexionControleur.class: $(CONTROLEUR_DIR)ConnexionControleur.java $(VIEW_DIR_BIN)Vue.class
+	$(JC) $(FLAGS) $(CONTROLEUR_DIR)ConnexionControleur.java
+
 #ui (views)
 
 $(VIEW_DIR_BIN)Vue.class: $(VIEW_DIR)Vue.java  $(MODEL_DIR_BIN)Stockage.class 
@@ -86,7 +91,7 @@ $(VIEW_DIR_BIN)Vue.class: $(VIEW_DIR)Vue.java  $(MODEL_DIR_BIN)Stockage.class
 
 #launch program
 run:
-	$(JEXE) Application
+	$(JEXE) Main
 
 #clean bin dir
 clean:

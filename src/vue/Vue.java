@@ -21,6 +21,25 @@ public class Vue {
         System.out.flush();  
     }
 
+    public String askName(){
+
+        final Scanner sc = new Scanner(System.in);
+        String prenomUtilisateur, nomUtilisateur;
+        
+        System.out.print("Quel est votre prenom ? : ");
+        prenomUtilisateur = sc.nextLine();
+        
+        System.out.print("Quel est votre nom ? : ");
+        nomUtilisateur = sc.nextLine();
+
+        System.out.println("\nBienvenu(e) "+prenomUtilisateur+" "+nomUtilisateur+"!\n");
+
+        sc.close();
+
+        return prenomUtilisateur+","+nomUtilisateur;
+
+    }
+
     public int afficherMenu()
     {
         effacerConsole();

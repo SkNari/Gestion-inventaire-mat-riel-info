@@ -9,10 +9,10 @@ public class Emprunteur {
     private String nom;
     private String prenom;
     private String adresse;
-    private int numeroDeTelephone;
+    private String numeroDeTelephone;
     private String mail;
 
-    public Emprunteur(int id, String institution, String nom, String prenom, String adresse, int numeroDeTelephone, String mail) {
+    public Emprunteur(int id, String institution, String nom, String prenom, String adresse, String numeroDeTelephone, String mail) {
         this.id = id;
         this.institution = institution;
         this.nom = nom;
@@ -62,11 +62,11 @@ public class Emprunteur {
         this.adresse = adresse;
     }
 
-    public int getNumeroDeTelephone() {
+    public String getNumeroDeTelephone() {
         return this.numeroDeTelephone;
     }
 
-    public void setNumeroDeTelephone(int numeroDeTelephone) {
+    public void setNumeroDeTelephone(String numeroDeTelephone) {
         this.numeroDeTelephone = numeroDeTelephone;
     }
 
