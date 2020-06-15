@@ -120,6 +120,11 @@ public class Vue {
         System.out.println("╚═════════════════ "+stockage.getNom()+" ═════════════════╝");
     }
 
+    public ?? ajouterStockage()
+    {
+
+    }
+
     /*  ----------------------------------------------------*/
 
 
