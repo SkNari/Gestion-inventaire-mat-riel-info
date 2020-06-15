@@ -14,7 +14,7 @@ public class Serialisation {
     {
     }
 
-    public void serialiserMateriel(Materiel materiel)
+    static public void serialiserMateriel(Materiel materiel)
     {
         try {
             FileOutputStream fs = new FileOutputStream("data/materiels.ser");
@@ -26,7 +26,7 @@ public class Serialisation {
         }
     }
 
-    public Materiel deserialiserMateriel()
+    static public Materiel deserialiserMateriel()
     {
         try {
             FileInputStream fis = new FileInputStream("data/materiels.ser");
@@ -43,7 +43,7 @@ public class Serialisation {
     }
 
     
-    public void serialiserStockage(Stockage stockage)
+    static public void serialiserStockage(Stockage stockage)
     {
         try {
             FileOutputStream fs = new FileOutputStream("data/stockages.ser");
@@ -55,7 +55,7 @@ public class Serialisation {
         }
     }
 
-    public Stockage deserialiserStockage()
+    static public Stockage deserialiserStockage()
     {
         try {
             FileInputStream fis = new FileInputStream("data/stockages.ser");
@@ -70,7 +70,7 @@ public class Serialisation {
         }
     }
 
-    public void serialiserEmprunt(Emprunt emprunt)
+    static public void serialiserEmprunt(Emprunt emprunt)
     {
         try {
             FileOutputStream fs = new FileOutputStream("data/emprunts.ser");
@@ -82,7 +82,7 @@ public class Serialisation {
         }
     }
 
-    public Emprunt deserialiserEmprunt()
+    static public Emprunt deserialiserEmprunt()
     {
         try {
             FileInputStream fis = new FileInputStream("data/emprunts.ser");
@@ -97,7 +97,7 @@ public class Serialisation {
         }
     }
 
-    public void serialiserEmprunteur(Emprunteur emprunteur)
+    static public void serialiserEmprunteur(Emprunteur emprunteur)
     {
         try {
             FileOutputStream fs = new FileOutputStream("data/emprunteurs.ser");
@@ -109,7 +109,7 @@ public class Serialisation {
         }
     }
 
-    public Emprunteur deserialiserEmprunteur()
+    static public Emprunteur deserialiserEmprunteur()
     {
         try {
             FileInputStream fis = new FileInputStream("data/emprunteurs.ser");
