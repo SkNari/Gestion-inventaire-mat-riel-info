@@ -70,7 +70,7 @@ public class Stockage {
             "\n-" + 
             "  ID : " + getId() + "|" +
             "  Nom : " + getNom() + "|" +
-            "  Proprietaire : " + getProprietaire() 
+            "  Proprietaire : " + getProprietaire();
     }
 
     public void ajouterMateriel(Materiel materiel)
