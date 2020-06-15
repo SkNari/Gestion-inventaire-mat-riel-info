@@ -96,6 +96,11 @@ public class Vue {
     {
 
     } */
+    
+    public ?? ajouterEmprunt()
+    {
+        
+    }
 
     /*  ----------------------------------------------------*/
 
@@ -126,7 +131,18 @@ public class Vue {
 
     public ?? ajouterStockage()
     {
+        System.out.print("\n| Saisissez l'id du stockage : ");
+        scan.nextLine();
+        int id = scan.nextInt();
 
+        System.out.print("| Saisissez le nom du stockage : ");
+        scan.nextLine();
+        String nom = scan.nextLine();
+
+        System.out.print("| Saisissez le proprietaire du stockage : ");
+        String proprietaire = scan.nextLine();
+
+        return id, nom, proprietaire;
     }
 
     /*  ----------------------------------------------------*/
