@@ -90,6 +90,16 @@ public class Vue {
         return choix;
     }
 
+    /*  --------------------- EMPRUNT ----------------------*/
+
+    /* public void afficherListeEmprunt(HashMap<Integer, Emprunt> emprunts)
+    {
+
+    } */
+
+    /*  ----------------------------------------------------*/
+
+
     /*  --------------------- STOCKAGE ---------------------*/
 
     public void afficherListeStockages(HashMap<Integer, Stockage> stockages)
@@ -117,10 +127,10 @@ public class Vue {
     
     public void afficherMateriel(Materiel materiel)
     {
-        System.out.println(materiel.toString());
+        System.out.println(materiel);
     }
 
-    public Materiel ajouterMateriel()
+    public ?? ajouterMateriel()
     {
         System.out.print("\n| Saisissez l'id du materiel : ");
         scan.nextLine();
@@ -149,9 +159,12 @@ public class Vue {
         scan.nextLine();
         String etat = scan.nextLine();
 
-        Materiel materiel = new Materiel(id, nom, marque, proprietaire, dateEmprunt, prixAchat, etat);
+        System.out.print("| Saisissez le lot de materiel : ");
+        int nombreMateriel = scan.nextInt();
+        scan.nextLine();
+
     
-        return materiel;
+        return id, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, nombreMateriel;
     }
 
     public int supprimerMateriel()
