@@ -25,8 +25,6 @@ public class ConnexionControleur {
         String[] user = vue.askName().split(",");
         Emprunteur res = new Emprunteur(0,"Ensiie",user[0],user[1],"toto","0645784512","toto@toto");
         return res;
-
-
     }
 
     @Override
