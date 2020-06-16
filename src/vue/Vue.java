@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 import model.Emprunt;
+import model.Emprunteur;
 import model.Materiel;
 import model.Stockage;
 
@@ -110,6 +111,35 @@ public class Vue {
         return choix;
     }
 
+    /*  --------------------- EMPRUNTEUR -------------------*/
+    
+        public Emprunteur ajouterEmprunteur()
+        {
+            System.out.print("\n| Saisisser l'institution auquel vous appartenez : ");
+            String institution = scan.nextLine();
+
+            System.out.print("| Saisisser votre nom : ");
+            String nom = scan.nextLine();
+
+            System.out.print("| Saisisser votre prenom : ");
+            String prenom = scan.nextLine();
+
+            System.out.print("| Saisisser votre adresse : ");
+            String adresse = scan.nextLine();
+
+            System.out.print("| Saisisser votre numero de telephone : ");
+            String numeroDeTelephone = scan.nextLine();
+
+            System.out.print("| Saisisser votre mail : ");
+            String mail = scan.nextLine();
+
+            Emprunteur emprunteur = new Emprunteur(-1, institution, nom, prenom, adresse, numeroDeTelephone, mail);
+            return emprunteur;
+        }
+
+
+    /*  ----------------------------------------------------*/
+
     /*  --------------------- EMPRUNT ----------------------*/
 
     /* public void afficherListeEmprunt(HashMap<Integer, Emprunt> emprunts)
@@ -151,15 +181,15 @@ public class Vue {
 
     public Stockage ajouterStockage()
     {
-        System.out.print("\n| Saisissez l'id du stockage : ");
+        System.out.print("\n| Saisisser l'id du stockage : ");
         scan.nextLine();
         int id = scan.nextInt();
 
-        System.out.print("| Saisissez le nom du stockage : ");
+        System.out.print("| Saisisser le nom du stockage : ");
         scan.nextLine();
         String nom = scan.nextLine();
 
-        System.out.print("| Saisissez le proprietaire du stockage : ");
+        System.out.print("| Saisisser le proprietaire du stockage : ");
         String proprietaire = scan.nextLine();
 
         Stockage stockage = new Stockage(id, nom, proprietaire);
@@ -178,18 +208,18 @@ public class Vue {
 
     public Materiel ajouterMateriel()
     {
-        System.out.print("\n| Saisissez l'id du materiel : ");
+        System.out.print("\n| Saisisser l'id du materiel : ");
         scan.nextLine();
         int id = scan.nextInt();
 
-        System.out.print("| Saisissez le nom du materiel : ");
+        System.out.print("| Saisisser le nom du materiel : ");
         scan.nextLine();
         String nom = scan.nextLine();
 
-        System.out.print("| Saisissez la marque du materiel : ");
+        System.out.print("| Saisisser la marque du materiel : ");
         String marque = scan.nextLine();
 
-        System.out.print("| Saisissez le proprietaire du materiel : ");
+        System.out.print("| Saisisser le proprietaire du materiel : ");
         String proprietaire = scan.nextLine();
 
         Date dateEmprunt = new Date();
@@ -198,14 +228,14 @@ public class Vue {
         c.add(Calendar.DATE, 15);
         Date dateRendu = c.getTime();
 
-        System.out.print("| Saisissez le prix d'achat du materiel : ");
+        System.out.print("| Saisisser le prix d'achat du materiel : ");
         int prixAchat = scan.nextInt();
 
-        System.out.print("| Saisissez l'etat du materiel : ");
+        System.out.print("| Saisisser l'etat du materiel : ");
         scan.nextLine();
         String etat = scan.nextLine();
 
-        System.out.print("| Saisissez le lot de materiel : ");
+        System.out.print("| Saisisser le lot de materiel : ");
         int nombreMateriel = scan.nextInt();
         scan.nextLine();
 
@@ -217,7 +247,7 @@ public class Vue {
 
     public int supprimerMateriel()
     {
-        System.out.println("Saisissez l'id du materiel : ");
+        System.out.println("Saisisser l'id du materiel : ");
         int id = scan.nextInt();
         return id;
     }
