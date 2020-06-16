@@ -31,7 +31,7 @@ $(BIN_DIR)Main.class: $(SRC_DIR)Main.java $(BIN_DIR)app/App.class
 	$(JC) $(FLAGS) $(SRC_DIR)Main.java
 
 $(BIN_DIR)app/App.class: $(SRC_DIR)app/App.java $(CONTROLEUR_DIR_BIN)Controleur.class $(CONTROLEUR_DIR_BIN)ConnexionControleur.class
-	$(JC) $(FLAGS) $(SRC_DIR)Main.java
+	$(JC) $(FLAGS) $(SRC_DIR)app/App.java
 
 #models
 

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Calendar;
 import java.util.Scanner;
 
+import model.Emprunt;
 import model.Materiel;
 import model.Stockage;
 
@@ -116,7 +117,7 @@ public class Vue {
 
     } */
     
-    public ?? ajouterEmprunt()
+    public void ajouterEmprunt() //return ??
     {
 
     }
@@ -161,7 +162,7 @@ public class Vue {
         System.out.print("| Saisissez le proprietaire du stockage : ");
         String proprietaire = scan.nextLine();
 
-        Stockage stockage = new Stockage(id, nom, proprietaire)
+        Stockage stockage = new Stockage(id, nom, proprietaire);
         return stockage;
     }
 
