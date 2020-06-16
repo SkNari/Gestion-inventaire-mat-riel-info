@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Emprunteur {
+public class Emprunteur implements Serializable{
 
     private int id;
     private String institution;
@@ -11,6 +12,8 @@ public class Emprunteur {
     private String adresse;
     private String numeroDeTelephone;
     private String mail;
+
+    private static final long serialVersionUID = 3L;
 
     public Emprunteur(int id, String institution, String nom, String prenom, String adresse, String numeroDeTelephone, String mail) {
         this.id = id;

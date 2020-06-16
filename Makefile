@@ -35,7 +35,7 @@ $(DATA_DIR):
 $(BIN_DIR)Main.class: $(SRC_DIR)Main.java $(BIN_DIR)app/App.class $(DATA_DIR)
 	$(JC) $(FLAGS) $(SRC_DIR)Main.java
 
-$(BIN_DIR)app/App.class: $(SRC_DIR)app/App.java $(CONTROLEUR_DIR_BIN)Controleur.class $(CONTROLEUR_DIR_BIN)ConnexionControleur.class $(MODEL_DIR_BIN)Data.class
+$(BIN_DIR)app/App.class: $(SRC_DIR)app/App.java $(CONTROLEUR_DIR_BIN)Controleur.class $(CONTROLEUR_DIR_BIN)ConnexionControleur.class $(MODEL_DIR_BIN)Serialisation.class
 	$(JC) $(FLAGS) $(SRC_DIR)app/App.java
 
 #models
@@ -80,10 +80,10 @@ $(MODEL_DIR_BIN)Emprunt.class: $(MODEL_DIR)Emprunt.java $(MODEL_DIR_BIN)Emprunte
 $(MODEL_DIR_BIN)Stockage.class: $(MODEL_DIR)Stockage.java $(MODEL_DIR_BIN)CapteursDeProfondeur.class $(MODEL_DIR_BIN)CasqueAudio.class $(MODEL_DIR_BIN)CasqueVR.class $(MODEL_DIR_BIN)ManetteJeu.class $(MODEL_DIR_BIN)ManetteVR.class $(MODEL_DIR_BIN)Souris.class $(MODEL_DIR_BIN)Telephone.class $(MODEL_DIR_BIN)Tablette.class $(MODEL_DIR_BIN)Webcam.class
 	$(JC) $(FLAGS) $(MODEL_DIR)Stockage.java
 
-$(MODEL_DIR_BIN)Serialisation.class: $(MODEL_DIR)Serialisation.java $(MODEL_DIR_BIN)Stockage.class $(MODEL_DIR_BIN)Emprunt.class
+$(MODEL_DIR_BIN)Serialisation.class: $(MODEL_DIR)Serialisation.java $(MODEL_DIR_BIN)Stockage.class $(MODEL_DIR_BIN)Emprunt.class $(MODEL_DIR_BIN)Data.class
 	$(JC) $(FLAGS) $(MODEL_DIR)Serialisation.java
 
-$(MODEL_DIR_BIN)Data.class: $(MODEL_DIR)Data.java $(MODEL_DIR_BIN)Serialisation.class
+$(MODEL_DIR_BIN)Data.class: $(MODEL_DIR)Data.java
 	$(JC) $(FLAGS) $(MODEL_DIR)Data.java
 
 

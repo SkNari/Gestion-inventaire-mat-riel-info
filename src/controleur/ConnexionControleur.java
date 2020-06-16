@@ -1,15 +1,18 @@
 package controleur;
 
 import model.Emprunteur;
+import model.Data;
 import vue.Vue;
 import java.util.Objects;
 
 public class ConnexionControleur {
 
     private Vue vue;
+    private Data data;
 
-    public ConnexionControleur(Vue vue) {
+    public ConnexionControleur(Vue vue, Data data) {
         this.vue = vue;
+        this.data = data;
     }
 
     public Vue getVue() {
@@ -20,10 +23,26 @@ public class ConnexionControleur {
         this.vue = vue;
     }
 
+    public Data getData() {
+        return this.data;
+    }
+
+    public void setData(Data data) {
+        this.data = data;
+    }
+
     public Emprunteur connect(){
 
-        String[] user = vue.askName().split(",");
-        Emprunteur res = new Emprunteur(0,"Ensiie",user[0],user[1],"toto","0645784512","toto@toto");
+        int isConnected = 0;
+        Emprunteur res;
+
+        while(isConnected==0){
+
+            String[] user = vue.askName().split(",");
+            res = new Emprunteur(0,"Ensiie",user[1],user[0],"toto","0645784512","toto@toto");
+
+        }
+        
         return res;
     }
 

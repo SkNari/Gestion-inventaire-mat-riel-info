@@ -1,14 +1,17 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-public class Emprunt <T>{
+public class Emprunt <T> implements Serializable{
 
     private Date dateEmprunt;
     private Date dateRendu;
     private T materiel;
     private Emprunteur emprunteur;
+
+    private static final long serialVersionUID = 5L;
 
     public Emprunt(Date dateEmprunt, Date dateRendu, T materiel, Emprunteur emprunteur) {
         this.dateEmprunt = dateEmprunt;

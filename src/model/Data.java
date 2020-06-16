@@ -20,10 +20,6 @@ public class Data implements Serializable{
         this.emprunteurs = new HashMap<Integer, Emprunteur>();
         this.emprunts = new ArrayList<Emprunt>();
 
-        //Serialisation.serialiserMateriel(new Materiel(0, "toto", "titi", "tutu",new Date(1999, 11, 24), 50, "zou"));
-        Materiel materiel = Serialisation.deserialiserMateriel();
-        System.out.println(materiel.toString());
-
     }
 
     public Data(HashMap<Integer,Stockage> stockages, HashMap<Integer,Materiel> materiels, HashMap<Integer,Emprunteur> emprunteurs, ArrayList<Emprunt> emprunts) {
@@ -90,4 +86,14 @@ public class Data implements Serializable{
             ", emprunts='" + getEmprunts() + "'" +
             "}";
     }
+
+    //fonctions de recherche
+
+    public Emprunteur rechercheEmprunteurParNom(String nom, String prenom){
+
+        
+        return null;
+
+    }
+
 }

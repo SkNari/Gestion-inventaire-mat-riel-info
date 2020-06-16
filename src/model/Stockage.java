@@ -1,13 +1,15 @@
 package model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class Stockage {
+public class Stockage implements Serializable{
     private int id;
     private String nom;
     private String proprietaire;
     private HashMap<Integer, Materiel> materiels = new HashMap<Integer, Materiel>();
+    private static final long serialVersionUID = 4L;
 
     public Stockage(int id, String nom, String proprietaire, Materiel materiel) {
         this.id = id;
