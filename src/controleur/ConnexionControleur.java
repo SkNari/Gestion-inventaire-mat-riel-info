@@ -34,15 +34,15 @@ public class ConnexionControleur {
     public Emprunteur connect(){
 
         int isConnected = 0;
-        Emprunteur res;
+        String[] user = vue.askName().split(",");
+        Emprunteur res = this.data.rechercheEmprunteurParNom(user[1], user[0]);
 
-        while(isConnected==0){
+        if(res==null){
 
-            String[] user = vue.askName().split(",");
-            res = new Emprunteur(0,"Ensiie",user[1],user[0],"toto","0645784512","toto@toto");
+            System.out.println("Existe pas ^^");
 
         }
-        
+
         return res;
     }
 

@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Objects;
@@ -91,7 +92,12 @@ public class Data implements Serializable{
 
     public Emprunteur rechercheEmprunteurParNom(String nom, String prenom){
 
-        
+        Collection<Emprunteur> collection = this.emprunteurs.values();
+
+        for (Emprunteur s : collection) {
+            if(s.getNom().toLowerCase().equals(nom.toLowerCase())&&s.getPrenom().toLowerCase().equals(prenom.toLowerCase()))
+                return s;
+        }
         return null;
 
     }

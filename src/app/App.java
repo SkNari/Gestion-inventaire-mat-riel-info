@@ -15,12 +15,10 @@ public class App {
     public App(){
 
         this.vue = new Vue();
-        this.connexion = new ConnexionControleur(this.vue);
         this.data = Serialisation.deserialiserData();
+        this.connexion = new ConnexionControleur(this.vue,this.data);
 
         this.user = this.connexion.connect();
-
-        System.out.println(this.data.getEmprunteurs().get(1).toString());
 
         Serialisation.serialiserData(this.data);
 
