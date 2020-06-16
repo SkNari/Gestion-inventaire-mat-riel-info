@@ -2,15 +2,29 @@ package model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Objects;
 
 public class Data implements Serializable{
     private static final long serialVersionUID = 1L;
-    private HashMap<Integer, Stockage> stockages = new HashMap<Integer, Stockage>();
-    private HashMap<Integer, Materiel> materiels = new HashMap<Integer, Materiel>();
-    private HashMap<Integer, Emprunteur> emprunteurs = new HashMap<Integer, Emprunteur>();
-    private ArrayList<Emprunt> emprunts = new ArrayList<Emprunt>(); 
+    private HashMap<Integer, Stockage> stockages;
+    private HashMap<Integer, Materiel> materiels;
+    private HashMap<Integer, Emprunteur> emprunteurs;
+    private ArrayList<Emprunt> emprunts;
+
+    public Data(){
+
+        this.stockages = new HashMap<Integer, Stockage>();
+        this.materiels = new HashMap<Integer, Materiel>();;
+        this.emprunteurs = new HashMap<Integer, Emprunteur>();
+        this.emprunts = new ArrayList<Emprunt>();
+
+        //Serialisation.serialiserMateriel(new Materiel(0, "toto", "titi", "tutu",new Date(1999, 11, 24), 50, "zou"));
+        Materiel materiel = Serialisation.deserialiserMateriel();
+        System.out.println(materiel.toString());
+
+    }
 
     public Data(HashMap<Integer,Stockage> stockages, HashMap<Integer,Materiel> materiels, HashMap<Integer,Emprunteur> emprunteurs, ArrayList<Emprunt> emprunts) {
         this.stockages = stockages;

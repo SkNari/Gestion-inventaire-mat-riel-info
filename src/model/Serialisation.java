@@ -1,12 +1,12 @@
-package controleur;
+package model;
 
 import java.io.*;
 import java.util.Date;
 
-import model.Data;
 import model.Emprunteur;
 import model.Materiel;
 import model.Stockage;
+import model.Emprunt;
 
 public class Serialisation {
 
@@ -91,7 +91,7 @@ public class Serialisation {
             ois.close();
             return emprunt;
         } catch (Exception e) { 
-            Emprunt emprunt = new Emprunt();
+            Emprunt emprunt = new Emprunt(null,null,null,null);
             e.printStackTrace(); 
             return emprunt;
         }
@@ -118,7 +118,7 @@ public class Serialisation {
             ois.close();
             return emprunteur;
         } catch (Exception e) { 
-            Emprunteur emprunteur = new Emprunteur(-1, "null", "null", "null", "null", "null", "null")
+            Emprunteur emprunteur = new Emprunteur(-1, "null", "null", "null", "null", "null", "null");
             e.printStackTrace(); 
             return emprunteur;
         }

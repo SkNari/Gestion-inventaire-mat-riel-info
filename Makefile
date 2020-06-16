@@ -13,6 +13,9 @@ MODEL_DIR_BIN := $(BIN_DIR)model/
 CONTROLEUR_DIR_BIN := $(BIN_DIR)controleur/
 VIEW_DIR_BIN := $(BIN_DIR)vue/
 
+#data
+DATA_DIR := data/
+
 FLAGS := -d $(BIN_DIR) -sourcepath $(SRC_DIR) -classpath $(BIN_DIR)
 JC := javac
 JEXE := java -classpath "$(BIN_DIR)"
@@ -25,12 +28,14 @@ all: $(BIN_DIR) $(BIN_DIR)Main.class
 $(BIN_DIR):
 	$(MKDIR) $(BIN_DIR)
 
+$(DATA_DIR): 
+	$(MKDIR) $(DATA_DIR)
 
 #application
-$(BIN_DIR)Main.class: $(SRC_DIR)Main.java $(BIN_DIR)app/App.class
+$(BIN_DIR)Main.class: $(SRC_DIR)Main.java $(BIN_DIR)app/App.class $(DATA_DIR)
 	$(JC) $(FLAGS) $(SRC_DIR)Main.java
 
-$(BIN_DIR)app/App.class: $(SRC_DIR)app/App.java $(CONTROLEUR_DIR_BIN)Controleur.class $(CONTROLEUR_DIR_BIN)ConnexionControleur.class
+$(BIN_DIR)app/App.class: $(SRC_DIR)app/App.java $(CONTROLEUR_DIR_BIN)Controleur.class $(CONTROLEUR_DIR_BIN)ConnexionControleur.class $(MODEL_DIR_BIN)Data.class
 	$(JC) $(FLAGS) $(SRC_DIR)app/App.java
 
 #models
@@ -69,11 +74,17 @@ $(MODEL_DIR_BIN)Webcam.class: $(MODEL_DIR)Webcam.java $(MODEL_DIR_BIN)Materiel.c
 $(MODEL_DIR_BIN)Emprunteur.class: $(MODEL_DIR)Emprunteur.java  
 	$(JC) $(FLAGS) $(MODEL_DIR)Emprunteur.java
 
-$(MODEL_DIR_BIN)Emprunt.class: $(MODEL_DIR)Emprunt.java $(MODEL_DIR_BIN)Emprunteur.class Materiel.class
+$(MODEL_DIR_BIN)Emprunt.class: $(MODEL_DIR)Emprunt.java $(MODEL_DIR_BIN)Emprunteur.class $(MODEL_DIR_BIN)CapteursDeProfondeur.class $(MODEL_DIR_BIN)CasqueAudio.class $(MODEL_DIR_BIN)CasqueVR.class $(MODEL_DIR_BIN)ManetteJeu.class $(MODEL_DIR_BIN)ManetteVR.class $(MODEL_DIR_BIN)Souris.class $(MODEL_DIR_BIN)Telephone.class $(MODEL_DIR_BIN)Tablette.class $(MODEL_DIR_BIN)Webcam.class
 	$(JC) $(FLAGS) $(MODEL_DIR)Emprunt.java
 
 $(MODEL_DIR_BIN)Stockage.class: $(MODEL_DIR)Stockage.java $(MODEL_DIR_BIN)CapteursDeProfondeur.class $(MODEL_DIR_BIN)CasqueAudio.class $(MODEL_DIR_BIN)CasqueVR.class $(MODEL_DIR_BIN)ManetteJeu.class $(MODEL_DIR_BIN)ManetteVR.class $(MODEL_DIR_BIN)Souris.class $(MODEL_DIR_BIN)Telephone.class $(MODEL_DIR_BIN)Tablette.class $(MODEL_DIR_BIN)Webcam.class
 	$(JC) $(FLAGS) $(MODEL_DIR)Stockage.java
+
+$(MODEL_DIR_BIN)Serialisation.class: $(MODEL_DIR)Serialisation.java $(MODEL_DIR_BIN)Stockage.class $(MODEL_DIR_BIN)Emprunt.class
+	$(JC) $(FLAGS) $(MODEL_DIR)Serialisation.java
+
+$(MODEL_DIR_BIN)Data.class: $(MODEL_DIR)Data.java $(MODEL_DIR_BIN)Serialisation.class
+	$(JC) $(FLAGS) $(MODEL_DIR)Data.java
 
 
 #controllers
@@ -96,6 +107,10 @@ run:
 #clean bin dir
 clean:
 	$(RM) $(BIN_DIR)*
+
+#clean data dir
+cleandata:
+	$(RM) $(DATA_DIR)*
 
 #generate javadoc
 doc:
