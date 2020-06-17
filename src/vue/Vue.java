@@ -147,9 +147,39 @@ public class Vue {
 
     } */
     
-    public void ajouterEmprunt() //return ??
+    public Emprunt ajouterEmprunt() //return ??
     {
+        System.out.print("\n| Saisisser l'id du materiel a emprunter : ");
+        scan.nextLine();
+        int id = scan.nextInt();
 
+        Date dateEmprunt = new Date();
+        Calendar c = Calendar.getInstance(); 
+        c.setTime(dateEmprunt);
+
+        while(true)
+        {
+            System.out.print("| Saisisser la date de rendu (Exemple : 25/06/2020): ");
+            String stringRendu = scan.nextLine();
+            String [] tabRendu = stringRendu.split("/");
+            if (tabRendu.length == 3)
+            {
+                c.set(Integer.parseInt(tabRendu[0]), Integer.parseInt(tabRendu[1]),Integer.parseInt(tabRendu[2]));
+                break;
+            }
+            else
+            {
+                System.out.println("Mauvaise saisie !");
+            }
+        }
+
+        Date dateRendu = c.getTime();
+        Materiel materiel = new Materiel(id, null, null, null, null, -1, null);
+        Emprunteur emprunteur = new Emprunteur(-1, null, null, null, null, null, null);
+        
+        Emprunt emprunt = new Emprunt(dateEmprunt, dateRendu, materiel, emprunteur);
+   
+        return emprunt;
     }
 
     /*  ----------------------------------------------------*/
@@ -208,10 +238,6 @@ public class Vue {
 
     public Materiel ajouterMateriel()
     {
-        System.out.print("\n| Saisisser l'id du materiel : ");
-        scan.nextLine();
-        int id = scan.nextInt();
-
         System.out.print("| Saisisser le nom du materiel : ");
         scan.nextLine();
         String nom = scan.nextLine();
@@ -225,8 +251,6 @@ public class Vue {
         Date dateEmprunt = new Date();
         Calendar c = Calendar.getInstance(); 
         c.setTime(dateEmprunt); 
-        c.add(Calendar.DATE, 15);
-        Date dateRendu = c.getTime();
 
         System.out.print("| Saisisser le prix d'achat du materiel : ");
         int prixAchat = scan.nextInt();
@@ -234,10 +258,6 @@ public class Vue {
         System.out.print("| Saisisser l'etat du materiel : ");
         scan.nextLine();
         String etat = scan.nextLine();
-
-        System.out.print("| Saisisser le lot de materiel : ");
-        int nombreMateriel = scan.nextInt();
-        scan.nextLine();
 
         Materiel materiel = new Materiel(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat);
     
