@@ -1,12 +1,6 @@
 package model;
 
 import java.io.*;
-import java.util.Date;
-
-import model.Emprunteur;
-import model.Materiel;
-import model.Stockage;
-import model.Emprunt;
 
 public class Serialisation {
 

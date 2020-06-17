@@ -4,16 +4,16 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-public class Emprunt <T> implements Serializable{
+public class Emprunt implements Serializable{
 
     private Date dateEmprunt;
     private Date dateRendu;
-    private T materiel;
+    private Materiel materiel;
     private Emprunteur emprunteur;
 
     private static final long serialVersionUID = 5L;
 
-    public Emprunt(Date dateEmprunt, Date dateRendu, T materiel, Emprunteur emprunteur) {
+    public Emprunt(Date dateEmprunt, Date dateRendu, Materiel materiel, Emprunteur emprunteur) {
         this.dateEmprunt = dateEmprunt;
         this.dateRendu = dateRendu;
         this.materiel = materiel;
@@ -36,11 +36,11 @@ public class Emprunt <T> implements Serializable{
         this.dateRendu = dateRendu;
     }
 
-    public T getMateriel() {
+    public Materiel getMateriel() {
         return this.materiel;
     }
 
-    public void setMateriel(T materiel) {
+    public void setMateriel(Materiel materiel) {
         this.materiel = materiel;
     }
 
