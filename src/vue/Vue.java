@@ -12,10 +12,10 @@ import model.Stockage;
 
 public class Vue {
 
-    private final Scanner scan = new Scanner(System.in);;
+    private final Scanner scan;
 
     public Vue() {
-
+        this.scan = new Scanner(System.in);
     }
 
     public static void effacerConsole() {  
@@ -25,20 +25,34 @@ public class Vue {
 
     public String askName(){
 
-        final Scanner sc = new Scanner(System.in);
         String prenomUtilisateur, nomUtilisateur;
         
         System.out.print("Quel est votre prenom ? : ");
-        prenomUtilisateur = sc.nextLine();
+        prenomUtilisateur = scan.nextLine();
         
         System.out.print("Quel est votre nom ? : ");
-        nomUtilisateur = sc.nextLine();
+        nomUtilisateur = scan.nextLine();
+
+        if(prenomUtilisateur.equals("")||nomUtilisateur.equals("")){
+
+            System.out.println("Un des champs que vous avez entré est vide. Veuillez recommencer.");
+            return this.askName();
+
+        }
+
+        return prenomUtilisateur+","+nomUtilisateur;
+
+    }
+
+    public void saluer(String prenomUtilisateur, String nomUtilisateur){
 
         System.out.println("\nBienvenu(e) "+prenomUtilisateur+" "+nomUtilisateur+"!\n");
 
-        sc.close();
+    }
 
-        return prenomUtilisateur+","+nomUtilisateur;
+    public void notRegistered(){
+
+        System.out.println("Vous n'êtes pas enregistré dans la base de données des emprunteurs.\nVeuillez renseigner vos informations personnelles.");
 
     }
 
@@ -273,4 +287,10 @@ public class Vue {
     }
 
     /*  ----------------------------------------------------*/
+
+    public void closeScan(){
+
+        this.scan.close();
+
+    }
 }

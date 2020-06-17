@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Objects;
@@ -99,6 +100,16 @@ public class Data implements Serializable{
                 return s;
         }
         return null;
+
+    }
+
+    //fonction d'ajout
+
+    public void ajouterEmprunteur(Emprunteur emp){
+
+        int maxid = Collections.max(this.emprunteurs.keySet());
+        emp.setId(maxid);
+        this.emprunteurs.put(maxid, emp);
 
     }
 

@@ -21,6 +21,7 @@ public class App {
         this.user = this.connexion.connect();
 
         Serialisation.serialiserData(this.data);
+        this.vue.closeScan();
 
     }
 

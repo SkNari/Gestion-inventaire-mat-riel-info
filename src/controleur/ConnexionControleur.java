@@ -33,15 +33,18 @@ public class ConnexionControleur {
 
     public Emprunteur connect(){
 
-        int isConnected = 0;
         String[] user = vue.askName().split(",");
         Emprunteur res = this.data.rechercheEmprunteurParNom(user[1], user[0]);
 
         if(res==null){
 
-            System.out.println("Existe pas ^^");
+            this.vue.notRegistered();   
+            res = this.vue.ajouterEmprunteur();
+            this.data.ajouterEmprunteur(res);
 
         }
+
+        this.vue.saluer(res.getPrenom(), res.getNom());
 
         return res;
     }
