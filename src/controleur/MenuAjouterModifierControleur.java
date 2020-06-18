@@ -95,25 +95,62 @@ public class MenuAjouterModifierControleur {
         }
     }
 
+    //Materiel
     public boolean menuAjouterModifierMateriel(){
-
-        int choix = this.vue.afficherMenuAjMod("Materiel");
+        
+        boolean rep;
+        int choix = this.vue.afficherMenuAjMod("Materiel  ");
+        this.vue.effacerConsole();
         switch (choix) {
             case 0:
                 return false;
             case 1:
-                return true;
+                rep = this.menuAjouterMateriel();
+                return rep?true:this.menuAjouterModifierMateriel();
             case 2:
                 return true;
             default:
-                return this.menu();
+                return this.menuAjouterModifierMateriel();
         }
 
     }
 
+    public boolean menuAjouterMateriel(){
+
+        int choix = this.vue.afficherMenuAjouterMateriel();
+        this.vue.effacerConsole();
+        switch (choix) {
+            case 0:
+                return true;
+            case 1:
+                return true;
+            case 2:
+                return true;
+            case 3:
+                return true;
+            case 4:
+                return true;
+            case 5:
+                return true;
+            case 6:
+                return true;
+            case 7:
+                return true;
+            case 8:
+                return true;
+            case 9:
+                return false;
+            default:
+                return this.menuAjouterMateriel();
+        }
+
+    }
+
+    //Stockage
     public boolean menuAjouterModifierStockage(){
 
-        int choix = this.vue.afficherMenuAjMod("Stockage");
+        int choix = this.vue.afficherMenuAjMod("Stockage  ");
+        this.vue.effacerConsole();
         switch (choix) {
             case 0:
                 return false;
@@ -122,14 +159,16 @@ public class MenuAjouterModifierControleur {
             case 2:
                 return true;
             default:
-                return this.menu();
+                return this.menuAjouterModifierStockage();
         }
 
     }
 
+    //Emprunt
     public boolean menuAjouterModifierEmprunt(){
 
-        int choix = this.vue.afficherMenuAjMod("Emprunt");
+        int choix = this.vue.afficherMenuAjMod("Emprunt   ");
+        this.vue.effacerConsole();
         switch (choix) {
             case 0:
                 return false;
@@ -138,14 +177,16 @@ public class MenuAjouterModifierControleur {
             case 2:
                 return true;
             default:
-                return this.menu();
+                return this.menuAjouterModifierEmprunt();
         }
 
     }
 
+    //Emprunteur
     public boolean menuAjouterModifierEmprunteur(){
 
-        int choix = this.vue.afficherMenuAjMod("Materiel");
+        int choix = this.vue.afficherMenuAjMod("Emprunteur");
+        this.vue.effacerConsole();
         switch (choix) {
             case 0:
                 return false;
@@ -154,7 +195,7 @@ public class MenuAjouterModifierControleur {
             case 2:
                 return true;
             default:
-                return this.menu();
+                return this.menuAjouterModifierEmprunteur();
         }
 
     }
