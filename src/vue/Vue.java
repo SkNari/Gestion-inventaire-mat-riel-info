@@ -137,8 +137,8 @@ public class Vue {
 
         System.out.println("╔═════════════════ MENU AJOUTER/MODIFIER ══════════════════╗");
         System.out.println("║ 0. Retour                                                ║");
-        System.out.println("║ 1. Ajouter "+type+"                                              ║");
-        System.out.println("║ 2. Modifier "+type+"                                             ║");
+        System.out.println("║ 1. Ajouter "+type+"                                    ║");
+        System.out.println("║ 2. Modifier "+type+"                                   ║");
         System.out.println("╚══════════════════════════════════════════════════════════╝");
 
         System.out.print("\nChoix : ");
