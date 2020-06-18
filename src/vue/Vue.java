@@ -23,6 +23,11 @@ public class Vue {
         System.out.flush();  
     }
 
+    public void pauseContinuer(){
+        System.out.print("Appuyez sur entrer pour continuer...");
+        scan.nextLine();
+    }
+
     public String askName(){
 
         String prenomUtilisateur, nomUtilisateur;
@@ -268,6 +273,7 @@ public class Vue {
         for (Materiel materiel : materiels.values()) {
             afficherMateriel(materiel);
         }
+        this.pauseContinuer();
     }
 
     public void afficherMaterielDisponible(HashMap<Integer, Materiel> materiels)
