@@ -1,53 +1,27 @@
 package controleur;
 
+import model.Data;
+import model.Emprunteur;
 import model.Stockage;
 import vue.Vue;
 
 public class Controleur {
 
-    private String prenomUtilisateur;
-    private String nomUtilisateur;
+    private Emprunteur user;
     private final Vue vue;
+    private Data data;
 
-    public String getPrenomUtilisateur() {
-        return this.prenomUtilisateur;
-    }
 
-    public void setPrenomUtilisateur(final String prenomUtilisateur) {
-        this.prenomUtilisateur = prenomUtilisateur;
-    }
-
-    public String getNomUtilisateur() {
-        return this.nomUtilisateur;
-    }
-
-    public void setNomUtilisateur(final String nomUtilisateur) {
-        this.nomUtilisateur = nomUtilisateur;
-    }
-
-    public Controleur(final String prenomUtilisateur, final String nomUtilisateur)
+    public Controleur(final Emprunteur user, Vue vue, Data data)
     {
-        this.prenomUtilisateur = prenomUtilisateur;
-        this.nomUtilisateur = nomUtilisateur;
-        this.vue = new Vue();
-
-        if(this.utilisateurExiste())
-        {
-
-        }
-
-        this.controleurCommande();
+        this.user = user;
+        this.vue = vue;
+        this.data = data;
     }
 
-    private void controleurCommande(){
-        boolean continuer = true;
-        int choix;
-
-        while(continuer)
-        {
-            choix = this.vue.afficherMenu();
-            continuer = this.interpreterChoix(choix);
-        }
+    public void menu()
+    {
+        while(interpreterChoix(this.vue.afficherMenu()));
     }
 
     private boolean interpreterChoix(final int choix) {
@@ -93,7 +67,7 @@ public class Controleur {
             if (choix == 1)
             {
                 // Ajout matériel
-                this.vue.ajouterMateriel();
+                this.data.ajouterMateriel(this.vue.ajouterMateriel());
             }
             else if (choix == 2)
             {
@@ -110,10 +84,5 @@ public class Controleur {
         }
 
         return false;
-    }
-
-    private boolean utilisateurExiste()
-    {
-        return true;
     }
 }

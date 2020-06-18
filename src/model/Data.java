@@ -112,12 +112,12 @@ public class Data implements Serializable{
         this.emprunteurs.put(maxid, emp);
     }
 
-    public void ajouterEmprunt(Emprunt emprunt){
+    public void ajouterEmprunt(Emprunt emprunt, Emprunteur user){
 
         int maxid = Collections.max(this.emprunts.keySet());
 
         emprunt.setMateriel(this.materiels.get(emprunt.getMateriel().getId()));
-        // emprunt.setEmprunteur(user);
+        emprunt.setEmprunteur(user);
         this.emprunts.put(maxid, emprunt);
     }
 

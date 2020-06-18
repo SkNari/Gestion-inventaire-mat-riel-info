@@ -189,9 +189,8 @@ public class Vue {
 
         Date dateRendu = c.getTime();
         Materiel materiel = new Materiel(id, null, null, null, null, -1, null);
-        Emprunteur emprunteur = new Emprunteur(-1, null, null, null, null, null, null);
         
-        Emprunt emprunt = new Emprunt(dateEmprunt, dateRendu, materiel, emprunteur);
+        Emprunt emprunt = new Emprunt(dateEmprunt, dateRendu, materiel, null);
    
         return emprunt;
     }

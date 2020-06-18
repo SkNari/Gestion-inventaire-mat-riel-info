@@ -1,6 +1,7 @@
 package app;
 
 import controleur.ConnexionControleur;
+import controleur.Controleur;
 import model.Emprunteur;
 import model.Serialisation;
 import vue.Vue;
@@ -11,6 +12,7 @@ public class App {
     private Emprunteur user;
     private Vue vue;
     private Data data;
+    private Controleur controleur;
 
     public App(){
 
@@ -19,7 +21,9 @@ public class App {
         this.connexion = new ConnexionControleur(this.vue,this.data);
 
         this.user = this.connexion.connect();
-
+        this.controleur = new Controleur(this.user, this.vue, this.data);
+        this.controleur.menu();
+        
         Serialisation.serialiserData(this.data);
         this.vue.closeScan();
 
