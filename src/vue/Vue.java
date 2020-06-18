@@ -18,7 +18,7 @@ public class Vue {
         this.scan = new Scanner(System.in);
     }
 
-    public static void effacerConsole() {  
+    public void effacerConsole() {  
         System.out.print("\033[H\033[2J");  
         System.out.flush();  
     }
@@ -50,6 +50,12 @@ public class Vue {
 
     }
 
+    public void auRevoir(Emprunteur user){
+
+        System.out.println("\n Au revoir "+user.getPrenom()+" "+user.getNom()+"!");
+
+    }
+
     public void notRegistered(){
 
         System.out.println("Vous n'êtes pas enregistré dans la base de données des emprunteurs.\nVeuillez renseigner vos informations personnelles.");
@@ -58,7 +64,7 @@ public class Vue {
 
     public int afficherMenu()
     {
-        effacerConsole();
+
         System.out.println("╔══════════════════════════ MENU ══════════════════════════╗");
         System.out.println("║ 0. Quitter                                               ║");
         System.out.println("║ 1. Afficher le materiel                                  ║");
@@ -76,7 +82,6 @@ public class Vue {
 
     public int afficherMenuMateriel()
     {
-        effacerConsole();
         System.out.println("╔═════════════════════ MENU MATERIEL ══════════════════════╗");
         System.out.println("║ 0. Retour                                                ║");
         System.out.println("║ 1. Afficher le materiel total                            ║");
@@ -93,7 +98,6 @@ public class Vue {
 
     public int afficherMenuEmprunt()
     {
-        effacerConsole();
         System.out.println("╔══════════════════════ MENU EMPRUNT ══════════════════════╗");
         System.out.println("║ 0. Retour                                                ║");
         System.out.println("║ 1. Afficher tous les emprunts                            ║");
@@ -110,7 +114,6 @@ public class Vue {
 
     public int afficherMenuAjouterModifier()
     {
-        effacerConsole();
         System.out.println("╔═════════════════ MENU AJOUTER/MODIFIER ══════════════════╗");
         System.out.println("║ 0. Retour                                                ║");
         System.out.println("║ 1. Ajouter/Modifier un matériel                          ║");

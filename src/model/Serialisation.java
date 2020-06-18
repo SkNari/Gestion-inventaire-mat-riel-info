@@ -26,6 +26,10 @@ public class Serialisation {
             FileInputStream fis = new FileInputStream("data/data.ser");
             ObjectInputStream ois = new ObjectInputStream(fis);
             Data data = (Data) ois.readObject();
+
+            if(data==null){
+                data = new Data();
+            }
             ois.close();
             return data;
         } catch (Exception e) { 

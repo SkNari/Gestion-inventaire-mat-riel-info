@@ -12,14 +12,12 @@ public class MenuControleur {
     private Emprunteur user;
     private MenuMaterielControleur menuMateriel;
 
-    public MenuControleur() {
-    }
 
-    public MenuControleur(Vue vue, Data data, Emprunteur user, MenuMaterielControleur menuMateriel) {
+    public MenuControleur(Vue vue, Data data, Emprunteur user) {
         this.vue = vue;
         this.data = data;
         this.user = user;
-        this.menuMateriel = menuMateriel;
+        this.menuMateriel = new MenuMaterielControleur(vue,data,user);
     }
 
     public Vue getVue() {
@@ -89,16 +87,19 @@ public class MenuControleur {
             case 0:
                 return false;
             case 1:
+                this.vue.effacerConsole();
                 menuMateriel.menu();
+                return true;
             case 2:
-
+                return true;
             case 3:
-
+                return true;
             case 4:
-
+                return true;
             case 5:
-        
-            default:
+                return true;
+            default:    
+                this.vue.effacerConsole();
                 return this.menu();
         }
     }

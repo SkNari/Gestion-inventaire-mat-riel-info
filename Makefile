@@ -35,7 +35,7 @@ $(DATA_DIR):
 $(BIN_DIR)Main.class: $(SRC_DIR)Main.java $(BIN_DIR)app/App.class $(DATA_DIR)
 	$(JC) $(FLAGS) $(SRC_DIR)Main.java
 
-$(BIN_DIR)app/App.class: $(SRC_DIR)app/App.java $(CONTROLEUR_DIR_BIN)Controleur.class $(CONTROLEUR_DIR_BIN)ConnexionControleur.class $(MODEL_DIR_BIN)Serialisation.class
+$(BIN_DIR)app/App.class: $(SRC_DIR)app/App.java $(CONTROLEUR_DIR_BIN)MenuControleur.class $(CONTROLEUR_DIR_BIN)ConnexionControleur.class $(MODEL_DIR_BIN)Serialisation.class
 	$(JC) $(FLAGS) $(SRC_DIR)app/App.java
 
 #models
@@ -83,17 +83,20 @@ $(MODEL_DIR_BIN)Stockage.class: $(MODEL_DIR)Stockage.java $(MODEL_DIR_BIN)Capteu
 $(MODEL_DIR_BIN)Serialisation.class: $(MODEL_DIR)Serialisation.java $(MODEL_DIR_BIN)Stockage.class $(MODEL_DIR_BIN)Emprunt.class $(MODEL_DIR_BIN)Data.class
 	$(JC) $(FLAGS) $(MODEL_DIR)Serialisation.java
 
-$(MODEL_DIR_BIN)Data.class: $(MODEL_DIR)Data.java
+$(MODEL_DIR_BIN)Data.class: $(MODEL_DIR)Data.java $(MODEL_DIR_BIN)Stockage.class $(MODEL_DIR_BIN)Emprunt.class
 	$(JC) $(FLAGS) $(MODEL_DIR)Data.java
 
 
 #controllers
 
-$(CONTROLEUR_DIR_BIN)Controleur.class: $(CONTROLEUR_DIR)Controleur.java $(MODEL_DIR_BIN)Stockage.class $(VIEW_DIR_BIN)Vue.class
-	$(JC) $(FLAGS) $(CONTROLEUR_DIR)Controleur.java
+$(CONTROLEUR_DIR_BIN)MenuControleur.class: $(CONTROLEUR_DIR)MenuControleur.java $(CONTROLEUR_DIR_BIN)MenuMaterielControleur.class
+	$(JC) $(FLAGS) $(CONTROLEUR_DIR)MenuControleur.java
 
-$(CONTROLEUR_DIR_BIN)ConnexionControleur.class: $(CONTROLEUR_DIR)ConnexionControleur.java $(VIEW_DIR_BIN)Vue.class
+$(CONTROLEUR_DIR_BIN)ConnexionControleur.class: $(CONTROLEUR_DIR)ConnexionControleur.java $(VIEW_DIR_BIN)Vue.class $(MODEL_DIR_BIN)Data.class
 	$(JC) $(FLAGS) $(CONTROLEUR_DIR)ConnexionControleur.java
+
+$(CONTROLEUR_DIR_BIN)MenuMaterielControleur.class: $(CONTROLEUR_DIR)MenuMaterielControleur.java $(VIEW_DIR_BIN)Vue.class $(MODEL_DIR_BIN)Data.class
+	$(JC) $(FLAGS) $(CONTROLEUR_DIR)MenuMaterielControleur.java
 
 #ui (views)
 

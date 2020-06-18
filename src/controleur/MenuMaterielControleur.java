@@ -15,9 +15,6 @@ public class MenuMaterielControleur {
     private Data data;
     private Emprunteur user;
 
-    public MenuMaterielControleur() {
-    }
-
     public MenuMaterielControleur(Vue vue, Data data, Emprunteur user) {
         this.vue = vue;
         this.data = data;

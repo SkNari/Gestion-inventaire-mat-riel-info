@@ -44,6 +44,7 @@ public class ConnexionControleur {
 
         }
 
+        this.vue.effacerConsole();
         this.vue.saluer(res.getPrenom(), res.getNom());
 
         return res;

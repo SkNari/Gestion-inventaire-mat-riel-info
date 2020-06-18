@@ -107,7 +107,13 @@ public class Data implements Serializable{
 
     public void ajouterEmprunteur(Emprunteur emp){
 
-        int maxid = Collections.max(this.emprunteurs.keySet());
+        int maxid;
+
+        if(this.emprunteurs.isEmpty()){
+            maxid = 0;
+        }else{
+            maxid = Collections.max(this.emprunteurs.keySet());
+        }
         emp.setId(maxid);
         this.emprunteurs.put(maxid, emp);
     }
