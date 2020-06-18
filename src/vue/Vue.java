@@ -218,7 +218,7 @@ public class Vue {
 
     /*  --------------------- STOCKAGE ---------------------*/
 
-    public void afficherListeStockages(HashMap<Integer, Stockage> stockages)
+    public void afficherTousStockages(HashMap<Integer, Stockage> stockages)
     {
         for (Stockage stockage : stockages.values()) {
             afficherStockage(stockage);
@@ -261,6 +261,18 @@ public class Vue {
     public void afficherMateriel(Materiel materiel)
     {
         System.out.println(materiel);
+    }
+
+    public void afficherTousMateriels(HashMap<Integer, Materiel> materiels)
+    {
+        for (Materiel materiel : materiels.values()) {
+            afficherMateriel(materiel);
+        }
+    }
+
+    public void afficherMaterielDisponible(HashMap<Integer, Materiel> materiels)
+    {
+        
     }
 
     public int afficherMenuAjouterMateriel()

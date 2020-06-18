@@ -11,13 +11,14 @@ public class MenuControleur {
     private Data data;
     private Emprunteur user;
     private MenuAjouterModifierControleur menuAjoutModif;
-
+    private MenuAfficherMaterielControleur menuAffichMater;
 
     public MenuControleur(Vue vue, Data data, Emprunteur user) {
         this.vue = vue;
         this.data = data;
         this.user = user;
-        this.menuAjoutModif = new MenuAjouterModifierControleur(vue,data,user);
+        this.menuAjoutModif = new MenuAjouterModifierControleur(vue, data, user);
+        this.menuAffichMater = new MenuAfficherMaterielControleur(vue, user, data.getMateriels());
     }
 
     public Vue getVue() {
@@ -52,6 +53,14 @@ public class MenuControleur {
         this.menuAjoutModif = menuAjoutModif;
     }
 
+    public MenuAfficherMaterielControleur getMenuAffichMater() {
+        return this.menuAffichMater;
+    }
+
+    public void setMenuAffichMater(MenuAfficherMaterielControleur menuAffichMater) {
+        this.menuAffichMater = menuAffichMater;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -60,12 +69,12 @@ public class MenuControleur {
             return false;
         }
         MenuControleur menuControleur = (MenuControleur) o;
-        return Objects.equals(vue, menuControleur.vue) && Objects.equals(data, menuControleur.data) && Objects.equals(user, menuControleur.user) && Objects.equals(menuAjoutModif, menuControleur.menuAjoutModif);
+        return Objects.equals(vue, menuControleur.vue) && Objects.equals(data, menuControleur.data) && Objects.equals(user, menuControleur.user) && Objects.equals(menuAjoutModif, menuControleur.menuAjoutModif) && Objects.equals(menuAffichMater, menuControleur.menuAffichMater);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(vue, data, user, menuAjoutModif);
+        return Objects.hash(vue, data, user, menuAjoutModif, menuAffichMater);
     }
 
     @Override
@@ -74,26 +83,28 @@ public class MenuControleur {
             " vue='" + getVue() + "'" +
             ", data='" + getData() + "'" +
             ", user='" + getUser() + "'" +
-            ", menuMateriel='" + getMenuAjoutModif() + "'" +
+            ", menuAjoutModif='" + getMenuAjoutModif() + "'" +
+            ", menuAffichMater='" + getMenuAffichMater() + "'" +
             "}";
     }
-
     
     public boolean menu()
     {   
         int choix = this.vue.afficherMenu();
+        boolean rep;
         this.vue.effacerConsole();
         switch (choix) {
             case 0:
                 return false;
             case 1:
-                return true;
+                rep = this.menuAffichMater.menu();
+                return rep?true:this.menu();
             case 2:
                 return true;
             case 3:
                 return true;
             case 4:
-                boolean rep = this.menuAjoutModif.menu();
+                rep = this.menuAjoutModif.menu();
                 return rep?true:this.menu();
             case 5:
                 return true;
