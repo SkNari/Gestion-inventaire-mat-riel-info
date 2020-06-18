@@ -12,11 +12,6 @@ public class ManetteVR extends Materiel{
         this.connectique = connectique;
     }
 
-    public String getType()
-    {
-        return "ManetteVR";
-    }
-
     public String getConnectique() {
         return this.connectique;
     }

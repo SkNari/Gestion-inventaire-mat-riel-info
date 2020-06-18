@@ -12,11 +12,6 @@ public class CasqueAudio extends Materiel{
         this.connectique = connectique;
     }
 
-    public String getType()
-    {
-        return "CasqueAudio";
-    }
-
     public String getConnectique() {
         return this.connectique;
     }

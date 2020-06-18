@@ -17,11 +17,6 @@ public class Telephone extends Materiel{
         this.resolution = resolution;
     }
 
-    public String getType()
-    {
-        return "Telephone";
-    }
-
     public String getOs() {
         return this.os;
     }

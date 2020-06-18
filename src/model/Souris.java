@@ -11,11 +11,6 @@ public class Souris extends Materiel{
         this.connectique = connectique;
     }
 
-    public String getType()
-    {
-        return "Souris";
-    }
-
     public String getConnectique() {
         return this.connectique;
     }

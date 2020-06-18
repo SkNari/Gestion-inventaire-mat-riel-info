@@ -16,11 +16,6 @@ public class Tablette extends Materiel{
         this.resolution = resolution;
     }
 
-    public String getType()
-    {
-        return "Tablette";
-    }
-
     public String getOs() {
         return this.os;
     }

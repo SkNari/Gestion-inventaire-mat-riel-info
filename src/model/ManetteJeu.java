@@ -12,11 +12,6 @@ public class ManetteJeu extends Materiel{
         this.connectique = connectique;
     }
 
-    public String getType()
-    {
-        return "ManetteJeu";
-    }
-
     public String getConnectique() {
         return this.connectique;
     }

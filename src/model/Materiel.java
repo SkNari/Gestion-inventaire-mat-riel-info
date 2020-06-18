@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-public abstract class Materiel implements Serializable{
+public class Materiel implements Serializable{
 
     private static final long serialVersionUID = 2L;
 
@@ -15,6 +15,7 @@ public abstract class Materiel implements Serializable{
     private Date dateAchat;
     private int prixAchat;
     private String etat;
+    private String type;
 
     public Materiel(int id, String nom, String marque, String proprietaire, Date dateAchat, int prixAchat, String etat) {
         this.id = id;
@@ -26,7 +27,10 @@ public abstract class Materiel implements Serializable{
         this.etat = etat;
     }
 
-    public abstract String getType();
+    public String getType()
+    {
+        return this.type;
+    }
 
     public int getId() {
         return this.id;
