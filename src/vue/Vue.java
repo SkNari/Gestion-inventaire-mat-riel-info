@@ -128,6 +128,21 @@ public class Vue {
         return choix;
     }
 
+    public int afficherMenuAjMod(String type){
+
+        System.out.println("╔═════════════════ MENU AJOUTER/MODIFIER ══════════════════╗");
+        System.out.println("║ 0. Retour                                                ║");
+        System.out.println("║ 1. Ajouter "+type+"                                              ║");
+        System.out.println("║ 2. Modifier "+type+"                                             ║");
+        System.out.println("╚══════════════════════════════════════════════════════════╝");
+
+        System.out.print("\nChoix : ");
+        int choix = scan.nextInt();
+
+        return choix;
+
+    }
+
     /*  --------------------- EMPRUNTEUR -------------------*/
     
         public Emprunteur ajouterEmprunteur()
@@ -183,7 +198,7 @@ public class Vue {
             {
                 c.set(Integer.parseInt(tabRendu[0]), Integer.parseInt(tabRendu[1]),Integer.parseInt(tabRendu[2]));
                 break;
-            }
+            }     
             else
             {
                 System.out.println("Mauvaise saisie !");
@@ -246,6 +261,22 @@ public class Vue {
     public void afficherMateriel(Materiel materiel)
     {
         System.out.println(materiel);
+    }
+
+    public int afficherMenuAjouterMateriel()
+    {   
+        System.out.println("╔════════════════ Vous souhaitez ajouter? ═════════════════╗");
+        System.out.println("║ 0. Capteur Profondeur             1. Casque Audio        ║");
+        System.out.println("║ 2. Casque VR                      3. Manette Jeu         ║");
+        System.out.println("║ 4. Manette VR                     5. Souris              ║");
+        System.out.println("║ 6. Tablette                       7. Telephone           ║");
+        System.out.println("║ 8. Webcam                         9. Sortir              ║");
+        System.out.println("╚══════════════════════════════════════════════════════════╝");
+
+        System.out.print("\nChoix : ");
+        int choix = scan.nextInt();
+
+        return choix;
     }
 
     public Materiel ajouterMateriel()

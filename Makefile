@@ -89,14 +89,14 @@ $(MODEL_DIR_BIN)Data.class: $(MODEL_DIR)Data.java $(MODEL_DIR_BIN)Stockage.class
 
 #controllers
 
-$(CONTROLEUR_DIR_BIN)MenuControleur.class: $(CONTROLEUR_DIR)MenuControleur.java $(CONTROLEUR_DIR_BIN)MenuMaterielControleur.class
+$(CONTROLEUR_DIR_BIN)MenuControleur.class: $(CONTROLEUR_DIR)MenuControleur.java $(CONTROLEUR_DIR_BIN)MenuAjouterModifierControleur.class
 	$(JC) $(FLAGS) $(CONTROLEUR_DIR)MenuControleur.java
 
 $(CONTROLEUR_DIR_BIN)ConnexionControleur.class: $(CONTROLEUR_DIR)ConnexionControleur.java $(VIEW_DIR_BIN)Vue.class $(MODEL_DIR_BIN)Data.class
 	$(JC) $(FLAGS) $(CONTROLEUR_DIR)ConnexionControleur.java
 
-$(CONTROLEUR_DIR_BIN)MenuMaterielControleur.class: $(CONTROLEUR_DIR)MenuMaterielControleur.java $(VIEW_DIR_BIN)Vue.class $(MODEL_DIR_BIN)Data.class
-	$(JC) $(FLAGS) $(CONTROLEUR_DIR)MenuMaterielControleur.java
+$(CONTROLEUR_DIR_BIN)MenuAjouterModifierControleur.class: $(CONTROLEUR_DIR)MenuAjouterModifierControleur.java $(VIEW_DIR_BIN)Vue.class $(MODEL_DIR_BIN)Data.class
+	$(JC) $(FLAGS) $(CONTROLEUR_DIR)MenuAjouterModifierControleur.java
 
 #ui (views)
 
