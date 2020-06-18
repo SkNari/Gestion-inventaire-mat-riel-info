@@ -15,7 +15,7 @@ public class Materiel implements Serializable{
     private Date dateAchat;
     private int prixAchat;
     private String etat;
-    private String type;
+    protected String type;
 
     public Materiel(int id, String nom, String marque, String proprietaire, Date dateAchat, int prixAchat, String etat) {
         this.id = id;

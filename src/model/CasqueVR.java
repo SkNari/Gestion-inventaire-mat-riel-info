@@ -12,6 +12,7 @@ public class CasqueVR extends Materiel{
         super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
         this.connectique = connectique;
         this.resolution = resolution;
+        this.type = "CasqueVR";
     }
 
     public String getConnectique() {

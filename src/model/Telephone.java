@@ -15,6 +15,7 @@ public class Telephone extends Materiel{
         this.os = os;
         this.taille = taille;
         this.resolution = resolution;
+        this.type = "Telephone";
     }
 
     public String getOs() {

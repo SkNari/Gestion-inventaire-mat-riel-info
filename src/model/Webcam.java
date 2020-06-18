@@ -11,6 +11,7 @@ public class Webcam extends Materiel {
         super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
         this.resolution = resolution;
         this.connectique = connectique;
+        this.type = "Webcam";
     }
 
     public int getResolution() {

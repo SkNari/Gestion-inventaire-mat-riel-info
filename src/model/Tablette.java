@@ -14,6 +14,7 @@ public class Tablette extends Materiel{
         this.os = os;
         this.taille = taille;
         this.resolution = resolution;
+        this.type = "Tablette";
     }
 
     public String getOs() {

@@ -9,6 +9,7 @@ public class Souris extends Materiel{
     public Souris(int id,  String nom,  String marque,  String proprietaire,  Date dateAchat,  int prixAchat, String etat, int resolution, String connectique) {
         super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
         this.connectique = connectique;
+        this.type = "Souris";
     }
 
     public String getConnectique() {

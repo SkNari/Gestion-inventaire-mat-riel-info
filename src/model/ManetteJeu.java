@@ -10,6 +10,7 @@ public class ManetteJeu extends Materiel{
     public ManetteJeu(int id,  String nom,  String marque,  String proprietaire,  Date dateAchat,  int prixAchat, String etat, int resolution, String connectique) {
         super(id, nom, marque, proprietaire, dateAchat, prixAchat,etat);
         this.connectique = connectique;
+        this.type = "ManetteJeu";
     }
 
     public String getConnectique() {
