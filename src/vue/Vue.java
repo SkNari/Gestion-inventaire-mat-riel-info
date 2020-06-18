@@ -307,7 +307,7 @@ public class Vue {
         Calendar c = Calendar.getInstance(); 
         c.setTime(dateEmprunt); 
 
-        System.out.print("| Saisisser le prix d'achat du materiel : ");
+        System.out.print("| Saisissemenur le prix d'achat du materiel : ");
         int prixAchat = scan.nextInt();
 
         System.out.print("| Saisisser l'etat du materiel : ");
