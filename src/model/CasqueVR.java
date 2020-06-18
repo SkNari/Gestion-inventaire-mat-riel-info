@@ -14,6 +14,11 @@ public class CasqueVR extends Materiel{
         this.resolution = resolution;
     }
 
+    public String getType()
+    {
+        return "CasqueVR";
+    }
+
     public String getConnectique() {
         return this.connectique;
     }

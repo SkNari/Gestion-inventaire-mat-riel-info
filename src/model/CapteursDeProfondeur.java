@@ -11,6 +11,11 @@ public class CapteursDeProfondeur extends Materiel{
         this.connectique = connectique;
     }
 
+    public String getType()
+    {
+        return "CapteursDeProfondeur";
+    }
+
     public String getConnectique() {
         return this.connectique;
     }

@@ -13,6 +13,11 @@ public class Webcam extends Materiel {
         this.connectique = connectique;
     }
 
+    public String getType()
+    {
+        return "Webcam";
+    }
+
     public int getResolution() {
         return this.resolution;
     }
