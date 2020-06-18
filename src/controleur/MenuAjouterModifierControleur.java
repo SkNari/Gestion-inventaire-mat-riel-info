@@ -2,8 +2,17 @@ package controleur;
 
 import java.util.Objects;
 
+import model.CapteursDeProfondeur;
+import model.CasqueAudio;
+import model.CasqueVR;
 import model.Data;
 import model.Emprunteur;
+import model.ManetteJeu;
+import model.ManetteVR;
+import model.Souris;
+import model.Tablette;
+import model.Telephone;
+import model.Webcam;
 import vue.Vue;
 
 /**
@@ -121,23 +130,59 @@ public class MenuAjouterModifierControleur {
         this.vue.effacerConsole();
         switch (choix) {
             case 0:
+
+                CapteursDeProfondeur cp = this.vue.ajouterCapteursDeProfondeur();
+                this.data.ajouterMateriel(cp);
                 return true;
+
             case 1:
+
+                CasqueAudio ca = this.vue.ajouterCasqueAudio();
+                this.data.ajouterMateriel(ca);
                 return true;
+
             case 2:
+
+                CasqueVR cvr = this.vue.ajouterCasqueVR();
+                this.data.ajouterMateriel(cvr);
                 return true;
+
             case 3:
+
+                ManetteJeu mj = this.vue.ajouterManetteJeu();
+                this.data.ajouterMateriel(mj);
                 return true;
+
             case 4:
+
+                ManetteVR mvr = this.vue.ajouterManetteVR();
+                this.data.ajouterMateriel(mvr);
                 return true;
+
             case 5:
+
+                Souris s = this.vue.ajouterSouris();
+                this.data.ajouterMateriel(s);
                 return true;
+
             case 6:
+
+                Tablette tab = this.vue.ajouterTablette();
+                this.data.ajouterMateriel(tab);
                 return true;
+
             case 7:
+
+                Telephone tel = this.vue.ajouterTelephone ();
+                this.data.ajouterMateriel(tel);
                 return true;
+
             case 8:
+
+                Webcam w = this.vue.ajouterWebcam();
+                this.data.ajouterMateriel(w);
                 return true;
+
             case 9:
                 return false;
             default:

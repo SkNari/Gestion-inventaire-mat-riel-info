@@ -5,10 +5,19 @@ import java.util.HashMap;
 import java.util.Calendar;
 import java.util.Scanner;
 
+import model.CapteursDeProfondeur;
+import model.CasqueAudio;
+import model.CasqueVR;
 import model.Emprunt;
 import model.Emprunteur;
+import model.ManetteJeu;
+import model.ManetteVR;
 import model.Materiel;
+import model.Souris;
 import model.Stockage;
+import model.Tablette;
+import model.Telephone;
+import model.Webcam;
 
 public class Vue {
 
@@ -23,9 +32,11 @@ public class Vue {
         System.out.flush();  
     }
 
-    public void pauseContinuer(){
-        System.out.print("Appuyez sur entrer pour continuer...");
-        scan.nextLine();
+    public void waitForUser(){
+
+        this.scan.nextLine();
+        this.scan.nextLine();
+
     }
 
     public String askName(){
@@ -211,7 +222,7 @@ public class Vue {
         }
 
         Date dateRendu = c.getTime();
-        Materiel materiel = new Materiel(id, null, null, null, null, -1, null);
+        Materiel materiel = new Materiel(id, null, null, null, null, null, null);
         
         Emprunt emprunt = new Emprunt(dateEmprunt, dateRendu, materiel, null);
    
@@ -273,7 +284,6 @@ public class Vue {
         for (Materiel materiel : materiels.values()) {
             afficherMateriel(materiel);
         }
-        this.pauseContinuer();
     }
 
     public void afficherMaterielDisponible(HashMap<Integer, Materiel> materiels)
@@ -297,34 +307,303 @@ public class Vue {
         return choix;
     }
 
-    public Materiel ajouterMateriel()
-    {
-        System.out.print("| Saisisser le nom du materiel : ");
+    public CapteursDeProfondeur ajouterCapteursDeProfondeur(){
+
         scan.nextLine();
+        System.out.println("| Saisisser le nom du capteur de profondeur : ");
         String nom = scan.nextLine();
 
-        System.out.print("| Saisisser la marque du materiel : ");
+        System.out.println("| Saisisser la marque du capteur de profondeur : ");
         String marque = scan.nextLine();
 
-        System.out.print("| Saisisser le proprietaire du materiel : ");
+        System.out.println("| Saisisser le proprietaire du capteur de profondeur : ");
         String proprietaire = scan.nextLine();
 
         Date dateEmprunt = new Date();
         Calendar c = Calendar.getInstance(); 
         c.setTime(dateEmprunt); 
 
-        System.out.print("| Saisissemenur le prix d'achat du materiel : ");
-        int prixAchat = scan.nextInt();
+        System.out.println("| Saisissemenur le prix d'achat du capteur de profondeur : ");
+        String prixAchat = scan.nextLine();
 
-        System.out.print("| Saisisser l'etat du materiel : ");
-        scan.nextLine();
+        System.out.println("| Saisisser l'etat du capteur de profondeur : ");
         String etat = scan.nextLine();
 
-        Materiel materiel = new Materiel(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat);
+        System.out.println("| Saisisser la connectique du capteur de profondeur : ");
+        String connectique = scan.nextLine();
+
+        CapteursDeProfondeur materiel = new CapteursDeProfondeur(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, connectique);
     
         return materiel;
+
     }
     
+    public CasqueVR ajouterCasqueVR(){
+
+        scan.nextLine();
+        System.out.println("| Saisisser le nom du casque VR : ");
+        String nom = scan.nextLine();
+
+        System.out.println("| Saisisser la marque du casque VR : ");
+        String marque = scan.nextLine();
+
+        System.out.println("| Saisisser le proprietaire du casque VR : ");
+        String proprietaire = scan.nextLine();
+
+        Date dateEmprunt = new Date();
+        Calendar c = Calendar.getInstance(); 
+        c.setTime(dateEmprunt); 
+
+        System.out.println("| Saisissemenur le prix d'achat du casque VR : ");
+        String prixAchat = scan.nextLine();
+
+        System.out.println("| Saisisser l'etat du casque VR : ");
+        String etat = scan.nextLine();
+
+        System.out.println("| Saisisser la connectique du casque VR : ");
+        String connectique = scan.nextLine();
+
+        System.out.println("| Saisisser la connectique du casque VR : ");
+        String resolution = scan.nextLine();
+
+        CasqueVR materiel = new CasqueVR(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, connectique,resolution);
+    
+        return materiel;
+
+    }
+
+    public CasqueAudio ajouterCasqueAudio(){
+
+        scan.nextLine();
+        System.out.println("| Saisisser le nom du casque audio : ");
+        String nom = scan.nextLine();
+
+        System.out.println("| Saisisser la marque du casque audio : ");
+        String marque = scan.nextLine();
+
+        System.out.println("| Saisisser le proprietaire du casque audio : ");
+        String proprietaire = scan.nextLine();
+
+        Date dateEmprunt = new Date();
+        Calendar c = Calendar.getInstance(); 
+        c.setTime(dateEmprunt); 
+
+        System.out.println("| Saisissemenur le prix d'achat du casque audio : ");
+        String prixAchat = scan.nextLine();
+
+        System.out.println("| Saisisser l'etat du casque audio : ");
+        String etat = scan.nextLine();
+
+        System.out.println("| Saisisser la connectique du casque audio : ");
+        String connectique = scan.nextLine();
+
+        CasqueAudio materiel = new CasqueAudio(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, connectique);
+    
+        return materiel;
+
+    }
+    
+    public ManetteJeu ajouterManetteJeu(){
+
+        scan.nextLine();
+        System.out.println("| Saisisser le nom de la manette de jeu : ");
+        String nom = scan.nextLine();
+
+        System.out.println("| Saisisser la marque de la manette de jeu : ");
+        String marque = scan.nextLine();
+
+        System.out.println("| Saisisser le proprietaire de la manette de jeu : ");
+        String proprietaire = scan.nextLine();
+
+        Date dateEmprunt = new Date();
+        Calendar c = Calendar.getInstance(); 
+        c.setTime(dateEmprunt); 
+
+        System.out.println("| Saisissemenur le prix d'achat de la manette de jeu : ");
+        String prixAchat = scan.nextLine();
+
+        System.out.println("| Saisisser l'etat de la manette de jeu : ");
+        String etat = scan.nextLine();
+
+        System.out.println("| Saisisser la connectique de la manette de jeu : ");
+        String connectique = scan.nextLine();
+
+        ManetteJeu materiel = new ManetteJeu(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, connectique);
+    
+        return materiel;
+
+    }
+
+    public ManetteVR ajouterManetteVR(){
+
+        scan.nextLine();
+        System.out.println("| Saisisser le nom de la manette VR : ");
+        String nom = scan.nextLine();
+
+        System.out.println("| Saisisser la marque de la manette VR : ");
+        String marque = scan.nextLine();
+
+        System.out.println("| Saisisser le proprietaire de la manette VR : ");
+        String proprietaire = scan.nextLine();
+
+        Date dateEmprunt = new Date();
+        Calendar c = Calendar.getInstance(); 
+        c.setTime(dateEmprunt); 
+
+        System.out.println("| Saisissemenur le prix d'achat de la manette VR : ");
+        String prixAchat = scan.nextLine();
+
+        System.out.println("| Saisisser l'etat de la manette VR : ");
+        String etat = scan.nextLine();
+
+        System.out.println("| Saisisser la connectique de la manette VR : ");
+        String connectique = scan.nextLine();
+
+        ManetteVR materiel = new ManetteVR(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, connectique);
+    
+        return materiel;
+
+    }
+
+    public Souris ajouterSouris(){
+
+        scan.nextLine();
+        System.out.println("| Saisisser le nom de la souris : ");
+        String nom = scan.nextLine();
+
+        System.out.println("| Saisisser la marque de la souris : ");
+        String marque = scan.nextLine();
+
+        System.out.println("| Saisisser le proprietaire de la souris : ");
+        String proprietaire = scan.nextLine();
+
+        Date dateEmprunt = new Date();
+        Calendar c = Calendar.getInstance(); 
+        c.setTime(dateEmprunt); 
+
+        System.out.println("| Saisissemenur le prix d'achat de la souris : ");
+        String prixAchat = scan.nextLine();
+
+        System.out.println("| Saisisser l'etat de la souris : ");
+        String etat = scan.nextLine();
+
+        System.out.println("| Saisisser la connectique de la souris : ");
+        String connectique = scan.nextLine();
+
+        Souris materiel = new Souris(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, connectique);
+    
+        return materiel;
+
+    }
+
+
+    public Telephone ajouterTelephone(){
+
+        scan.nextLine();
+        System.out.println("| Saisisser le nom du telephone : ");
+        String nom = scan.nextLine();
+
+        System.out.println("| Saisisser la marque du telephone : ");
+        String marque = scan.nextLine();
+
+        System.out.println("| Saisisser le proprietaire du telephone : ");
+        String proprietaire = scan.nextLine();
+
+        Date dateEmprunt = new Date();
+        Calendar c = Calendar.getInstance(); 
+        c.setTime(dateEmprunt); 
+
+        System.out.println("| Saisissemenur le prix d'achat du telephone : ");
+        String prixAchat = scan.nextLine();
+
+        System.out.println("| Saisisser l'etat du telephone : ");
+        String etat = scan.nextLine();
+
+        System.out.println("| Saisisser l'os du telephone : ");
+        String os = scan.nextLine();
+
+        System.out.println("| Saisisser la taille du telephone : ");
+        String taille = scan.nextLine();
+
+        System.out.println("| Saisisser la résolution du telephone : ");
+        String resolution = scan.nextLine();
+
+        Telephone materiel = new Telephone(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, os, taille, resolution);
+    
+        return materiel;
+
+    }
+
+    public Tablette ajouterTablette(){
+
+        scan.nextLine();
+        System.out.println("| Saisisser le nom de la tablette : ");
+        String nom = scan.nextLine();
+
+        System.out.println("| Saisisser la marque de la tablette : ");
+        String marque = scan.nextLine();
+
+        System.out.println("| Saisisser le proprietaire de la tablette : ");
+        String proprietaire = scan.nextLine();
+
+        Date dateEmprunt = new Date();
+        Calendar c = Calendar.getInstance(); 
+        c.setTime(dateEmprunt); 
+
+        System.out.println("| Saisissemenur le prix d'achat de la tablette : ");
+        String prixAchat = scan.nextLine();
+
+        System.out.println("| Saisisser l'etat de la tablette : ");
+        String etat = scan.nextLine();
+
+        System.out.println("| Saisisser l'os de la tablette : ");
+        String os = scan.nextLine();
+
+        System.out.println("| Saisisser la taille de la tablette : ");
+        String taille = scan.nextLine();
+
+        System.out.println("| Saisisser la résolution de la tablette : ");
+        String resolution = scan.nextLine();
+
+        Tablette materiel = new Tablette(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, os, taille, resolution);
+    
+        return materiel;
+
+    }
+
+    public Webcam ajouterWebcam(){
+
+        scan.nextLine();
+        System.out.println("| Saisisser le nom de la webcam : ");
+        String nom = scan.nextLine();
+
+        System.out.println("| Saisisser la marque de la webcam : ");
+        String marque = scan.nextLine();
+
+        System.out.println("| Saisisser le proprietaire de la webcam : ");
+        String proprietaire = scan.nextLine();
+
+        Date dateEmprunt = new Date();
+        Calendar c = Calendar.getInstance(); 
+        c.setTime(dateEmprunt); 
+
+        System.out.println("| Saisissemenur le prix d'achat de la webcam : ");
+        String prixAchat = scan.nextLine();
+
+        System.out.println("| Saisisser l'etat de la webcam : ");
+        String etat = scan.nextLine();
+
+        System.out.println("| Saisisser la resolution de la webcam : ");
+        String resolution = scan.nextLine();
+
+        System.out.println("| Saisisser la connectique de la webcam : ");
+        String connectique = scan.nextLine();
+
+        Webcam materiel = new Webcam(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, resolution, connectique);
+    
+        return materiel;
+
+    }
 
     public int supprimerMateriel()
     {

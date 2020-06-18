@@ -82,9 +82,11 @@ public class MenuAfficherMaterielControleur {
                 return false;
             case 1:
                 this.vue.afficherTousMateriels(this.materiels);
+                this.vue.waitForUser();
                 return true;
             case 2:
                 this.vue.afficherMaterielDisponible(this.materiels);
+                this.vue.waitForUser();
                 return true;
             case 3:
 

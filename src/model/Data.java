@@ -129,7 +129,7 @@ public class Data implements Serializable{
 
     public void ajouterMateriel(Materiel materiel){
 
-        int maxid = Collections.max(this.materiels.keySet());
+        int maxid = this.materiels.isEmpty()? 0 : Collections.max(this.materiels.keySet())+1;
         materiel.setId(maxid);
         this.materiels.put(maxid, materiel);
     }

@@ -4,21 +4,21 @@ import java.util.Date;
 import java.util.Objects;
 
 public class Webcam extends Materiel {
-    private int resolution;
+    private String resolution;
     private String connectique;
 
-    public Webcam(int id,  String nom,  String marque,  String proprietaire,  Date dateAchat,  int prixAchat, String etat, int resolution,  String connectique) {
+    public Webcam(int id,  String nom,  String marque,  String proprietaire,  Date dateAchat,  String prixAchat, String etat, String resolution,  String connectique) {
         super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
         this.resolution = resolution;
         this.connectique = connectique;
         this.type = "Webcam";
     }
 
-    public int getResolution() {
+    public String getResolution() {
         return this.resolution;
     }
 
-    public void setResolution( int resolution) {
+    public void setResolution( String resolution) {
         this.resolution = resolution;
     }
 
@@ -50,6 +50,7 @@ public class Webcam extends Materiel {
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
+            ", type='"+ getType() + "'" +
             ", nom='" + getNom() + "'" +
             ", marque='" + getMarque() + "'" +
             ", proprietaire='" + getProprietaire() + "'" +

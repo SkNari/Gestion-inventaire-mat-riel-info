@@ -6,11 +6,11 @@ import java.util.Objects;
 public class Telephone extends Materiel{
 
     private String os;
-    private int taille;
-    private int resolution;
+    private String taille;
+    private String resolution;
 
 
-    public Telephone(int id, String nom, String marque, String proprietaire, Date dateAchat, int prixAchat, String etat, String os, int taille, int resolution) {
+    public Telephone(int id, String nom, String marque, String proprietaire, Date dateAchat, String prixAchat, String etat, String os, String taille, String resolution) {
         super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
         this.os = os;
         this.taille = taille;
@@ -26,19 +26,19 @@ public class Telephone extends Materiel{
         this.os = os;
     }
 
-    public int getTaille() {
+    public String getTaille() {
         return this.taille;
     }
 
-    public void setTaille(int taille) {
+    public void setTaille(String taille) {
         this.taille = taille;
     }
 
-    public int getResolution() {
+    public String getResolution() {
         return this.resolution;
     }
 
-    public void setResolution(int resolution) {
+    public void setResolution(String resolution) {
         this.resolution = resolution;
     }
 
@@ -62,6 +62,7 @@ public class Telephone extends Materiel{
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
+            ", type='"+ getType() + "'" +
             ", nom='" + getNom() + "'" +
             ", marque='" + getMarque() + "'" +
             ", proprietaire='" + getProprietaire() + "'" +

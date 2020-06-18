@@ -13,11 +13,11 @@ public class Materiel implements Serializable{
     private String marque;
     private String proprietaire;
     private Date dateAchat;
-    private int prixAchat;
+    private String prixAchat;
     private String etat;
     protected String type;
 
-    public Materiel(int id, String nom, String marque, String proprietaire, Date dateAchat, int prixAchat, String etat) {
+    public Materiel(int id, String nom, String marque, String proprietaire, Date dateAchat, String prixAchat, String etat) {
         this.id = id;
         this.nom = nom;
         this.marque = marque;
@@ -72,11 +72,11 @@ public class Materiel implements Serializable{
         this.dateAchat = dateAchat;
     }
 
-    public int getPrixAchat() {
+    public String getPrixAchat() {
         return this.prixAchat;
     }
 
-    public void setPrixAchat(int prixAchat) {
+    public void setPrixAchat(String prixAchat) {
         this.prixAchat = prixAchat;
     }
 

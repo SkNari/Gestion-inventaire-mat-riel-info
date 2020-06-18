@@ -7,7 +7,7 @@ public class CasqueAudio extends Materiel{
 
     private String connectique;
 
-    public CasqueAudio(int id,  String nom,  String marque,  String proprietaire,  Date dateAchat, int prixAchat, String etat,String connectique) {
+    public CasqueAudio(int id,  String nom,  String marque,  String proprietaire,  Date dateAchat, String prixAchat, String etat,String connectique) {
         super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
         this.connectique = connectique;
         this.type = "CasqueAudio";
@@ -41,6 +41,7 @@ public class CasqueAudio extends Materiel{
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
+            ", type='"+ getType() + "'" +
             ", nom='" + getNom() + "'" +
             ", marque='" + getMarque() + "'" +
             ", proprietaire='" + getProprietaire() + "'" +

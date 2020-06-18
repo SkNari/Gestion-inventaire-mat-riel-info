@@ -6,10 +6,10 @@ import java.util.Objects;
 public class Tablette extends Materiel{
 
     private String os;
-    private int taille;
-    private int resolution;
+    private String taille;
+    private String resolution;
 
-    public Tablette(int id, String nom, String marque, String proprietaire, Date dateAchat, int prixAchat, String etat, String os, int taille, int resolution) {
+    public Tablette(int id, String nom, String marque, String proprietaire, Date dateAchat, String prixAchat, String etat, String os, String taille, String resolution) {
         super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
         this.os = os;
         this.taille = taille;
@@ -25,19 +25,19 @@ public class Tablette extends Materiel{
         this.os = os;
     }
 
-    public int getTaille() {
+    public String getTaille() {
         return this.taille;
     }
 
-    public void setTaille(int taille) {
+    public void setTaille(String taille) {
         this.taille = taille;
     }
 
-    public int getResolution() {
+    public String getResolution() {
         return this.resolution;
     }
 
-    public void setResolution(int resolution) {
+    public void setResolution(String resolution) {
         this.resolution = resolution;
     }
 
@@ -61,6 +61,7 @@ public class Tablette extends Materiel{
     public String toString() {
         return "{" +
             " id='" + this.getId() + "'" +
+            ", type='"+ getType() + "'" +
             ", nom='" + this.getNom() + "'" +
             ", marque='" + this.getMarque() + "'" +
             ", proprietaire='" + this.getProprietaire() + "'" +
