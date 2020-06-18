@@ -225,10 +225,6 @@ public class Vue {
 
     public Stockage ajouterStockage()
     {
-        System.out.print("\n| Saisisser l'id du stockage : ");
-        scan.nextLine();
-        int id = scan.nextInt();
-
         System.out.print("| Saisisser le nom du stockage : ");
         scan.nextLine();
         String nom = scan.nextLine();
@@ -236,7 +232,7 @@ public class Vue {
         System.out.print("| Saisisser le proprietaire du stockage : ");
         String proprietaire = scan.nextLine();
 
-        Stockage stockage = new Stockage(id, nom, proprietaire);
+        Stockage stockage = new Stockage(-1, nom, proprietaire);
         return stockage;
     }
 

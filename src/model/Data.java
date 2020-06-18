@@ -13,18 +13,18 @@ public class Data implements Serializable{
     private HashMap<Integer, Stockage> stockages;
     private HashMap<Integer, Materiel> materiels;
     private HashMap<Integer, Emprunteur> emprunteurs;
-    private ArrayList<Emprunt> emprunts;
+    private HashMap<Integer, Emprunt> emprunts;
 
     public Data(){
 
         this.stockages = new HashMap<Integer, Stockage>();
         this.materiels = new HashMap<Integer, Materiel>();;
         this.emprunteurs = new HashMap<Integer, Emprunteur>();
-        this.emprunts = new ArrayList<Emprunt>();
+        this.emprunts = new HashMap<Integer, Emprunt>();
 
     }
 
-    public Data(HashMap<Integer,Stockage> stockages, HashMap<Integer,Materiel> materiels, HashMap<Integer,Emprunteur> emprunteurs, ArrayList<Emprunt> emprunts) {
+    public Data(HashMap<Integer,Stockage> stockages, HashMap<Integer,Materiel> materiels, HashMap<Integer,Emprunteur> emprunteurs, HashMap<Integer, Emprunt> emprunts) {
         this.stockages = stockages;
         this.materiels = materiels;
         this.emprunteurs = emprunteurs;
@@ -55,11 +55,11 @@ public class Data implements Serializable{
         this.emprunteurs = emprunteurs;
     }
 
-    public ArrayList<Emprunt> getEmprunts() {
+    public HashMap<Integer, Emprunt> getEmprunts() {
         return this.emprunts;
     }
 
-    public void setEmprunts(ArrayList<Emprunt> emprunts) {
+    public void setEmprunts(HashMap<Integer, Emprunt> emprunts) {
         this.emprunts = emprunts;
     }
 
@@ -110,7 +110,29 @@ public class Data implements Serializable{
         int maxid = Collections.max(this.emprunteurs.keySet());
         emp.setId(maxid);
         this.emprunteurs.put(maxid, emp);
+    }
 
+    public void ajouterEmprunt(Emprunt emprunt){
+
+        int maxid = Collections.max(this.emprunts.keySet());
+
+        emprunt.setMateriel(this.materiels.get(emprunt.getMateriel().getId()));
+        // emprunt.setEmprunteur(user);
+        this.emprunts.put(maxid, emprunt);
+    }
+
+    public void ajouterMateriel(Materiel materiel){
+
+        int maxid = Collections.max(this.materiels.keySet());
+        materiel.setId(maxid);
+        this.materiels.put(maxid, materiel);
+    }
+
+    public void ajouterStockage(Stockage stockage){
+
+        int maxid = Collections.max(this.stockages.keySet());
+        stockage.setId(maxid);
+        this.stockages.put(maxid, stockage);
     }
 
 }
