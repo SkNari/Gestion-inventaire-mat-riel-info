@@ -129,6 +129,27 @@ public class Vue {
         }
     }
 
+    public int afficherMenuStockage()
+    {
+        System.out.println("╔═════════════════════ MENU STOCKAGE ══════════════════════╗");
+        System.out.println("║ 0. Retour                                                ║");
+        System.out.println("║ 1. Afficher tous les stockages                           ║");
+        System.out.println("╚══════════════════════════════════════════════════════════╝");
+
+        System.out.print("\nChoix : ");
+
+        try{
+            int choix = scan.nextInt();
+            this.scan.nextLine();
+            return choix;
+        }catch(InputMismatchException e){
+
+            this.scan.nextLine();
+            return -1;
+
+        }
+    }
+
     public int afficherMenuEmprunt()
     {
         System.out.println("╔══════════════════════ MENU EMPRUNT ══════════════════════╗");
@@ -296,7 +317,7 @@ public class Vue {
     public void afficherTousStockages(HashMap<Integer, Stockage> stockages)
     {
         for (Stockage stockage : stockages.values()) {
-            afficherStockage(stockage);
+            afficherStockageContenu(stockage);
         }
     }
 
