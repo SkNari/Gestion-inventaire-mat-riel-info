@@ -12,6 +12,7 @@ public class MenuControleur {
     private Emprunteur user;
     private MenuAjouterModifierControleur menuAjoutModif;
     private MenuAfficherMaterielControleur menuAffichMater;
+    private MenuAfficherStockageControleur menuAffichStock;
 
     public MenuControleur(Vue vue, Data data, Emprunteur user) {
         this.vue = vue;
@@ -19,6 +20,7 @@ public class MenuControleur {
         this.user = user;
         this.menuAjoutModif = new MenuAjouterModifierControleur(vue, data, user);
         this.menuAffichMater = new MenuAfficherMaterielControleur(vue, user, data.getMateriels());
+        this.menuAffichStock = new MenuAfficherStockageControleur(vue, user, data.getStockages());
     }
 
     public Vue getVue() {
@@ -61,6 +63,44 @@ public class MenuControleur {
         this.menuAffichMater = menuAffichMater;
     }
 
+    public MenuAfficherStockageControleur getMenuAffichStock() {
+        return this.menuAffichStock;
+    }
+
+    public void setMenuAffichStock(MenuAfficherStockageControleur menuAffichStock) {
+        this.menuAffichStock = menuAffichStock;
+    }
+
+    public MenuControleur vue(Vue vue) {
+        this.vue = vue;
+        return this;
+    }
+
+    public MenuControleur data(Data data) {
+        this.data = data;
+        return this;
+    }
+
+    public MenuControleur user(Emprunteur user) {
+        this.user = user;
+        return this;
+    }
+
+    public MenuControleur menuAjoutModif(MenuAjouterModifierControleur menuAjoutModif) {
+        this.menuAjoutModif = menuAjoutModif;
+        return this;
+    }
+
+    public MenuControleur menuAffichMater(MenuAfficherMaterielControleur menuAffichMater) {
+        this.menuAffichMater = menuAffichMater;
+        return this;
+    }
+
+    public MenuControleur menuAffichStock(MenuAfficherStockageControleur menuAffichStock) {
+        this.menuAffichStock = menuAffichStock;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -69,12 +109,12 @@ public class MenuControleur {
             return false;
         }
         MenuControleur menuControleur = (MenuControleur) o;
-        return Objects.equals(vue, menuControleur.vue) && Objects.equals(data, menuControleur.data) && Objects.equals(user, menuControleur.user) && Objects.equals(menuAjoutModif, menuControleur.menuAjoutModif) && Objects.equals(menuAffichMater, menuControleur.menuAffichMater);
+        return Objects.equals(vue, menuControleur.vue) && Objects.equals(data, menuControleur.data) && Objects.equals(user, menuControleur.user) && Objects.equals(menuAjoutModif, menuControleur.menuAjoutModif) && Objects.equals(menuAffichMater, menuControleur.menuAffichMater) && Objects.equals(menuAffichStock, menuControleur.menuAffichStock);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(vue, data, user, menuAjoutModif, menuAffichMater);
+        return Objects.hash(vue, data, user, menuAjoutModif, menuAffichMater, menuAffichStock);
     }
 
     @Override
@@ -85,8 +125,11 @@ public class MenuControleur {
             ", user='" + getUser() + "'" +
             ", menuAjoutModif='" + getMenuAjoutModif() + "'" +
             ", menuAffichMater='" + getMenuAffichMater() + "'" +
+            ", menuAffichStock='" + getMenuAffichStock() + "'" +
             "}";
     }
+
+    
     
     public boolean menu()
     {   
@@ -102,7 +145,8 @@ public class MenuControleur {
             case 2:
                 return true;
             case 3:
-                return true;
+                rep = this.menuAffichStock.menu();
+                return rep?true:this.menu();
             case 4:
                 rep = this.menuAjoutModif.menu();
                 return rep?true:this.menu();

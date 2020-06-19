@@ -34,7 +34,7 @@ public class Vue {
     }
 
     public void waitForUser(){
-
+        System.out.println("Veuillez appuyer sur entree pour continuer...");
         this.scan.nextLine();
 
     }
