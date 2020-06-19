@@ -16,6 +16,7 @@ public class Materiel implements Serializable{
     private String prixAchat;
     private String etat;
     protected String type;
+    protected int idStockage;
 
     public Materiel(int id, String nom, String marque, String proprietaire, Date dateAchat, String prixAchat, String etat) {
         this.id = id;
@@ -25,6 +26,7 @@ public class Materiel implements Serializable{
         this.dateAchat = dateAchat;
         this.prixAchat = prixAchat;
         this.etat = etat;
+        this.idStockage = -1;
     }
 
     public String getType()
@@ -86,6 +88,14 @@ public class Materiel implements Serializable{
 
     public void setEtat(String etat) {
         this.etat = etat;
+    }
+
+    public int getIdStockage() {
+        return this.idStockage;
+    }
+
+    public void setIdStockage(int idStockage) {
+        this.idStockage = idStockage;
     }
 
     @Override

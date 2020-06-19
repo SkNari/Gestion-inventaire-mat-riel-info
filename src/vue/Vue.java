@@ -339,7 +339,6 @@ public class Vue {
     public Stockage ajouterStockage()
     {
         System.out.print("| Saisisser le nom du stockage : ");
-        scan.nextLine();
         String nom = scan.nextLine();
 
         System.out.print("| Saisisser le proprietaire du stockage : ");
