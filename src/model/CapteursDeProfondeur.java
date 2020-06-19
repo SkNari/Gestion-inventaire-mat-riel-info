@@ -41,6 +41,7 @@ public class CapteursDeProfondeur extends Materiel{
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
+            ", type='"+ getType() + "'" +
             ", nom='" + getNom() + "'" +
             ", marque='" + getMarque() + "'" +
             ", proprietaire='" + getProprietaire() + "'" +
