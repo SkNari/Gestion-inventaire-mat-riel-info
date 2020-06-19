@@ -63,5 +63,18 @@ public class CasqueVR extends Materiel{
             "}";
     }
 
+    public void copy(CasqueVR ma){
+
+        this.setNom(ma.getNom());
+        this.setMarque(ma.getMarque());
+        this.setProprietaire(ma.getProprietaire());
+        this.setDateAchat(ma.getDateAchat());
+        this.setPrixAchat(ma.getPrixAchat());
+        this.setEtat(ma.getEtat());
+
+        this.connectique = ma.getConnectique();
+        this.resolution = ma.getResolution();
+
+    }
 
 }

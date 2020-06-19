@@ -2,6 +2,7 @@ package vue;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Calendar;
 import java.util.Scanner;
 
@@ -34,7 +35,6 @@ public class Vue {
 
     public void waitForUser(){
 
-        this.scan.nextLine();
         this.scan.nextLine();
 
     }
@@ -91,9 +91,18 @@ public class Vue {
         System.out.println("╚══════════════════════════════════════════════════════════╝");
 
         System.out.print("\nChoix : ");
-        int choix = scan.nextInt();
 
-        return choix;
+        try{
+            int choix = scan.nextInt();
+            this.scan.nextLine();
+            return choix;
+        }catch(InputMismatchException e){
+
+            this.scan.nextLine();
+            return -1;
+
+        }
+
     }
 
     public int afficherMenuMateriel()
@@ -107,9 +116,17 @@ public class Vue {
         System.out.println("╚══════════════════════════════════════════════════════════╝");
 
         System.out.print("\nChoix : ");
-        int choix = scan.nextInt();
 
-        return choix;
+        try{
+            int choix = scan.nextInt();
+            this.scan.nextLine();
+            return choix;
+        }catch(InputMismatchException e){
+
+            this.scan.nextLine();
+            return -1;
+
+        }
     }
 
     public int afficherMenuEmprunt()
@@ -123,9 +140,17 @@ public class Vue {
         System.out.println("╚══════════════════════════════════════════════════════════╝");
 
         System.out.print("\nChoix : ");
-        int choix = scan.nextInt();
+        
+        try{
+            int choix = scan.nextInt();
+            this.scan.nextLine();
+            return choix;
+        }catch(InputMismatchException e){
 
-        return choix;
+            this.scan.nextLine();
+            return -1;
+
+        }
     }
 
     public int afficherMenuAjouterModifier()
@@ -139,9 +164,18 @@ public class Vue {
         System.out.println("╚══════════════════════════════════════════════════════════╝");
 
         System.out.print("\nChoix : ");
-        int choix = scan.nextInt();
+        
+        try{
+            int choix = scan.nextInt();
+            this.scan.nextLine();
+            return choix;
+        }catch(InputMismatchException e){
 
-        return choix;
+            this.scan.nextLine();
+            return -1;
+
+        }
+
     }
 
     public int afficherMenuAjMod(String type){
@@ -153,9 +187,33 @@ public class Vue {
         System.out.println("╚══════════════════════════════════════════════════════════╝");
 
         System.out.print("\nChoix : ");
-        int choix = scan.nextInt();
 
-        return choix;
+        try{
+            int choix = scan.nextInt();
+            this.scan.nextLine();
+            return choix;
+        }catch(InputMismatchException e){
+
+            this.scan.nextLine();
+            return -1;
+
+        }
+
+    }
+
+    public int demanderId(String type){
+        
+        System.out.println("Veuillez saisir un id de "+type);
+
+        try {
+            int res = this.scan.nextInt();
+            this.scan.nextLine();
+            return res;
+        } catch (InputMismatchException e) {
+            this.scan.nextLine();
+            System.out.println("Input qui n'est pas de type int");
+            return this.demanderId(type);
+        }
 
     }
 
@@ -200,6 +258,7 @@ public class Vue {
         System.out.print("\n| Saisisser l'id du materiel a emprunter : ");
         scan.nextLine();
         int id = scan.nextInt();
+        this.scan.nextLine();
 
         Date dateEmprunt = new Date();
         Calendar c = Calendar.getInstance(); 
@@ -303,13 +362,13 @@ public class Vue {
 
         System.out.print("\nChoix : ");
         int choix = scan.nextInt();
+        this.scan.nextLine();
 
         return choix;
     }
 
     public CapteursDeProfondeur ajouterCapteursDeProfondeur(){
 
-        scan.nextLine();
         System.out.println("| Saisisser le nom du capteur de profondeur : ");
         String nom = scan.nextLine();
 
@@ -340,7 +399,6 @@ public class Vue {
     
     public CasqueVR ajouterCasqueVR(){
 
-        scan.nextLine();
         System.out.println("| Saisisser le nom du casque VR : ");
         String nom = scan.nextLine();
 
@@ -374,7 +432,6 @@ public class Vue {
 
     public CasqueAudio ajouterCasqueAudio(){
 
-        scan.nextLine();
         System.out.println("| Saisisser le nom du casque audio : ");
         String nom = scan.nextLine();
 
@@ -405,7 +462,6 @@ public class Vue {
     
     public ManetteJeu ajouterManetteJeu(){
 
-        scan.nextLine();
         System.out.println("| Saisisser le nom de la manette de jeu : ");
         String nom = scan.nextLine();
 
@@ -436,7 +492,6 @@ public class Vue {
 
     public ManetteVR ajouterManetteVR(){
 
-        scan.nextLine();
         System.out.println("| Saisisser le nom de la manette VR : ");
         String nom = scan.nextLine();
 
@@ -467,7 +522,6 @@ public class Vue {
 
     public Souris ajouterSouris(){
 
-        scan.nextLine();
         System.out.println("| Saisisser le nom de la souris : ");
         String nom = scan.nextLine();
 
@@ -499,7 +553,6 @@ public class Vue {
 
     public Telephone ajouterTelephone(){
 
-        scan.nextLine();
         System.out.println("| Saisisser le nom du telephone : ");
         String nom = scan.nextLine();
 
@@ -536,7 +589,6 @@ public class Vue {
 
     public Tablette ajouterTablette(){
 
-        scan.nextLine();
         System.out.println("| Saisisser le nom de la tablette : ");
         String nom = scan.nextLine();
 
@@ -573,7 +625,6 @@ public class Vue {
 
     public Webcam ajouterWebcam(){
 
-        scan.nextLine();
         System.out.println("| Saisisser le nom de la webcam : ");
         String nom = scan.nextLine();
 
@@ -609,6 +660,7 @@ public class Vue {
     {
         System.out.println("Saisisser l'id du materiel : ");
         int id = scan.nextInt();
+        this.scan.nextLine();
         return id;
     }
 

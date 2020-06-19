@@ -62,4 +62,18 @@ public class Webcam extends Materiel {
             "}";
     }
     
+    public void copy(Webcam ma){
+
+        this.setNom(ma.getNom());
+        this.setMarque(ma.getMarque());
+        this.setProprietaire(ma.getProprietaire());
+        this.setDateAchat(ma.getDateAchat());
+        this.setPrixAchat(ma.getPrixAchat());
+        this.setEtat(ma.getEtat());
+
+        this.connectique = ma.getConnectique();
+        this.resolution = ma.getResolution();
+
+    }
+
 }

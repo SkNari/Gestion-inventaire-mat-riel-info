@@ -73,4 +73,20 @@ public class Tablette extends Materiel{
             ", resolution='" + this.getResolution() + "'" +
             "}";
     }
+
+    public void copy(Tablette ma){
+
+        this.setNom(ma.getNom());
+        this.setMarque(ma.getMarque());
+        this.setProprietaire(ma.getProprietaire());
+        this.setDateAchat(ma.getDateAchat());
+        this.setPrixAchat(ma.getPrixAchat());
+        this.setEtat(ma.getEtat());
+
+        this.os = ma.getOs();
+        this.taille = ma.getTaille();
+        this.resolution = ma.getResolution();
+
+    }
+
 }

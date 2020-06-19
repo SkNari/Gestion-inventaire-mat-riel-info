@@ -51,4 +51,17 @@ public class CapteursDeProfondeur extends Materiel{
             " connectique='" + this.getConnectique() + "'" +
             "}";
     }
+    
+    public void copy(CapteursDeProfondeur ma){
+
+        this.setNom(ma.getNom());
+        this.setMarque(ma.getMarque());
+        this.setProprietaire(ma.getProprietaire());
+        this.setDateAchat(ma.getDateAchat());
+        this.setPrixAchat(ma.getPrixAchat());
+        this.setEtat(ma.getEtat());
+
+        this.connectique = ma.getConnectique();
+
+    }
 }

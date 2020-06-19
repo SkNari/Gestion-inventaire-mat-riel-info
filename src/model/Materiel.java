@@ -117,6 +117,17 @@ public class Materiel implements Serializable{
             "  Etat : " + getEtat() + "\n";
     }
 
+    public void copy(Materiel ma){
+
+        this.nom = ma.getNom();
+        this.marque = ma.getMarque();
+        this.proprietaire = ma.getProprietaire();
+        this.dateAchat = ma.getDateAchat();
+        this.prixAchat = ma.getPrixAchat();
+        this.etat = ma.getEtat();
+
+    }
+
 }
 
 

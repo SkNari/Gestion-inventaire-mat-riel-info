@@ -75,6 +75,19 @@ public class Telephone extends Materiel{
             "}";
     }
 
+    public void copy(Telephone ma){
 
+        this.setNom(ma.getNom());
+        this.setMarque(ma.getMarque());
+        this.setProprietaire(ma.getProprietaire());
+        this.setDateAchat(ma.getDateAchat());
+        this.setPrixAchat(ma.getPrixAchat());
+        this.setEtat(ma.getEtat());
+
+        this.os = ma.getOs();
+        this.taille = ma.getTaille();
+        this.resolution = ma.getResolution();
+
+    }
 
 }

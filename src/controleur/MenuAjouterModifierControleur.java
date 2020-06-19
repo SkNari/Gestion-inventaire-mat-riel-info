@@ -9,6 +9,7 @@ import model.Data;
 import model.Emprunteur;
 import model.ManetteJeu;
 import model.ManetteVR;
+import model.Materiel;
 import model.Souris;
 import model.Tablette;
 import model.Telephone;
@@ -117,7 +118,8 @@ public class MenuAjouterModifierControleur {
                 rep = this.menuAjouterMateriel();
                 return rep?true:this.menuAjouterModifierMateriel();
             case 2:
-                return true;
+                rep = this.menuModifierMateriel();
+                return rep?true:this.menuAjouterModifierMateriel();
             default:
                 return this.menuAjouterModifierMateriel();
         }
@@ -187,6 +189,64 @@ public class MenuAjouterModifierControleur {
                 return false;
             default:
                 return this.menuAjouterMateriel();
+        }
+
+    }
+
+    public boolean menuModifierMateriel(){
+
+        int choix = this.vue.demanderId("Materiel");
+
+        if(this.data.getMateriels().containsKey(choix)){
+
+            Materiel mat = data.getMateriels().get(choix);
+            switch (mat.getType()){
+
+                case "CapteursDeProfondeur":
+                    CapteursDeProfondeur cp = (CapteursDeProfondeur)mat;
+                    cp.copy(this.vue.ajouterCapteursDeProfondeur());
+                    return true;
+                case "CasqueAudio":
+                    CasqueAudio ca = (CasqueAudio)mat;
+                    ca.copy(this.vue.ajouterCasqueAudio());
+                    return true;
+                case "CasqueVR":
+                    CasqueVR cvr = (CasqueVR)mat;
+                    cvr.copy(this.vue.ajouterCasqueVR());
+                    return true;
+                case "ManetteJeu":
+                    ManetteJeu mj = (ManetteJeu)mat;
+                    mj.copy(this.vue.ajouterManetteJeu());
+                    return true;
+                case "ManetteVR":
+                    ManetteVR mvr = (ManetteVR)mat;
+                    mvr.copy(this.vue.ajouterManetteVR());
+                    return true;
+                case "Souris":
+                    Souris sou = (Souris)mat;
+                    sou.copy(this.vue.ajouterSouris());
+                    return true;
+                case "Tablette":
+                    Tablette tab = (Tablette)mat;
+                    tab.copy(this.vue.ajouterTablette());
+                    return true;
+                case "Telephone":
+                    Telephone tel = (Telephone)mat;
+                    tel.copy(this.vue.ajouterTelephone());
+                    return true;
+                case "Webcam":
+                    Webcam web = (Webcam)mat;
+                    web.copy(this.vue.ajouterWebcam());
+                    return true;
+                default:
+                    return true;
+
+            }
+
+        }else{
+
+            return this.menuModifierMateriel();
+
         }
 
     }
