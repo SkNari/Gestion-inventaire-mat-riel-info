@@ -11,6 +11,7 @@ import model.ManetteJeu;
 import model.ManetteVR;
 import model.Materiel;
 import model.Souris;
+import model.Stockage;
 import model.Tablette;
 import model.Telephone;
 import model.Webcam;
@@ -254,14 +255,21 @@ public class MenuAjouterModifierControleur {
     //Stockage
     public boolean menuAjouterModifierStockage(){
 
+        Stockage stock;
         int choix = this.vue.afficherMenuAjMod("Stockage  ");
+
         this.vue.effacerConsole();
         switch (choix) {
             case 0:
                 return false;
             case 1:
+                stock = this.vue.ajouterStockage();
+                this.data.ajouterStockage(stock);
                 return true;
             case 2:
+                choix = this.vue.demanderId("Materiel");
+                stock = data.getStockages().get(choix);
+                stock.copy(this.vue.ajouterStockage());
                 return true;
             default:
                 return this.menuAjouterModifierStockage();

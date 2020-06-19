@@ -90,5 +90,12 @@ public class Stockage implements Serializable{
     {
         this.materiels.remove(materiel.getId());
     }
+
+    public void copy(Stockage stock){
+
+        this.nom = stock.getNom();
+        this.proprietaire = stock.getProprietaire();
+
+    }
     
 }
