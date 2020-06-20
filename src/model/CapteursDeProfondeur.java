@@ -39,17 +39,9 @@ public class CapteursDeProfondeur extends Materiel{
 
     @Override
     public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", type='"+ getType() + "'" +
-            ", nom='" + getNom() + "'" +
-            ", marque='" + getMarque() + "'" +
-            ", proprietaire='" + getProprietaire() + "'" +
-            ", dateAchat='" + getDateAchat() + "'" +
-            ", prixAchat='" + getPrixAchat() + "'" +
-            ", etat='" + getEtat() + "'" +
-            " connectique='" + this.getConnectique() + "'" +
-            "}";
+        return super.toString() +
+            "  Connectique : " + this.getConnectique() + "\n" +
+            "╚═══════════════════════════════════════════╝\n";
     }
     
     public void copy(CapteursDeProfondeur ma){

@@ -60,19 +60,13 @@ public class Telephone extends Materiel{
 
     @Override
     public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", type='"+ getType() + "'" +
-            ", nom='" + getNom() + "'" +
-            ", marque='" + getMarque() + "'" +
-            ", proprietaire='" + getProprietaire() + "'" +
-            ", dateAchat='" + getDateAchat() + "'" +
-            ", prixAchat='" + getPrixAchat() + "'" +
-            ", etat='" + getEtat() + "'" +
-            " os='" + getOs() + "'" +
-            ", taille='" + getTaille() + "'" +
-            ", resolution='" + getResolution() + "'" +
-            "}";
+        return super.toString() +
+            "  OS : " + this.getOs() + "\n" +
+
+            "  Taille : " + this.getTaille() + "\n" +
+
+            "  Resolution : " + this.getResolution() + "\n"+
+            "╚═══════════════════════════════════════════╝\n";
     }
 
     public void copy(Telephone ma){

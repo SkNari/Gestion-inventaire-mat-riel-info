@@ -49,18 +49,10 @@ public class CasqueVR extends Materiel{
 
     @Override
     public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", type='"+ getType() + "'" +
-            ", nom='" + getNom() + "'" +
-            ", marque='" + getMarque() + "'" +
-            ", proprietaire='" + getProprietaire() + "'" +
-            ", dateAchat='" + getDateAchat() + "'" +
-            ", prixAchat='" + getPrixAchat() + "'" +
-            ", etat='" + getEtat() + "'" +    
-            " connectique='" + getConnectique() + "'" +
-            ", resolution='" + getResolution() + "'" +
-            "}";
+        return super.toString() +
+            "  Connectique : " + this.getConnectique() + "\n"
+            + "  Resolution : " + this.getResolution() + "\n"+
+            "╚═══════════════════════════════════════════╝\n";
     }
 
     public void copy(CasqueVR ma){

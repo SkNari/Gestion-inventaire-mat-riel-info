@@ -348,16 +348,29 @@ public class Vue {
         }
     }
 
-    public Emprunt ajouterEmprunt() //return ??
+    public Emprunt ajouterEmprunt(HashMap<Integer, Materiel> materiels, Emprunteur utilisateur) //return ??
     {
-        System.out.print("\n| Saisisser l'id du materiel a emprunter : ");
-        scan.nextLine();
-        int id = scan.nextInt();
-        this.scan.nextLine();
+        Materiel materiel;
+
+        while(true)
+        {
+            System.out.print("\n| Saisisser l'id du materiel a emprunter : ");
+            int id = scan.nextInt();
+            this.scan.nextLine();
+            if (materiels.get(id) != null)
+            {
+                materiel = materiels.get(id);
+                break;
+            }     
+            else
+            {
+                System.out.println("L'id du materiel n'existe pas !");
+            }
+        }
 
         Date dateEmprunt = new Date();
         Calendar c = Calendar.getInstance(); 
-        c.setTime(dateEmprunt);
+        dateEmprunt = c.getTime();
 
         while(true)
         {
@@ -366,7 +379,11 @@ public class Vue {
             String [] tabRendu = stringRendu.split("/");
             if (tabRendu.length == 3)
             {
-                c.set(Integer.parseInt(tabRendu[0]), Integer.parseInt(tabRendu[1]),Integer.parseInt(tabRendu[2]));
+                c.clear();
+                c.set(Calendar.DAY_OF_MONTH, Integer.parseInt(tabRendu[0]));
+                c.set(Calendar.MONTH, Integer.parseInt(tabRendu[1])); 
+                c.set(Calendar.YEAR, Integer.parseInt(tabRendu[2])); 
+
                 break;
             }     
             else
@@ -375,10 +392,11 @@ public class Vue {
             }
         }
 
-        Date dateRendu = c.getTime();
-        Materiel materiel = new Materiel(id, null, null, null, null, null, null);
-        
-        Emprunt emprunt = new Emprunt(dateEmprunt, dateRendu, materiel, null);
+        Date dateRendu = new Date();
+        dateRendu = c.getTime();
+
+        this.waitForUser();
+        Emprunt emprunt = new Emprunt(dateEmprunt, dateRendu, materiel, utilisateur);
    
         return emprunt;
     }

@@ -118,6 +118,7 @@ public class Materiel implements Serializable{
     public String toString() {
         return
             "\n" + 
+            "╔═══════════════════════════════════════════╗\n" +
             "  ID : " + getId() + "\n" +
             "  Nom : " + getNom() + "\n" +
             "  Marque : " + getMarque() + "\n" +

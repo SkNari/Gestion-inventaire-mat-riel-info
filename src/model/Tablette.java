@@ -59,19 +59,13 @@ public class Tablette extends Materiel{
 
     @Override
     public String toString() {
-        return "{" +
-            " id='" + this.getId() + "'" +
-            ", type='"+ getType() + "'" +
-            ", nom='" + this.getNom() + "'" +
-            ", marque='" + this.getMarque() + "'" +
-            ", proprietaire='" + this.getProprietaire() + "'" +
-            ", dateAchat='" + this.getDateAchat() + "'" +
-            ", prixAchat='" + this.getPrixAchat() + "'" +
-            ", etat='" + getEtat() + "'" +
-            " os='" + this.getOs() + "'" +
-            ", taille='" + this.getTaille() + "'" +
-            ", resolution='" + this.getResolution() + "'" +
-            "}";
+        return super.toString() +
+            "  OS : " + this.getOs() + "\n" +
+
+            "  Taille : " + this.getTaille() + "\n" +
+
+            "  Resolution : " + this.getResolution() + "\n"+
+            "╚═══════════════════════════════════════════╝\n";
     }
 
     public void copy(Tablette ma){

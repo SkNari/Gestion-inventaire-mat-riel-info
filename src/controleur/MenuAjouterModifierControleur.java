@@ -15,6 +15,7 @@ import model.Stockage;
 import model.Tablette;
 import model.Telephone;
 import model.Webcam;
+import model.Emprunt;
 import vue.Vue;
 
 /**
@@ -280,14 +281,22 @@ public class MenuAjouterModifierControleur {
     //Emprunt
     public boolean menuAjouterModifierEmprunt(){
 
+        Emprunt emprunt;
         int choix = this.vue.afficherMenuAjMod("Emprunt   ");
         this.vue.effacerConsole();
         switch (choix) {
             case 0:
                 return false;
             case 1:
+                this.vue.afficherMaterielDisponible(this.data.getEmprunts(), this.data.getMateriels());
+                emprunt = this.vue.ajouterEmprunt(this.data.getMateriels(),this.user);
+                this.data.ajouterEmprunt(emprunt, this.user);
                 return true;
             case 2:
+                this.vue.afficherTousEmprunts(this.data.getEmprunts());
+                choix = this.vue.demanderId("Emprunt");
+                emprunt = data.getEmprunts().get(choix);
+                emprunt.copy(this.vue.ajouterEmprunt(this.data.getMateriels(),this.user));
                 return true;
             default:
                 return this.menuAjouterModifierEmprunt();
