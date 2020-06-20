@@ -239,6 +239,44 @@ public class Vue {
     }
 
     /*  --------------------- EMPRUNTEUR -------------------*/
+
+        public void afficherTousEmprunteurs(HashMap<Integer, Emprunteur> emprunteurs)
+        {
+            for (Emprunteur emprunteur : emprunteurs.values()) {
+                afficherEmprunteur(emprunteur);
+            }
+        }
+
+        public void afficherEmprunteur(Emprunteur emprunteur)
+        {
+            System.out.println(emprunteur);
+        }
+
+        public Emprunteur demanderQuelUtilisateur(HashMap<Integer, Emprunteur> emprunteurs) {
+            afficherTousEmprunteurs(emprunteurs);
+
+            System.out.print("\n| Saisisser l'id de l'utilisateur souhaite (q : annuler) : ");
+            String choixEmprunteur = scan.nextLine();
+
+            if(choixEmprunteur.equals("q"))
+            {
+                return null;
+            }
+
+            while(emprunteurs.get(Integer.parseInt(choixEmprunteur)) == null)
+            {
+                System.out.println("Mauvaise saisie !");
+                System.out.print("\n| Saisisser l'id de l'utilisateur souhaite (q : annuler) : ");
+                choixEmprunteur = scan.nextLine();
+
+                if(choixEmprunteur.equals("q"))
+                {
+                    return null;
+                }
+            }
+
+            return emprunteurs.get(Integer.parseInt(choixEmprunteur));            
+        }
     
         public Emprunteur ajouterEmprunteur()
         {
@@ -273,7 +311,43 @@ public class Vue {
     {
 
     } */
+
+    public void afficherTousEmprunts(HashMap<Integer, Emprunt> emprunts)
+    {
+        for (Emprunt emprunt : emprunts.values()) {
+            afficherEmprunt(emprunt);
+        }
+    }
     
+    public void afficherEmprunt(Emprunt emprunt)
+    {
+        System.out.println(emprunt);
+    }
+
+    public void afficherEmpruntUtilisateur(HashMap<Integer, Emprunt> emprunts, Emprunteur utilisateur)
+    {
+        if( utilisateur != null)
+        {
+            for (Emprunt emprunt : emprunts.values()) {
+                if (emprunt.getEmprunteur() == utilisateur)
+                    afficherEmprunt(emprunt);
+            }
+        }
+        
+    }
+
+    public void afficherEmpruntRetard(HashMap<Integer, Emprunt> emprunts)
+    {
+        Date dateActuelle = new Date();
+        Calendar c = Calendar.getInstance(); 
+        c.setTime(dateActuelle);
+
+        for (Emprunt emprunt : emprunts.values()) {
+            if (emprunt.getDateRendu().getTime() < dateActuelle.getTime())
+                afficherEmprunt(emprunt);
+        }
+    }
+
     public Emprunt ajouterEmprunt() //return ??
     {
         System.out.print("\n| Saisisser l'id du materiel a emprunter : ");
@@ -365,9 +439,39 @@ public class Vue {
         }
     }
 
-    public void afficherMaterielDisponible(HashMap<Integer, Materiel> materiels)
+    public void afficherMaterielDisponible(HashMap<Integer, Emprunt> emprunts, HashMap<Integer, Materiel> materiels)
     {
-        
+        boolean present = false;
+        for (Materiel materiel : materiels.values()) {
+            present = false;
+            for (Emprunt emprunt : emprunts.values())
+            {
+                if(emprunt.getMateriel() == materiel)
+                    present = true;
+            }
+
+            if(!present)
+            {
+                afficherMateriel(materiel);
+            }
+        }
+    }
+
+    public void afficherMaterielEmprunte(HashMap<Integer, Emprunt> emprunts, HashMap<Integer, Materiel> materiels)
+    {
+        boolean present = false;
+        for (Materiel materiel : materiels.values()) {
+            present = false;
+            for (Emprunt emprunt : emprunts.values())
+            {
+                if(emprunt.getMateriel() == materiel)
+                    present = true;
+            }
+            if(present)
+            {
+                afficherMateriel(materiel);
+            }
+        }
     }
 
     public int afficherMenuAjouterMateriel()
@@ -691,4 +795,6 @@ public class Vue {
         this.scan.close();
 
     }
+
+	
 }

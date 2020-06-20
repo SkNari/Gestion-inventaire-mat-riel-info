@@ -13,14 +13,16 @@ public class MenuControleur {
     private MenuAjouterModifierControleur menuAjoutModif;
     private MenuAfficherMaterielControleur menuAffichMater;
     private MenuAfficherStockageControleur menuAffichStock;
+    private MenuAfficherEmpruntControleur menuAffichEmprunt;
 
     public MenuControleur(Vue vue, Data data, Emprunteur user) {
         this.vue = vue;
         this.data = data;
         this.user = user;
         this.menuAjoutModif = new MenuAjouterModifierControleur(vue, data, user);
-        this.menuAffichMater = new MenuAfficherMaterielControleur(vue, user, data.getMateriels());
+        this.menuAffichMater = new MenuAfficherMaterielControleur(vue, user, data);
         this.menuAffichStock = new MenuAfficherStockageControleur(vue, user, data.getStockages());
+        this.menuAffichEmprunt = new MenuAfficherEmpruntControleur(vue, user, data);
     }
 
     public Vue getVue() {
@@ -143,7 +145,8 @@ public class MenuControleur {
                 rep = this.menuAffichMater.menu();
                 return rep?true:this.menu();
             case 2:
-                return true;
+                rep = this.menuAffichEmprunt.menu();
+                return rep?true:this.menu();
             case 3:
                 rep = this.menuAffichStock.menu();
                 return rep?true:this.menu();
