@@ -120,7 +120,13 @@ public class Data implements Serializable{
 
     public void ajouterEmprunt(Emprunt emprunt, Emprunteur user){
 
-        int maxid = Collections.max(this.emprunts.keySet());
+        int maxid;
+
+        if(this.emprunteurs.isEmpty()){
+            maxid = 0;
+        }else{
+            maxid = Collections.max(this.emprunts.keySet());
+        }
 
         emprunt.setMateriel(this.materiels.get(emprunt.getMateriel().getId()));
         emprunt.setEmprunteur(user);
@@ -136,7 +142,7 @@ public class Data implements Serializable{
 
     public void ajouterStockage(Stockage stockage){
 
-        int maxid = Collections.max(this.stockages.keySet());
+        int maxid = this.stockages.isEmpty()? 0 : Collections.max(this.stockages.keySet())+1;
         stockage.setId(maxid);
         this.stockages.put(maxid, stockage);
     }

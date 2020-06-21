@@ -267,7 +267,7 @@ public class MenuAjouterModifierControleur {
                 this.data.ajouterStockage(stock);
                 return true;
             case 2:
-                choix = this.vue.demanderId("Materiel");
+                choix = this.vue.demanderId("Stockage");
                 stock = data.getStockages().get(choix);
                 stock.copy(this.vue.ajouterStockage());
                 return true;
