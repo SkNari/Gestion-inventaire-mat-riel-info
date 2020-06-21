@@ -70,15 +70,21 @@ public class Emprunt implements Serializable{
 
     @Override
     public String toString() {
-        return "{" +
-            " dateEmprunt='" + getDateEmprunt() + "'" +
-            ", dateRendu='" + getDateRendu() + "'" +
-            ", materiel='" + getMateriel() + "'" +
-            ", emprunteur='" + getEmprunteur() + "'" +
-            "}";
+        return
+            "\n| Emprunteur : " + this.getEmprunteur().getPrenom() + " " + this.getEmprunteur().getNom() + "\n" +
+            "| Date d'emprunt : " + this.getDateEmprunt() + "\n" +
+            "| Date de rendu : " + this.getDateRendu() + "\n" +
+            "| Materiel emprunte : \n" + getMateriel() + "\n";
     }
 
+    public void copy(Emprunt emprunt){
 
+        this.dateEmprunt = emprunt.getDateEmprunt();
+        this.dateRendu = emprunt.getDateRendu();
+        this.materiel = emprunt.getMateriel();
+        this.emprunteur = emprunt.getEmprunteur();
+
+    }
 
 
 }

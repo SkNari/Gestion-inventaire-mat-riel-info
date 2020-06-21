@@ -239,6 +239,44 @@ public class Vue {
     }
 
     /*  --------------------- EMPRUNTEUR -------------------*/
+
+        public void afficherTousEmprunteurs(HashMap<Integer, Emprunteur> emprunteurs)
+        {
+            for (Emprunteur emprunteur : emprunteurs.values()) {
+                afficherEmprunteur(emprunteur);
+            }
+        }
+
+        public void afficherEmprunteur(Emprunteur emprunteur)
+        {
+            System.out.println(emprunteur);
+        }
+
+        public Emprunteur demanderQuelUtilisateur(HashMap<Integer, Emprunteur> emprunteurs) {
+            afficherTousEmprunteurs(emprunteurs);
+
+            System.out.print("\n| Saisisser l'id de l'utilisateur souhaite (q : annuler) : ");
+            String choixEmprunteur = scan.nextLine();
+
+            if(choixEmprunteur.equals("q"))
+            {
+                return null;
+            }
+
+            while(emprunteurs.get(Integer.parseInt(choixEmprunteur)) == null)
+            {
+                System.out.println("Mauvaise saisie !");
+                System.out.print("\n| Saisisser l'id de l'utilisateur souhaite (q : annuler) : ");
+                choixEmprunteur = scan.nextLine();
+
+                if(choixEmprunteur.equals("q"))
+                {
+                    return null;
+                }
+            }
+
+            return emprunteurs.get(Integer.parseInt(choixEmprunteur));            
+        }
     
         public Emprunteur ajouterEmprunteur()
         {
@@ -273,17 +311,66 @@ public class Vue {
     {
 
     } */
-    
-    public Emprunt ajouterEmprunt() //return ??
+
+    public void afficherTousEmprunts(HashMap<Integer, Emprunt> emprunts)
     {
-        System.out.print("\n| Saisisser l'id du materiel a emprunter : ");
-        scan.nextLine();
-        int id = scan.nextInt();
-        this.scan.nextLine();
+        for (Emprunt emprunt : emprunts.values()) {
+            afficherEmprunt(emprunt);
+        }
+    }
+    
+    public void afficherEmprunt(Emprunt emprunt)
+    {
+        System.out.println(emprunt);
+    }
+
+    public void afficherEmpruntUtilisateur(HashMap<Integer, Emprunt> emprunts, Emprunteur utilisateur)
+    {
+        if( utilisateur != null)
+        {
+            for (Emprunt emprunt : emprunts.values()) {
+                if (emprunt.getEmprunteur() == utilisateur)
+                    afficherEmprunt(emprunt);
+            }
+        }
+        
+    }
+
+    public void afficherEmpruntRetard(HashMap<Integer, Emprunt> emprunts)
+    {
+        Date dateActuelle = new Date();
+        Calendar c = Calendar.getInstance(); 
+        c.setTime(dateActuelle);
+
+        for (Emprunt emprunt : emprunts.values()) {
+            if (emprunt.getDateRendu().getTime() < dateActuelle.getTime())
+                afficherEmprunt(emprunt);
+        }
+    }
+
+    public Emprunt ajouterEmprunt(HashMap<Integer, Materiel> materiels, Emprunteur utilisateur) //return ??
+    {
+        Materiel materiel;
+
+        while(true)
+        {
+            System.out.print("\n| Saisisser l'id du materiel a emprunter : ");
+            int id = scan.nextInt();
+            this.scan.nextLine();
+            if (materiels.get(id) != null)
+            {
+                materiel = materiels.get(id);
+                break;
+            }     
+            else
+            {
+                System.out.println("L'id du materiel n'existe pas !");
+            }
+        }
 
         Date dateEmprunt = new Date();
         Calendar c = Calendar.getInstance(); 
-        c.setTime(dateEmprunt);
+        dateEmprunt = c.getTime();
 
         while(true)
         {
@@ -292,7 +379,11 @@ public class Vue {
             String [] tabRendu = stringRendu.split("/");
             if (tabRendu.length == 3)
             {
-                c.set(Integer.parseInt(tabRendu[0]), Integer.parseInt(tabRendu[1]),Integer.parseInt(tabRendu[2]));
+                c.clear();
+                c.set(Calendar.DAY_OF_MONTH, Integer.parseInt(tabRendu[0]));
+                c.set(Calendar.MONTH, Integer.parseInt(tabRendu[1])); 
+                c.set(Calendar.YEAR, Integer.parseInt(tabRendu[2])); 
+
                 break;
             }     
             else
@@ -301,10 +392,11 @@ public class Vue {
             }
         }
 
-        Date dateRendu = c.getTime();
-        Materiel materiel = new Materiel(id, null, null, null, null, null, null);
-        
-        Emprunt emprunt = new Emprunt(dateEmprunt, dateRendu, materiel, null);
+        Date dateRendu = new Date();
+        dateRendu = c.getTime();
+
+        this.waitForUser();
+        Emprunt emprunt = new Emprunt(dateEmprunt, dateRendu, materiel, utilisateur);
    
         return emprunt;
     }
@@ -365,9 +457,39 @@ public class Vue {
         }
     }
 
-    public void afficherMaterielDisponible(HashMap<Integer, Materiel> materiels)
+    public void afficherMaterielDisponible(HashMap<Integer, Emprunt> emprunts, HashMap<Integer, Materiel> materiels)
     {
-        
+        boolean present = false;
+        for (Materiel materiel : materiels.values()) {
+            present = false;
+            for (Emprunt emprunt : emprunts.values())
+            {
+                if(emprunt.getMateriel() == materiel)
+                    present = true;
+            }
+
+            if(!present)
+            {
+                afficherMateriel(materiel);
+            }
+        }
+    }
+
+    public void afficherMaterielEmprunte(HashMap<Integer, Emprunt> emprunts, HashMap<Integer, Materiel> materiels)
+    {
+        boolean present = false;
+        for (Materiel materiel : materiels.values()) {
+            present = false;
+            for (Emprunt emprunt : emprunts.values())
+            {
+                if(emprunt.getMateriel() == materiel)
+                    present = true;
+            }
+            if(present)
+            {
+                afficherMateriel(materiel);
+            }
+        }
     }
 
     public int afficherMenuAjouterMateriel()
@@ -691,4 +813,6 @@ public class Vue {
         this.scan.close();
 
     }
+
+	
 }

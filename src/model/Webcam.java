@@ -48,18 +48,11 @@ public class Webcam extends Materiel {
 
     @Override
     public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", type='"+ getType() + "'" +
-            ", nom='" + getNom() + "'" +
-            ", marque='" + getMarque() + "'" +
-            ", proprietaire='" + getProprietaire() + "'" +
-            ", dateAchat='" + getDateAchat() + "'" +
-            ", prixAchat='" + getPrixAchat() + "'" +
-            ", etat='" + getEtat() + "'" +
-            " resolution='" + this.getResolution() + "'" +
-            " connectique='" + getConnectique() + "'" +
-            "}";
+        return super.toString() +
+            "  Resolution : " + this.getResolution() + "\n" +
+
+            "  Connectique : " + this.getConnectique() + "\n"+
+            "╚═══════════════════════════════════════════╝\n";
     }
     
     public void copy(Webcam ma){

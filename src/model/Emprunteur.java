@@ -99,14 +99,14 @@ public class Emprunteur implements Serializable{
 
     @Override
     public String toString() {
-        return "{" +
-            " id='" + this.getId() + "'" +
-            " institution='" + this.getInstitution() + "'" +
-            ", nom='" + this.getNom() + "'" +
-            ", prenom='" + this.getPrenom() + "'" +
-            ", adresse='" + this.getAdresse() + "'" +
-            ", numeroDeTelephone='" + this.getNumeroDeTelephone() + "'" +
-            ", mail='" + this.getMail() + "'" +
-            "}";
+        return 
+            "\n╔═══════════════════════════════════════════╗\n" +
+            "  " + this.getPrenom()+ " " + this.getNom() + "\n" +
+            "  ID : " + this.getId() + "\n" +
+            "  Institution : " + this.getInstitution() + "\n" +
+            "  Adresse : " + this.getAdresse() + "\n" +
+            "  Numero de Telephone : " + this.getNumeroDeTelephone() + "\n" +
+            "  Mail : " + this.getMail() + "\n"+
+            "╚═══════════════════════════════════════════╝\n";
     }
 }
