@@ -73,6 +73,7 @@ public class MenuAfficherMaterielControleur {
 
     public boolean menu()
     {   
+        boolean rep;
         int choix = this.vue.afficherMenuMateriel();
         this.vue.effacerConsole();
 
@@ -84,19 +85,95 @@ public class MenuAfficherMaterielControleur {
                 this.vue.waitForUser();
                 return true;
             case 2:
-                this.vue.afficherMaterielDisponible(this.data.getEmprunts(),this.data.getMateriels());
+                this.vue.afficherMaterielDisponible(data.getStockages());
                 this.vue.waitForUser();
                 return true;
             case 3:
-                this.vue.afficherMaterielEmprunte(this.data.getEmprunts(),this.data.getMateriels());
+                this.vue.afficherMaterielEmprunte(this.data.getEmprunts());
                 this.vue.waitForUser();
                 return true;
             case 4:
-
-                return true;  
+                rep =  this.menuAfficherSelonType();
+                return rep?true:this.menu();  
             default:
                 return this.menu();
         }
+    }
+
+    public boolean menuAfficherSelonType(){
+
+        int choix = this.vue.afficherMenuAjouterMateriel();
+        this.vue.effacerConsole();
+        switch (choix) {
+            case 0:
+                for (Materiel materiel : data.getMateriels().values()){
+                    if(materiel.getType().equals("CapteurDeProfondeur"))
+                        vue.afficherMateriel(materiel);
+                }
+                vue.waitForUser();
+                return true;
+            case 1:
+                for (Materiel materiel : data.getMateriels().values()){
+                    if(materiel.getType().equals("CasqueAudio"))
+                        vue.afficherMateriel(materiel);
+                }
+                vue.waitForUser();
+                return true;
+            case 2:
+                for (Materiel materiel : data.getMateriels().values()){
+                    if(materiel.getType().equals("CasqueVR"))
+                        vue.afficherMateriel(materiel);
+                }
+                vue.waitForUser();
+                return true;
+            case 3:
+                for (Materiel materiel : data.getMateriels().values()){
+                    if(materiel.getType().equals("ManetteJeu"))
+                        vue.afficherMateriel(materiel);
+                }
+                vue.waitForUser();
+                return true;
+            case 4:
+                for (Materiel materiel : data.getMateriels().values()){
+                    if(materiel.getType().equals("ManetteVR"))
+                        vue.afficherMateriel(materiel);
+                }
+                vue.waitForUser();
+                return true;
+            case 5:
+                for (Materiel materiel : data.getMateriels().values()){
+                    if(materiel.getType().equals("Souris"))
+                        vue.afficherMateriel(materiel);
+                }
+                vue.waitForUser();
+                return true;
+            case 6:
+                for (Materiel materiel : data.getMateriels().values()){
+                    if(materiel.getType().equals("Tablette"))
+                        vue.afficherMateriel(materiel);
+                }
+                vue.waitForUser();
+                return true;
+            case 7:
+                for (Materiel materiel : data.getMateriels().values()){
+                    if(materiel.getType().equals("Telephone"))
+                        vue.afficherMateriel(materiel);
+                }
+                vue.waitForUser();
+                return true;
+            case 8:
+                for (Materiel materiel : data.getMateriels().values()){
+                    if(materiel.getType().equals("Webcam"))
+                        vue.afficherMateriel(materiel);
+                }
+                vue.waitForUser();
+                return true;
+            case 9:
+                return false;
+            default:
+                return this.menuAfficherSelonType();
+        }
+
     }
     
 }

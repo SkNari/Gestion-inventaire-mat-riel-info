@@ -14,6 +14,7 @@ public class MenuControleur {
     private MenuAfficherMaterielControleur menuAffichMater;
     private MenuAfficherStockageControleur menuAffichStock;
     private MenuAfficherEmpruntControleur menuAffichEmprunt;
+    private MenuRendreEmprunt menuRendreEmprunt;
 
     public MenuControleur(Vue vue, Data data, Emprunteur user) {
         this.vue = vue;
@@ -23,6 +24,7 @@ public class MenuControleur {
         this.menuAffichMater = new MenuAfficherMaterielControleur(vue, user, data);
         this.menuAffichStock = new MenuAfficherStockageControleur(vue, user, data.getStockages());
         this.menuAffichEmprunt = new MenuAfficherEmpruntControleur(vue, user, data);
+        this.menuRendreEmprunt = new MenuRendreEmprunt(data, vue);
     }
 
     public Vue getVue() {
@@ -73,35 +75,14 @@ public class MenuControleur {
         this.menuAffichStock = menuAffichStock;
     }
 
-    public MenuControleur vue(Vue vue) {
-        this.vue = vue;
-        return this;
+    public void setMenuRendreEmprunt(MenuRendreEmprunt menuRendreEmprunt) {
+        this.menuRendreEmprunt = menuRendreEmprunt;
     }
 
-    public MenuControleur data(Data data) {
-        this.data = data;
-        return this;
+    public MenuRendreEmprunt getMenuRendreEmprunt(){
+        return this.menuRendreEmprunt;
     }
-
-    public MenuControleur user(Emprunteur user) {
-        this.user = user;
-        return this;
-    }
-
-    public MenuControleur menuAjoutModif(MenuAjouterModifierControleur menuAjoutModif) {
-        this.menuAjoutModif = menuAjoutModif;
-        return this;
-    }
-
-    public MenuControleur menuAffichMater(MenuAfficherMaterielControleur menuAffichMater) {
-        this.menuAffichMater = menuAffichMater;
-        return this;
-    }
-
-    public MenuControleur menuAffichStock(MenuAfficherStockageControleur menuAffichStock) {
-        this.menuAffichStock = menuAffichStock;
-        return this;
-    }
+    
 
     @Override
     public boolean equals(Object o) {
@@ -154,7 +135,8 @@ public class MenuControleur {
                 rep = this.menuAjoutModif.menu();
                 return rep?true:this.menu();
             case 5:
-                return true;
+                rep = this.menuRendreEmprunt.menu();
+                return rep?true:this.menu();
             default:    
                 return this.menu();
         }

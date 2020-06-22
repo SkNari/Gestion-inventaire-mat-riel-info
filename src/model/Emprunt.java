@@ -10,6 +10,7 @@ public class Emprunt implements Serializable{
     private Date dateRendu;
     private Materiel materiel;
     private Emprunteur emprunteur;
+    private int id;
 
     private static final long serialVersionUID = 5L;
 
@@ -52,6 +53,14 @@ public class Emprunt implements Serializable{
         this.emprunteur = emprunteur;
     }
 
+    public int getId(){
+        return this.id;
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -71,7 +80,8 @@ public class Emprunt implements Serializable{
     @Override
     public String toString() {
         return
-            "\n| Emprunteur : " + this.getEmprunteur().getPrenom() + " " + this.getEmprunteur().getNom() + "\n" +
+            "\n| Id : " + this.getId() + "\n" +
+            "| Emprunteur : " + this.getEmprunteur().getPrenom() + " " + this.getEmprunteur().getNom() + "\n" +
             "| Date d'emprunt : " + this.getDateEmprunt() + "\n" +
             "| Date de rendu : " + this.getDateRendu() + "\n" +
             "| Materiel emprunte : \n" + getMateriel() + "\n";

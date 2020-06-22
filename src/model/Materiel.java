@@ -15,8 +15,13 @@ public class Materiel implements Serializable{
     private Date dateAchat;
     private String prixAchat;
     private String etat;
+    private boolean estEmprunte;
     protected String type;
     protected int idStockage;
+
+    public Materiel(){
+        
+    }
 
     public Materiel(int id, String nom, String marque, String proprietaire, Date dateAchat, String prixAchat, String etat) {
         this.id = id;
@@ -27,6 +32,7 @@ public class Materiel implements Serializable{
         this.prixAchat = prixAchat;
         this.etat = etat;
         this.idStockage = -1;
+        this.estEmprunte = false;
     }
 
     public String getType()
@@ -98,6 +104,14 @@ public class Materiel implements Serializable{
         this.idStockage = idStockage;
     }
 
+    public void setEstEmprunte(boolean estEmprunte) {
+        this.estEmprunte = estEmprunte;
+    }
+
+    public boolean getEstEmprunte(){
+        return this.estEmprunte;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -120,6 +134,7 @@ public class Materiel implements Serializable{
             "\n" + 
             "╔═══════════════════════════════════════════╗\n" +
             "  ID : " + getId() + "\n" +
+            "  Type : " + getType() + "\n" + 
             "  Nom : " + getNom() + "\n" +
             "  Marque : " + getMarque() + "\n" +
             "  Proprietaire : " + getProprietaire() + "\n" +

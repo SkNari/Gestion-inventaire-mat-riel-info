@@ -7,6 +7,11 @@ public class CasqueAudio extends Materiel{
 
     private String connectique;
 
+    public CasqueAudio(){
+        super();
+        this.type = "CasqueAudio";
+    }
+
     public CasqueAudio(int id,  String nom,  String marque,  String proprietaire,  Date dateAchat, String prixAchat, String etat,String connectique) {
         super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
         this.connectique = connectique;

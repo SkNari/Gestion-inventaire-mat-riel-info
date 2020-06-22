@@ -8,6 +8,11 @@ public class CasqueVR extends Materiel{
     private String connectique;
     private String resolution;
 
+    public CasqueVR(){
+        super();
+        this.type = "CasqueVR";
+    }
+
     public CasqueVR(int id, String nom, String marque, String proprietaire, Date dateAchat, String prixAchat,String etat,String connectique, String resolution) {
         super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
         this.connectique = connectique;

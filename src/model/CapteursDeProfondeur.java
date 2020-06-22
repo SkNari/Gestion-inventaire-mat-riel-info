@@ -7,6 +7,11 @@ public class CapteursDeProfondeur extends Materiel{
 
     private String connectique;
 
+    public CapteursDeProfondeur(){
+        super();
+        this.type = "CapteursDeProfondeur";
+    }
+
     public CapteursDeProfondeur( int id,  String nom,  String marque,  String proprietaire,  Date dateAchat, String prixAchat, String etat, String connectique) {
         super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
         this.connectique = connectique;

@@ -89,7 +89,7 @@ $(MODEL_DIR_BIN)Data.class: $(MODEL_DIR)Data.java $(MODEL_DIR_BIN)Stockage.class
 
 #controllers
 
-$(CONTROLEUR_DIR_BIN)MenuControleur.class: $(CONTROLEUR_DIR)MenuControleur.java $(CONTROLEUR_DIR_BIN)MenuAjouterModifierControleur.class $(CONTROLEUR_DIR_BIN)MenuAfficherMaterielControleur.class
+$(CONTROLEUR_DIR_BIN)MenuControleur.class: $(CONTROLEUR_DIR)MenuControleur.java $(CONTROLEUR_DIR_BIN)MenuAjouterModifierControleur.class $(CONTROLEUR_DIR_BIN)MenuAfficherMaterielControleur.class $(CONTROLEUR_DIR_BIN)MenuAfficherEmpruntControleur.class $(CONTROLEUR_DIR_BIN)MenuRendreEmprunt.class
 	$(JC) $(FLAGS) $(CONTROLEUR_DIR)MenuControleur.java
 
 $(CONTROLEUR_DIR_BIN)ConnexionControleur.class: $(CONTROLEUR_DIR)ConnexionControleur.java $(VIEW_DIR_BIN)Vue.class $(MODEL_DIR_BIN)Data.class
@@ -100,6 +100,12 @@ $(CONTROLEUR_DIR_BIN)MenuAjouterModifierControleur.class: $(CONTROLEUR_DIR)MenuA
 
 $(CONTROLEUR_DIR_BIN)MenuAfficherMaterielControleur.class: $(CONTROLEUR_DIR)MenuAfficherMaterielControleur.java $(VIEW_DIR_BIN)Vue.class $(MODEL_DIR_BIN)Data.class
 	$(JC) $(FLAGS) $(CONTROLEUR_DIR)MenuAfficherMaterielControleur.java
+
+$(CONTROLEUR_DIR_BIN)MenuAfficherEmpruntControleur.class: $(CONTROLEUR_DIR)MenuAfficherEmpruntControleur.java $(VIEW_DIR_BIN)Vue.class $(MODEL_DIR_BIN)Data.class
+	$(JC) $(FLAGS) $(CONTROLEUR_DIR)MenuAfficherEmpruntControleur.java
+
+$(CONTROLEUR_DIR_BIN)MenuRendreEmprunt.class: $(CONTROLEUR_DIR)MenuRendreEmprunt.java $(VIEW_DIR_BIN)Vue.class $(MODEL_DIR_BIN)Data.class
+	$(JC) $(FLAGS) $(CONTROLEUR_DIR)MenuRendreEmprunt.java
 
 #ui (views)
 

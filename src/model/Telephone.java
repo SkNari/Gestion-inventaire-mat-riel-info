@@ -9,6 +9,10 @@ public class Telephone extends Materiel{
     private String taille;
     private String resolution;
 
+    public Telephone(){
+        super();
+        this.type = "Telephone";
+    }
 
     public Telephone(int id, String nom, String marque, String proprietaire, Date dateAchat, String prixAchat, String etat, String os, String taille, String resolution) {
         super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);

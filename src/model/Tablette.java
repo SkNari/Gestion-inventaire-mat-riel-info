@@ -9,6 +9,11 @@ public class Tablette extends Materiel{
     private String taille;
     private String resolution;
 
+    public Tablette(){
+        super();
+        this.type = "Tablette";
+    }
+
     public Tablette(int id, String nom, String marque, String proprietaire, Date dateAchat, String prixAchat, String etat, String os, String taille, String resolution) {
         super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
         this.os = os;

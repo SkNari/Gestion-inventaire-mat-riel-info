@@ -6,6 +6,10 @@ import java.util.Objects;
 public class ManetteJeu extends Materiel{
     private String connectique;
 
+    public ManetteJeu(){
+        super();
+        this.type = "ManetteJeu";
+    }
 
     public ManetteJeu(int id,  String nom,  String marque,  String proprietaire,  Date dateAchat,  String prixAchat, String etat, String connectique) {
         super(id, nom, marque, proprietaire, dateAchat, prixAchat,etat);

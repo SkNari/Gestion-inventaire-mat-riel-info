@@ -6,6 +6,11 @@ import java.util.Objects;
 public class Souris extends Materiel{
     private String connectique;
 
+    public Souris(){
+        super();
+        this.type = "Souris";
+    }
+
     public Souris(int id,  String nom,  String marque,  String proprietaire,  Date dateAchat,  String prixAchat, String etat, String connectique) {
         super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
         this.connectique = connectique;

@@ -28,58 +28,64 @@ public class Vue {
         this.scan = new Scanner(System.in);
     }
 
-    public void effacerConsole() {  
-        System.out.print("\033[H\033[2J");  
-        System.out.flush();  
+    public void msg(String msg){
+
+        System.out.println(msg);
+
     }
 
-    public void waitForUser(){
+    public void effacerConsole() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
+    public void waitForUser() {
         System.out.println("Veuillez appuyer sur entree pour continuer...");
         this.scan.nextLine();
 
     }
 
-    public String askName(){
+    public String askName() {
 
         String prenomUtilisateur, nomUtilisateur;
-        
+
         System.out.print("Quel est votre prenom ? : ");
         prenomUtilisateur = scan.nextLine();
-        
+
         System.out.print("Quel est votre nom ? : ");
         nomUtilisateur = scan.nextLine();
 
-        if(prenomUtilisateur.equals("")||nomUtilisateur.equals("")){
+        if (prenomUtilisateur.equals("") || nomUtilisateur.equals("")) {
 
             System.out.println("Un des champs que vous avez entré est vide. Veuillez recommencer.");
             return this.askName();
 
         }
 
-        return prenomUtilisateur+","+nomUtilisateur;
+        return prenomUtilisateur + "," + nomUtilisateur;
 
     }
 
-    public void saluer(String prenomUtilisateur, String nomUtilisateur){
+    public void saluer(String prenomUtilisateur, String nomUtilisateur) {
 
-        System.out.println("\nBienvenu(e) "+prenomUtilisateur+" "+nomUtilisateur+"!\n");
-
-    }
-
-    public void auRevoir(Emprunteur user){
-
-        System.out.println("\n Au revoir "+user.getPrenom()+" "+user.getNom()+"!");
+        System.out.println("\nBienvenu(e) " + prenomUtilisateur + " " + nomUtilisateur + "!\n");
 
     }
 
-    public void notRegistered(){
+    public void auRevoir(Emprunteur user) {
 
-        System.out.println("Vous n'êtes pas enregistré dans la base de données des emprunteurs.\nVeuillez renseigner vos informations personnelles.");
+        System.out.println("\n Au revoir " + user.getPrenom() + " " + user.getNom() + "!");
 
     }
 
-    public int afficherMenu()
-    {
+    public void notRegistered() {
+
+        System.out.println(
+                "Vous n'êtes pas enregistré dans la base de données des emprunteurs.\nVeuillez renseigner vos informations personnelles.");
+
+    }
+
+    public int afficherMenu() {
 
         System.out.println("╔══════════════════════════ MENU ══════════════════════════╗");
         System.out.println("║ 0. Quitter                                               ║");
@@ -92,11 +98,11 @@ public class Vue {
 
         System.out.print("\nChoix : ");
 
-        try{
+        try {
             int choix = scan.nextInt();
             this.scan.nextLine();
             return choix;
-        }catch(InputMismatchException e){
+        } catch (InputMismatchException e) {
 
             this.scan.nextLine();
             return -1;
@@ -105,8 +111,7 @@ public class Vue {
 
     }
 
-    public int afficherMenuMateriel()
-    {
+    public int afficherMenuMateriel() {
         System.out.println("╔═════════════════════ MENU MATERIEL ══════════════════════╗");
         System.out.println("║ 0. Retour                                                ║");
         System.out.println("║ 1. Afficher le materiel total                            ║");
@@ -117,11 +122,11 @@ public class Vue {
 
         System.out.print("\nChoix : ");
 
-        try{
+        try {
             int choix = scan.nextInt();
             this.scan.nextLine();
             return choix;
-        }catch(InputMismatchException e){
+        } catch (InputMismatchException e) {
 
             this.scan.nextLine();
             return -1;
@@ -129,8 +134,7 @@ public class Vue {
         }
     }
 
-    public int afficherMenuStockage()
-    {
+    public int afficherMenuStockage() {
         System.out.println("╔═════════════════════ MENU STOCKAGE ══════════════════════╗");
         System.out.println("║ 0. Retour                                                ║");
         System.out.println("║ 1. Afficher tous les stockages                           ║");
@@ -138,11 +142,11 @@ public class Vue {
 
         System.out.print("\nChoix : ");
 
-        try{
+        try {
             int choix = scan.nextInt();
             this.scan.nextLine();
             return choix;
-        }catch(InputMismatchException e){
+        } catch (InputMismatchException e) {
 
             this.scan.nextLine();
             return -1;
@@ -150,8 +154,7 @@ public class Vue {
         }
     }
 
-    public int afficherMenuEmprunt()
-    {
+    public int afficherMenuEmprunt() {
         System.out.println("╔══════════════════════ MENU EMPRUNT ══════════════════════╗");
         System.out.println("║ 0. Retour                                                ║");
         System.out.println("║ 1. Afficher tous les emprunts                            ║");
@@ -161,12 +164,12 @@ public class Vue {
         System.out.println("╚══════════════════════════════════════════════════════════╝");
 
         System.out.print("\nChoix : ");
-        
-        try{
+
+        try {
             int choix = scan.nextInt();
             this.scan.nextLine();
             return choix;
-        }catch(InputMismatchException e){
+        } catch (InputMismatchException e) {
 
             this.scan.nextLine();
             return -1;
@@ -174,8 +177,7 @@ public class Vue {
         }
     }
 
-    public int afficherMenuAjouterModifier()
-    {
+    public int afficherMenuAjouterModifier() {
         System.out.println("╔═════════════════ MENU AJOUTER/MODIFIER ══════════════════╗");
         System.out.println("║ 0. Retour                                                ║");
         System.out.println("║ 1. Ajouter/Modifier un matériel                          ║");
@@ -185,12 +187,12 @@ public class Vue {
         System.out.println("╚══════════════════════════════════════════════════════════╝");
 
         System.out.print("\nChoix : ");
-        
-        try{
+
+        try {
             int choix = scan.nextInt();
             this.scan.nextLine();
             return choix;
-        }catch(InputMismatchException e){
+        } catch (InputMismatchException e) {
 
             this.scan.nextLine();
             return -1;
@@ -199,21 +201,21 @@ public class Vue {
 
     }
 
-    public int afficherMenuAjMod(String type){
+    public int afficherMenuAjMod(String type) {
 
         System.out.println("╔═════════════════ MENU AJOUTER/MODIFIER ══════════════════╗");
         System.out.println("║ 0. Retour                                                ║");
-        System.out.println("║ 1. Ajouter "+type+"                                    ║");
-        System.out.println("║ 2. Modifier "+type+"                                   ║");
+        System.out.println("║ 1. Ajouter " + type + "                                    ║");
+        System.out.println("║ 2. Modifier " + type + "                                   ║");
         System.out.println("╚══════════════════════════════════════════════════════════╝");
 
         System.out.print("\nChoix : ");
 
-        try{
+        try {
             int choix = scan.nextInt();
             this.scan.nextLine();
             return choix;
-        }catch(InputMismatchException e){
+        } catch (InputMismatchException e) {
 
             this.scan.nextLine();
             return -1;
@@ -222,9 +224,9 @@ public class Vue {
 
     }
 
-    public int demanderId(String type){
-        
-        System.out.println("Veuillez saisir un id de "+type);
+    public int demanderId(String type) {
+
+        System.out.println("Veuillez saisir un id de " + type);
 
         try {
             int res = this.scan.nextInt();
@@ -238,108 +240,97 @@ public class Vue {
 
     }
 
-    /*  --------------------- EMPRUNTEUR -------------------*/
+    /* --------------------- EMPRUNTEUR ------------------- */
 
-        public void afficherTousEmprunteurs(HashMap<Integer, Emprunteur> emprunteurs)
-        {
-            for (Emprunteur emprunteur : emprunteurs.values()) {
-                afficherEmprunteur(emprunteur);
-            }
+    public void afficherTousEmprunteurs(HashMap<Integer, Emprunteur> emprunteurs) {
+        for (Emprunteur emprunteur : emprunteurs.values()) {
+            afficherEmprunteur(emprunteur);
+        }
+    }
+
+    public void afficherEmprunteur(Emprunteur emprunteur) {
+        System.out.println(emprunteur);
+    }
+
+    public Emprunteur demanderQuelUtilisateur(HashMap<Integer, Emprunteur> emprunteurs) {
+        afficherTousEmprunteurs(emprunteurs);
+
+        System.out.print("\n| Saisisser l'id de l'utilisateur souhaite (q : annuler) : ");
+        String choixEmprunteur = scan.nextLine();
+
+        if (choixEmprunteur.equals("q")) {
+            return null;
         }
 
-        public void afficherEmprunteur(Emprunteur emprunteur)
-        {
-            System.out.println(emprunteur);
-        }
-
-        public Emprunteur demanderQuelUtilisateur(HashMap<Integer, Emprunteur> emprunteurs) {
-            afficherTousEmprunteurs(emprunteurs);
-
+        while (emprunteurs.get(Integer.parseInt(choixEmprunteur)) == null) {
+            System.out.println("Mauvaise saisie !");
             System.out.print("\n| Saisisser l'id de l'utilisateur souhaite (q : annuler) : ");
-            String choixEmprunteur = scan.nextLine();
+            choixEmprunteur = scan.nextLine();
 
-            if(choixEmprunteur.equals("q"))
-            {
+            if (choixEmprunteur.equals("q")) {
                 return null;
             }
-
-            while(emprunteurs.get(Integer.parseInt(choixEmprunteur)) == null)
-            {
-                System.out.println("Mauvaise saisie !");
-                System.out.print("\n| Saisisser l'id de l'utilisateur souhaite (q : annuler) : ");
-                choixEmprunteur = scan.nextLine();
-
-                if(choixEmprunteur.equals("q"))
-                {
-                    return null;
-                }
-            }
-
-            return emprunteurs.get(Integer.parseInt(choixEmprunteur));            
-        }
-    
-        public Emprunteur ajouterEmprunteur()
-        {
-            System.out.print("\n| Saisisser l'institution auquel vous appartenez : ");
-            String institution = scan.nextLine();
-
-            System.out.print("| Saisisser votre nom : ");
-            String nom = scan.nextLine();
-
-            System.out.print("| Saisisser votre prenom : ");
-            String prenom = scan.nextLine();
-
-            System.out.print("| Saisisser votre adresse : ");
-            String adresse = scan.nextLine();
-
-            System.out.print("| Saisisser votre numero de telephone : ");
-            String numeroDeTelephone = scan.nextLine();
-
-            System.out.print("| Saisisser votre mail : ");
-            String mail = scan.nextLine();
-
-            Emprunteur emprunteur = new Emprunteur(-1, institution, nom, prenom, adresse, numeroDeTelephone, mail);
-            return emprunteur;
         }
 
+        return emprunteurs.get(Integer.parseInt(choixEmprunteur));
+    }
 
-    /*  ----------------------------------------------------*/
+    public Emprunteur ajouterEmprunteur() {
+        System.out.print("\n| Saisisser l'institution auquel vous appartenez : ");
+        String institution = scan.nextLine();
 
-    /*  --------------------- EMPRUNT ----------------------*/
+        System.out.print("| Saisisser votre prenom : ");
+        String prenom = scan.nextLine();
 
-    /* public void afficherListeEmprunt(HashMap<Integer, Emprunt> emprunts)
-    {
+        System.out.print("| Saisisser votre nom : ");
+        String nom = scan.nextLine();
 
-    } */
+        System.out.print("| Saisisser votre adresse : ");
+        String adresse = scan.nextLine();
 
-    public void afficherTousEmprunts(HashMap<Integer, Emprunt> emprunts)
-    {
+        System.out.print("| Saisisser votre numero de telephone : ");
+        String numeroDeTelephone = scan.nextLine();
+
+        System.out.print("| Saisisser votre mail : ");
+        String mail = scan.nextLine();
+
+        Emprunteur emprunteur = new Emprunteur(-1, institution, nom, prenom, adresse, numeroDeTelephone, mail);
+        return emprunteur;
+    }
+
+    /* ---------------------------------------------------- */
+
+    /* --------------------- EMPRUNT ---------------------- */
+
+    /*
+     * public void afficherListeEmprunt(HashMap<Integer, Emprunt> emprunts) {
+     * 
+     * }
+     */
+
+    public void afficherTousEmprunts(HashMap<Integer, Emprunt> emprunts) {
         for (Emprunt emprunt : emprunts.values()) {
             afficherEmprunt(emprunt);
         }
     }
-    
-    public void afficherEmprunt(Emprunt emprunt)
-    {
+
+    public void afficherEmprunt(Emprunt emprunt) {
         System.out.println(emprunt);
     }
 
-    public void afficherEmpruntUtilisateur(HashMap<Integer, Emprunt> emprunts, Emprunteur utilisateur)
-    {
-        if( utilisateur != null)
-        {
+    public void afficherEmpruntUtilisateur(HashMap<Integer, Emprunt> emprunts, Emprunteur utilisateur) {
+        if (utilisateur != null) {
             for (Emprunt emprunt : emprunts.values()) {
                 if (emprunt.getEmprunteur() == utilisateur)
                     afficherEmprunt(emprunt);
             }
         }
-        
+
     }
 
-    public void afficherEmpruntRetard(HashMap<Integer, Emprunt> emprunts)
-    {
+    public void afficherEmpruntRetard(HashMap<Integer, Emprunt> emprunts) {
         Date dateActuelle = new Date();
-        Calendar c = Calendar.getInstance(); 
+        Calendar c = Calendar.getInstance();
         c.setTime(dateActuelle);
 
         for (Emprunt emprunt : emprunts.values()) {
@@ -348,46 +339,24 @@ public class Vue {
         }
     }
 
-    public Emprunt ajouterEmprunt(HashMap<Integer, Materiel> materiels, Emprunteur utilisateur) //return ??
+    public Emprunt ajouterEmprunt() // return ??
     {
-        Materiel materiel;
-
-        while(true)
-        {
-            System.out.print("\n| Saisisser l'id du materiel a emprunter : ");
-            int id = scan.nextInt();
-            this.scan.nextLine();
-            if (materiels.get(id) != null)
-            {
-                materiel = materiels.get(id);
-                break;
-            }     
-            else
-            {
-                System.out.println("L'id du materiel n'existe pas !");
-            }
-        }
-
         Date dateEmprunt = new Date();
-        Calendar c = Calendar.getInstance(); 
+        Calendar c = Calendar.getInstance();
         dateEmprunt = c.getTime();
+        boolean isCorrect = false;
 
-        while(true)
-        {
+        while (!isCorrect) {
             System.out.print("| Saisisser la date de rendu (Exemple : 25/06/2020): ");
             String stringRendu = scan.nextLine();
-            String [] tabRendu = stringRendu.split("/");
-            if (tabRendu.length == 3)
-            {
+            String[] tabRendu = stringRendu.split("/");
+            if (tabRendu.length == 3) {
                 c.clear();
                 c.set(Calendar.DAY_OF_MONTH, Integer.parseInt(tabRendu[0]));
-                c.set(Calendar.MONTH, Integer.parseInt(tabRendu[1])); 
-                c.set(Calendar.YEAR, Integer.parseInt(tabRendu[2])); 
-
-                break;
-            }     
-            else
-            {
+                c.set(Calendar.MONTH, Integer.parseInt(tabRendu[1]));
+                c.set(Calendar.YEAR, Integer.parseInt(tabRendu[2]));
+                isCorrect=true;
+            } else {
                 System.out.println("Mauvaise saisie !");
             }
         }
@@ -395,41 +364,62 @@ public class Vue {
         Date dateRendu = new Date();
         dateRendu = c.getTime();
 
-        this.waitForUser();
-        Emprunt emprunt = new Emprunt(dateEmprunt, dateRendu, materiel, utilisateur);
-   
+        Emprunt emprunt = new Emprunt(dateEmprunt, dateRendu, null, null);
+
         return emprunt;
     }
 
-    /*  ----------------------------------------------------*/
+    public Date demanderDate(){
 
+        Calendar c = Calendar.getInstance();
+        boolean isCorrect = false;
 
-    /*  --------------------- STOCKAGE ---------------------*/
+        while (!isCorrect) {
+            System.out.print("| Saisisser la date de rendu (Exemple : 25/06/2020): ");
+            String stringRendu = scan.nextLine();
+            String[] tabRendu = stringRendu.split("/");
+            if (tabRendu.length == 3) {
+                c.clear();
+                c.set(Calendar.DAY_OF_MONTH, Integer.parseInt(tabRendu[0]));
+                c.set(Calendar.MONTH, Integer.parseInt(tabRendu[1]));
+                c.set(Calendar.YEAR, Integer.parseInt(tabRendu[2]));
+                isCorrect=true;
+            } else {
+                System.out.println("Mauvaise saisie !");
+            }
+        }
 
-    public void afficherTousStockages(HashMap<Integer, Stockage> stockages)
-    {
+        Date dateRendu = new Date();
+        dateRendu = c.getTime();
+        
+        return dateRendu;
+
+    }
+
+    /* ---------------------------------------------------- */
+
+    /* --------------------- STOCKAGE --------------------- */
+
+    public void afficherTousStockages(HashMap<Integer, Stockage> stockages) {
         for (Stockage stockage : stockages.values()) {
             afficherStockageContenu(stockage);
         }
     }
 
-    public void afficherStockage(Stockage stockage)
-    {
+    public void afficherStockage(Stockage stockage) {
         System.out.println(stockage);
     }
 
-    public void afficherStockageContenu(Stockage stockage)
-    {
-        System.out.println("\n╔═════════════════ "+stockage.getNom()+" ═════════════════╗");
-        System.out.println("\n  Proprietaire : "+stockage.getProprietaire() +"     ID : "+stockage.getId());
+    public void afficherStockageContenu(Stockage stockage) {
+        System.out.println("\n╔═════════════════ " + stockage.getNom() + " ═════════════════╗");
+        System.out.println("\n  Proprietaire : " + stockage.getProprietaire() + "     ID : " + stockage.getId());
         for (int i : stockage.getMateriels().keySet()) {
             afficherMateriel(stockage.getMateriels().get(i));
         }
-        System.out.println("╚═════════════════ "+stockage.getNom()+" ═════════════════╝");
+        System.out.println("╚═════════════════ " + stockage.getNom() + " ═════════════════╝");
     }
 
-    public Stockage ajouterStockage()
-    {
+    public Stockage ajouterStockage() {
         System.out.print("| Saisisser le nom du stockage : ");
         String nom = scan.nextLine();
 
@@ -440,60 +430,55 @@ public class Vue {
         return stockage;
     }
 
-    /*  ----------------------------------------------------*/
+    public int demanderQuantite(){
 
+        this.msg("Veuillez renseigner une quantité.");
 
-    /*  --------------------- MATERIEL ---------------------*/
-    
-    public void afficherMateriel(Materiel materiel)
-    {
+        try {
+            int choix = scan.nextInt();
+            this.scan.nextLine();
+            return choix;
+        } catch (InputMismatchException e) {
+
+            this.scan.nextLine();
+            return -1;
+
+        }
+
+    }
+
+    /* ---------------------------------------------------- */
+
+    /* --------------------- MATERIEL --------------------- */
+
+    public void afficherMateriel(Materiel materiel) {
         System.out.println(materiel);
     }
 
-    public void afficherTousMateriels(HashMap<Integer, Materiel> materiels)
-    {
+    public void afficherTousMateriels(HashMap<Integer, Materiel> materiels) {
         for (Materiel materiel : materiels.values()) {
             afficherMateriel(materiel);
         }
     }
 
-    public void afficherMaterielDisponible(HashMap<Integer, Emprunt> emprunts, HashMap<Integer, Materiel> materiels)
-    {
+    public void afficherMaterielDisponible(HashMap<Integer, Stockage> stockages) {
         boolean present = false;
-        for (Materiel materiel : materiels.values()) {
+        for (Stockage stockage : stockages.values()) {
             present = false;
-            for (Emprunt emprunt : emprunts.values())
-            {
-                if(emprunt.getMateriel() == materiel)
-                    present = true;
-            }
-
-            if(!present)
-            {
+            for (Materiel materiel : stockage.getMateriels().values()) {
                 afficherMateriel(materiel);
             }
         }
     }
 
-    public void afficherMaterielEmprunte(HashMap<Integer, Emprunt> emprunts, HashMap<Integer, Materiel> materiels)
-    {
+    public void afficherMaterielEmprunte(HashMap<Integer, Emprunt> emprunts) {
         boolean present = false;
-        for (Materiel materiel : materiels.values()) {
-            present = false;
-            for (Emprunt emprunt : emprunts.values())
-            {
-                if(emprunt.getMateriel() == materiel)
-                    present = true;
-            }
-            if(present)
-            {
-                afficherMateriel(materiel);
-            }
+        for (Emprunt emprunt : emprunts.values()) {
+            afficherMateriel(emprunt.getMateriel());
         }
     }
 
-    public int afficherMenuAjouterMateriel()
-    {   
+    public int afficherMenuAjouterMateriel() {
         System.out.println("╔════════════════ Vous souhaitez ajouter? ═════════════════╗");
         System.out.println("║ 0. Capteur Profondeur             1. Casque Audio        ║");
         System.out.println("║ 2. Casque VR                      3. Manette Jeu         ║");
@@ -509,7 +494,7 @@ public class Vue {
         return choix;
     }
 
-    public CapteursDeProfondeur ajouterCapteursDeProfondeur(){
+    public CapteursDeProfondeur ajouterCapteursDeProfondeur() {
 
         System.out.println("| Saisisser le nom du capteur de profondeur : ");
         String nom = scan.nextLine();
@@ -521,8 +506,8 @@ public class Vue {
         String proprietaire = scan.nextLine();
 
         Date dateEmprunt = new Date();
-        Calendar c = Calendar.getInstance(); 
-        c.setTime(dateEmprunt); 
+        Calendar c = Calendar.getInstance();
+        c.setTime(dateEmprunt);
 
         System.out.println("| Saisissemenur le prix d'achat du capteur de profondeur : ");
         String prixAchat = scan.nextLine();
@@ -533,13 +518,14 @@ public class Vue {
         System.out.println("| Saisisser la connectique du capteur de profondeur : ");
         String connectique = scan.nextLine();
 
-        CapteursDeProfondeur materiel = new CapteursDeProfondeur(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, connectique);
-    
+        CapteursDeProfondeur materiel = new CapteursDeProfondeur(-1, nom, marque, proprietaire, dateEmprunt, prixAchat,
+                etat, connectique);
+
         return materiel;
 
     }
-    
-    public CasqueVR ajouterCasqueVR(){
+
+    public CasqueVR ajouterCasqueVR() {
 
         System.out.println("| Saisisser le nom du casque VR : ");
         String nom = scan.nextLine();
@@ -551,8 +537,8 @@ public class Vue {
         String proprietaire = scan.nextLine();
 
         Date dateEmprunt = new Date();
-        Calendar c = Calendar.getInstance(); 
-        c.setTime(dateEmprunt); 
+        Calendar c = Calendar.getInstance();
+        c.setTime(dateEmprunt);
 
         System.out.println("| Saisissemenur le prix d'achat du casque VR : ");
         String prixAchat = scan.nextLine();
@@ -566,13 +552,14 @@ public class Vue {
         System.out.println("| Saisisser la connectique du casque VR : ");
         String resolution = scan.nextLine();
 
-        CasqueVR materiel = new CasqueVR(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, connectique,resolution);
-    
+        CasqueVR materiel = new CasqueVR(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, connectique,
+                resolution);
+
         return materiel;
 
     }
 
-    public CasqueAudio ajouterCasqueAudio(){
+    public CasqueAudio ajouterCasqueAudio() {
 
         System.out.println("| Saisisser le nom du casque audio : ");
         String nom = scan.nextLine();
@@ -584,8 +571,8 @@ public class Vue {
         String proprietaire = scan.nextLine();
 
         Date dateEmprunt = new Date();
-        Calendar c = Calendar.getInstance(); 
-        c.setTime(dateEmprunt); 
+        Calendar c = Calendar.getInstance();
+        c.setTime(dateEmprunt);
 
         System.out.println("| Saisissemenur le prix d'achat du casque audio : ");
         String prixAchat = scan.nextLine();
@@ -596,13 +583,14 @@ public class Vue {
         System.out.println("| Saisisser la connectique du casque audio : ");
         String connectique = scan.nextLine();
 
-        CasqueAudio materiel = new CasqueAudio(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, connectique);
-    
+        CasqueAudio materiel = new CasqueAudio(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat,
+                connectique);
+
         return materiel;
 
     }
-    
-    public ManetteJeu ajouterManetteJeu(){
+
+    public ManetteJeu ajouterManetteJeu() {
 
         System.out.println("| Saisisser le nom de la manette de jeu : ");
         String nom = scan.nextLine();
@@ -614,8 +602,8 @@ public class Vue {
         String proprietaire = scan.nextLine();
 
         Date dateEmprunt = new Date();
-        Calendar c = Calendar.getInstance(); 
-        c.setTime(dateEmprunt); 
+        Calendar c = Calendar.getInstance();
+        c.setTime(dateEmprunt);
 
         System.out.println("| Saisissemenur le prix d'achat de la manette de jeu : ");
         String prixAchat = scan.nextLine();
@@ -627,12 +615,12 @@ public class Vue {
         String connectique = scan.nextLine();
 
         ManetteJeu materiel = new ManetteJeu(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, connectique);
-    
+
         return materiel;
 
     }
 
-    public ManetteVR ajouterManetteVR(){
+    public ManetteVR ajouterManetteVR() {
 
         System.out.println("| Saisisser le nom de la manette VR : ");
         String nom = scan.nextLine();
@@ -644,8 +632,8 @@ public class Vue {
         String proprietaire = scan.nextLine();
 
         Date dateEmprunt = new Date();
-        Calendar c = Calendar.getInstance(); 
-        c.setTime(dateEmprunt); 
+        Calendar c = Calendar.getInstance();
+        c.setTime(dateEmprunt);
 
         System.out.println("| Saisissemenur le prix d'achat de la manette VR : ");
         String prixAchat = scan.nextLine();
@@ -657,12 +645,12 @@ public class Vue {
         String connectique = scan.nextLine();
 
         ManetteVR materiel = new ManetteVR(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, connectique);
-    
+
         return materiel;
 
     }
 
-    public Souris ajouterSouris(){
+    public Souris ajouterSouris() {
 
         System.out.println("| Saisisser le nom de la souris : ");
         String nom = scan.nextLine();
@@ -674,8 +662,8 @@ public class Vue {
         String proprietaire = scan.nextLine();
 
         Date dateEmprunt = new Date();
-        Calendar c = Calendar.getInstance(); 
-        c.setTime(dateEmprunt); 
+        Calendar c = Calendar.getInstance();
+        c.setTime(dateEmprunt);
 
         System.out.println("| Saisissemenur le prix d'achat de la souris : ");
         String prixAchat = scan.nextLine();
@@ -687,13 +675,12 @@ public class Vue {
         String connectique = scan.nextLine();
 
         Souris materiel = new Souris(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, connectique);
-    
+
         return materiel;
 
     }
 
-
-    public Telephone ajouterTelephone(){
+    public Telephone ajouterTelephone() {
 
         System.out.println("| Saisisser le nom du telephone : ");
         String nom = scan.nextLine();
@@ -705,8 +692,8 @@ public class Vue {
         String proprietaire = scan.nextLine();
 
         Date dateEmprunt = new Date();
-        Calendar c = Calendar.getInstance(); 
-        c.setTime(dateEmprunt); 
+        Calendar c = Calendar.getInstance();
+        c.setTime(dateEmprunt);
 
         System.out.println("| Saisissemenur le prix d'achat du telephone : ");
         String prixAchat = scan.nextLine();
@@ -723,13 +710,14 @@ public class Vue {
         System.out.println("| Saisisser la résolution du telephone : ");
         String resolution = scan.nextLine();
 
-        Telephone materiel = new Telephone(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, os, taille, resolution);
-    
+        Telephone materiel = new Telephone(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, os, taille,
+                resolution);
+
         return materiel;
 
     }
 
-    public Tablette ajouterTablette(){
+    public Tablette ajouterTablette() {
 
         System.out.println("| Saisisser le nom de la tablette : ");
         String nom = scan.nextLine();
@@ -741,8 +729,8 @@ public class Vue {
         String proprietaire = scan.nextLine();
 
         Date dateEmprunt = new Date();
-        Calendar c = Calendar.getInstance(); 
-        c.setTime(dateEmprunt); 
+        Calendar c = Calendar.getInstance();
+        c.setTime(dateEmprunt);
 
         System.out.println("| Saisissemenur le prix d'achat de la tablette : ");
         String prixAchat = scan.nextLine();
@@ -759,13 +747,14 @@ public class Vue {
         System.out.println("| Saisisser la résolution de la tablette : ");
         String resolution = scan.nextLine();
 
-        Tablette materiel = new Tablette(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, os, taille, resolution);
-    
+        Tablette materiel = new Tablette(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, os, taille,
+                resolution);
+
         return materiel;
 
     }
 
-    public Webcam ajouterWebcam(){
+    public Webcam ajouterWebcam() {
 
         System.out.println("| Saisisser le nom de la webcam : ");
         String nom = scan.nextLine();
@@ -777,8 +766,8 @@ public class Vue {
         String proprietaire = scan.nextLine();
 
         Date dateEmprunt = new Date();
-        Calendar c = Calendar.getInstance(); 
-        c.setTime(dateEmprunt); 
+        Calendar c = Calendar.getInstance();
+        c.setTime(dateEmprunt);
 
         System.out.println("| Saisissemenur le prix d'achat de la webcam : ");
         String prixAchat = scan.nextLine();
@@ -792,27 +781,26 @@ public class Vue {
         System.out.println("| Saisisser la connectique de la webcam : ");
         String connectique = scan.nextLine();
 
-        Webcam materiel = new Webcam(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, resolution, connectique);
-    
+        Webcam materiel = new Webcam(-1, nom, marque, proprietaire, dateEmprunt, prixAchat, etat, resolution,
+                connectique);
+
         return materiel;
 
     }
 
-    public int supprimerMateriel()
-    {
+    public int supprimerMateriel() {
         System.out.println("Saisisser l'id du materiel : ");
         int id = scan.nextInt();
         this.scan.nextLine();
         return id;
     }
 
-    /*  ----------------------------------------------------*/
+    /* ---------------------------------------------------- */
 
-    public void closeScan(){
+    public void closeScan() {
 
         this.scan.close();
 
     }
 
-	
 }

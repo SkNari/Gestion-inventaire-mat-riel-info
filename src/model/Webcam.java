@@ -7,6 +7,11 @@ public class Webcam extends Materiel {
     private String resolution;
     private String connectique;
 
+    public Webcam(){
+        super();
+        this.type = "Webcam";
+    }
+
     public Webcam(int id,  String nom,  String marque,  String proprietaire,  Date dateAchat,  String prixAchat, String etat, String resolution,  String connectique) {
         super(id, nom, marque, proprietaire, dateAchat, prixAchat, etat);
         this.resolution = resolution;

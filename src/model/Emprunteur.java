@@ -109,4 +109,16 @@ public class Emprunteur implements Serializable{
             "  Mail : " + this.getMail() + "\n"+
             "╚═══════════════════════════════════════════╝\n";
     }
+    
+    public void copy(Emprunteur emprunteur){
+
+        this.institution = emprunteur.getInstitution();
+        this.nom = emprunteur.getNom();
+        this.prenom = emprunteur.getPrenom();
+        this.adresse = emprunteur.getAdresse();
+        this.numeroDeTelephone = emprunteur.getNumeroDeTelephone();
+        this.mail = emprunteur.getMail();
+
+    }
+
 }

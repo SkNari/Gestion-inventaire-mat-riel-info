@@ -46,21 +46,6 @@ public class MenuAfficherEmpruntControleur {
         this.data = data;
     }
 
-    public MenuAfficherEmpruntControleur vue(Vue vue) {
-        this.vue = vue;
-        return this;
-    }
-
-    public MenuAfficherEmpruntControleur user(Emprunteur user) {
-        this.user = user;
-        return this;
-    }
-
-    public MenuAfficherEmpruntControleur data(Data data) {
-        this.data = data;
-        return this;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == this)
