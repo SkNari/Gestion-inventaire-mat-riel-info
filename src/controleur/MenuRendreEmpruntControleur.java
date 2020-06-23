@@ -5,12 +5,12 @@ import model.Emprunt;
 import model.Materiel;
 import vue.Vue;
 
-public class MenuRendreEmprunt {
+public class MenuRendreEmpruntControleur {
 
     private Data data;
     private Vue vue;
 
-    public MenuRendreEmprunt(Data data, Vue vue) {
+    public MenuRendreEmpruntControleur(Data data, Vue vue) {
         this.data = data;
         this.vue = vue;
     }

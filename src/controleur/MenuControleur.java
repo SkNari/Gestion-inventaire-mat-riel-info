@@ -14,7 +14,7 @@ public class MenuControleur {
     private MenuAfficherMaterielControleur menuAffichMater;
     private MenuAfficherStockageControleur menuAffichStock;
     private MenuAfficherEmpruntControleur menuAffichEmprunt;
-    private MenuRendreEmprunt menuRendreEmprunt;
+    private MenuRendreEmpruntControleur menuRendreEmprunt;
 
     public MenuControleur(Vue vue, Data data, Emprunteur user) {
         this.vue = vue;
@@ -24,7 +24,7 @@ public class MenuControleur {
         this.menuAffichMater = new MenuAfficherMaterielControleur(vue, user, data);
         this.menuAffichStock = new MenuAfficherStockageControleur(vue, user, data.getStockages());
         this.menuAffichEmprunt = new MenuAfficherEmpruntControleur(vue, user, data);
-        this.menuRendreEmprunt = new MenuRendreEmprunt(data, vue);
+        this.menuRendreEmprunt = new MenuRendreEmpruntControleur(data, vue);
     }
 
     public Vue getVue() {
@@ -75,11 +75,11 @@ public class MenuControleur {
         this.menuAffichStock = menuAffichStock;
     }
 
-    public void setMenuRendreEmprunt(MenuRendreEmprunt menuRendreEmprunt) {
+    public void setMenuRendreEmprunt(MenuRendreEmpruntControleur menuRendreEmprunt) {
         this.menuRendreEmprunt = menuRendreEmprunt;
     }
 
-    public MenuRendreEmprunt getMenuRendreEmprunt(){
+    public MenuRendreEmpruntControleur getMenuRendreEmprunt(){
         return this.menuRendreEmprunt;
     }
     
